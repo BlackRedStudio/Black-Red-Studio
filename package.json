@@ -63,7 +63,7 @@
     "*.js": [
       "prettier --config .prettierrc --write",
       "eslint --fix",
-      "stylelint --fix",
+      "stylelint",
       "git add"
     ]
   }
