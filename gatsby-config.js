@@ -7,8 +7,19 @@ module.exports = {
     title: `Tworzenie stron internetowych`,
     description: `Oferujemy tworzenie stron oraz aplikacji internetowych do różnych zastosowań, pisanie skryptów, oraz naprawę błędów`,
     author: `Sebastian Machaj`,
+    languages: ['en', 'pl'],
+    defaultLangKey: 'en',
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-i18n`,
+      options: {
+        langKeyDefault: 'en',
+        langKeyForNull: 'en',
+        prefixDefault: false,
+        useLangKeyLayout: false,
+      },
+    },
     {
       resolve: `gatsby-source-contentful`,
       options: {
@@ -41,13 +52,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/assets/images`,
-      },
-    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -59,7 +63,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/assets/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
