@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import ExLink from '../components/ExLink';
+import { Link } from 'gatsby';
 
 import { media } from './styles-utils';
 
-export const LogoLinkContainer = styled(ExLink)`
+export const LogoLinkContainer = styled(Link)`
   display: block;
 `;
 

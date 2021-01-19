@@ -5,7 +5,6 @@ import LangContext from '../../contexts/LangContext';
 
 const LangSwitcher = ({ langs }) => {
   const currentLang = useContext(LangContext);
-
   const data = useStaticQuery(graphql`
     {
       allContentfulAsset(

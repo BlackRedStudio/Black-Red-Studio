@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import ExLink from '../components/ExLink';
+import { Link } from 'gatsby';
 
 import { media } from './styles-utils';
 
@@ -9,7 +9,7 @@ export const NavContainer = styled.nav`
   }
 `;
 
-export const NavLinkContainer = styled(ExLink)`
+export const NavLinkContainer = styled(Link)`
   display: block;
   padding: 10px 20px;
   text-transform: uppercase;
