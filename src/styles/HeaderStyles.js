@@ -14,5 +14,6 @@ export const HeaderContainer = styled.header`
     display: block;
     transition: background 0.35s;
     padding-top: 30px;
+    background: transparent;
   }
 `;

@@ -22,9 +22,11 @@ const Nav = () => {
       }
     }
   `);
+
   const menuForCurrentLang = data.allContentfulMenuPosition.group.filter(
     ({ fieldValue }) => fieldValue === currentLang
   );
+
   const menuList = menuForCurrentLang[0].edges.map(({ node }) => {
     const locale = node.node_locale;
     const localePrefix = locale !== 'en' ? `${locale}/` : ``;

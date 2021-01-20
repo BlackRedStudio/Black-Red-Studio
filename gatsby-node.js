@@ -25,9 +25,9 @@ exports.createPages = async ({ graphql, actions }) => {
   result.data.allContentfulMenuPosition.group.forEach(({ edges }) => {
     edges.forEach(({ node }) => {
       const locale = node.node_locale;
-      const localePrefix = locale !== 'en' ? `${locale}/` : ``;
+      const localePrefix = locale !== 'en' ? `/${locale}/` : `/`;
       createPage({
-        path: localePrefix + node.link,
+        path: localePrefix + node.link.trim(),
         component: path.resolve(`src/templates/${node.template}.js`),
         context: {
           locale,

@@ -2,20 +2,25 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../layout/Layout';
 import SEO from '../layout/Seo';
+import Slider from '../components/Slider';
 
-const Homepage = () => (
+const Homepage = ({ data }) => (
   <Layout>
-    <SEO title="Home" />
-    <h1>Homepage</h1>
+    <SEO title={data.contentfulHomepage.title} />
+    <Slider baners={data.contentfulHomepage.banerMain} />
   </Layout>
 );
 
 export const query = graphql`
   query($locale: String!) {
     contentfulHomepage(node_locale: { eq: $locale }) {
+      title
       banerMain {
-        title
         contentful_id
+        file {
+          url
+        }
+        title
       }
     }
   }

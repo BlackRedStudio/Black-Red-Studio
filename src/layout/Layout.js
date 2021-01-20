@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import { getCurrentLangKey, getLangs, getUrlForLang } from 'ptz-i18n';
+import { getCurrentLangKey } from 'ptz-i18n';
 import 'normalize.css';
 
 import Header from './Header/Header';
@@ -23,19 +23,11 @@ const Layout = ({ children }) => {
   const url = window.location.pathname;
   const { title, languages, defaultLangKey } = data.site.siteMetadata;
   const langKey = getCurrentLangKey(languages, defaultLangKey, url);
-  const homeLink = `/${langKey}/`.replace(`/${defaultLangKey}/`, '/');
-  const langsMenu = getLangs(
-    languages,
-    langKey,
-    getUrlForLang(homeLink, url)
-  ).map((item) => ({
-    ...item,
-    link: item.link.replace(`/${defaultLangKey}/`, '/'),
-  }));
+
   return (
     <LangContext.Provider value={langKey}>
       <GlobalStyle />
-      <Header langs={langsMenu} siteTitle={title || `Title`} />
+      <Header siteTitle={title || `Title`} />
       <main>{children}</main>
       <footer>asdasd</footer>
     </LangContext.Provider>

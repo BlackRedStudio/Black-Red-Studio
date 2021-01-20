@@ -5,12 +5,12 @@ import LangSwitcher from './LangSwitcher';
 import Logo from './Logo';
 import Nav from './Nav';
 
-const Header = ({ langs }) => (
+const Header = () => (
   <HeaderContainer>
     <Container>
       <Logo />
       <Nav />
-      <LangSwitcher langs={langs} />
+      <LangSwitcher />
     </Container>
   </HeaderContainer>
 );
