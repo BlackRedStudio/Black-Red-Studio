@@ -12,12 +12,23 @@ export const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Raleway', sans-serif;
   }
   h1 {
     margin: 0;
   }
+  p {
+    margin: 0;
+    margin-bottom: 10px;
+  }
+  h1, h2, h3, h4, h5, h6 {
+      font-family: 'Lora', sans-serif;
+      font-weight: 500;
+  }
   a {
     text-decoration: none;
+    :focus {
+      outline: 0;
+    }
   }
 `;

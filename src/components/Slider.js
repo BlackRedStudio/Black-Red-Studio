@@ -27,10 +27,12 @@ const Slider = ({ baners }) => {
 
       const play = () => {
         stop();
-        banerAutoplay = window.setTimeout(() => {
-          emblaApi.scrollNext();
-          play();
-        }, 4000);
+        window.requestAnimationFrame(() => {
+          banerAutoplay = window.setTimeout(() => {
+            emblaApi.scrollNext();
+            play();
+          }, 4000);
+        });
       };
 
       play();
@@ -44,10 +46,22 @@ const Slider = ({ baners }) => {
       <SliderOverlayContainer />
       <SliderTextContainer>{title}</SliderTextContainer>
       <SliderBtnWrapperContainer>
-        <Button to="/" type="white" size="medium" margin="0 20px">
+        <Button
+          to="/"
+          type="white"
+          size="medium"
+          margin="10px 20px"
+          width="170px"
+        >
           Projekty
         </Button>
-        <Button to="/" type="whiteFilled" size="medium" margin="0 20px">
+        <Button
+          to="/"
+          type="whiteFilled"
+          size="medium"
+          margin="10px 20px"
+          width="170px"
+        >
           Oferta
         </Button>
       </SliderBtnWrapperContainer>

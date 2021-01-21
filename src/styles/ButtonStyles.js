@@ -12,7 +12,7 @@ export const ButtonContainer = styled(Link)`
     if (size === 'medium') return '18px 40px';
     return '14px 30px';
   }};
-  width: ${({ fullWidth }) => (fullWidth ? '100%' : 'initial')};
+  width: ${({ width }) => width};
   display: inline-block;
   text-transform: uppercase;
   cursor: pointer;

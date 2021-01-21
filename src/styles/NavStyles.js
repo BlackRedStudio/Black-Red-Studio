@@ -15,14 +15,14 @@ export const NavLinkContainer = styled(Link)`
   text-transform: uppercase;
   color: #000;
   font-weight: 800;
-  font-size: 1.5rem;
+  font-size: 1.9rem;
   border-bottom: 1px solid #eee;
   @media (${media.large}) {
     color: #fff;
     border: 0;
     letter-spacing: 0.7px;
     transition: 0.35s;
-    padding: 20px;
+    padding: 20px 15px;
     :hover {
       opacity: 0.8;
       transform: translateY(-7px);

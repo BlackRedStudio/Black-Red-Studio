@@ -7,7 +7,7 @@ import Nav from './Nav';
 
 const Header = () => (
   <HeaderContainer>
-    <Container>
+    <Container flex>
       <Logo />
       <Nav />
       <LangSwitcher />
