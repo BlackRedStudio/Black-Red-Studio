@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import { LogoLinkContainer, LogoContainer } from '../../styles/LogoStyles';
+import { LogoContainerS, LogoS } from '../../styles/LogoStyles';
 
 const Logo = () => {
   const data = useStaticQuery(graphql`
@@ -21,10 +21,10 @@ const Logo = () => {
   return (
     <div>
       <h1>
-        <LogoLinkContainer to="/">
+        <LogoContainerS to="/">
           {data.allContentfulAsset.edges.map(
             ({ node: { contentful_id, title, file } }) => (
-              <LogoContainer
+              <LogoS
                 key={contentful_id}
                 src={file.url}
                 logoTitle={title}
@@ -32,7 +32,7 @@ const Logo = () => {
               />
             )
           )}
-        </LogoLinkContainer>
+        </LogoContainerS>
       </h1>
     </div>
   );

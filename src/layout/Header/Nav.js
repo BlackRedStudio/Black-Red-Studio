@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import { NavContainer, NavLinkContainer } from '../../styles/NavStyles';
+import { NavContainerS, NavLinkS } from '../../styles/NavStyles';
 import LangContext from '../../contexts/LangContext';
 
 const Nav = () => {
@@ -31,16 +31,13 @@ const Nav = () => {
     const locale = node.node_locale;
     const localePrefix = locale !== 'en' ? `${locale}/` : ``;
     return (
-      <NavLinkContainer
-        key={node.contentful_id}
-        to={`/${localePrefix}${node.link}`}
-      >
+      <NavLinkS key={node.contentful_id} to={`/${localePrefix}${node.link}`}>
         {node.title}
-      </NavLinkContainer>
+      </NavLinkS>
     );
   });
 
-  return <NavContainer>{menuList}</NavContainer>;
+  return <NavContainerS>{menuList}</NavContainerS>;
 };
 
 export default Nav;

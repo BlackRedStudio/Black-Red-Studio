@@ -3,13 +3,14 @@ import { Link } from 'gatsby';
 
 import { media } from './styles-utils';
 
-export const NavContainer = styled.nav`
+export const NavContainerS = styled.nav`
   @media (${media.large}) {
     display: flex;
+    margin-left: 150px;
   }
 `;
 
-export const NavLinkContainer = styled(Link)`
+export const NavLinkS = styled(Link)`
   display: block;
   padding: 10px 20px;
   text-transform: uppercase;

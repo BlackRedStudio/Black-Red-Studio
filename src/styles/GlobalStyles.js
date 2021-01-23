@@ -13,6 +13,7 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     font-family: 'Raleway', sans-serif;
+    font-size: 1.6rem;
   }
   h1 {
     margin: 0;
@@ -20,6 +21,7 @@ export const GlobalStyle = createGlobalStyle`
   p {
     margin: 0;
     margin-bottom: 10px;
+    line-height: 1.2;
   }
   h1, h2, h3, h4, h5, h6 {
       font-family: 'Lora', sans-serif;

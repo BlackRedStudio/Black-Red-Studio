@@ -1,25 +1,25 @@
 import React from 'react';
+import { Link } from 'gatsby';
 
-import { ButtonContainer } from '../styles/ButtonStyles';
+import { ButtonS } from '../styles/ButtonStyles';
 
-const Button = ({ children, to, type, size, width, margin }) => (
-  <ButtonContainer
-    to={to}
-    type={type}
-    size={size}
-    width={width}
-    margin={margin}
+const Button = ({ children, to, elType, elSize, elWidth, elMargin }) => (
+  <ButtonS
+    elType={elType}
+    elSize={elSize}
+    elWidth={elWidth}
+    elMargin={elMargin}
   >
-    {children}
-  </ButtonContainer>
+    <Link to={to}>{children}</Link>
+  </ButtonS>
 );
 
 Button.defaultProps = {
   to: '/',
-  type: 'primary',
-  size: 'small',
-  width: 'initial',
-  margin: '15px 0 0 0',
+  elType: 'primary',
+  elSize: 'small',
+  elWidth: 'initial',
+  elMargin: '15px 0 0 0',
 };
 
 export default Button;

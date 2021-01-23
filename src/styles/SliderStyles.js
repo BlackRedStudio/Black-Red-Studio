@@ -1,15 +1,16 @@
+import Img from 'gatsby-image';
 import styled from 'styled-components';
 
 import { media } from './styles-utils';
 
-export const SliderItemContainer = styled.div`
+export const SliderItemS = styled.div`
   position: relative;
   height: 100vh;
   min-width: 100%;
   cursor: all-scroll;
 `;
 
-export const SliderTextContainer = styled.p`
+export const SliderTextS = styled.p`
   font-family: Lora, sans-serif;
   font-size: 4rem;
   margin-bottom: 70px;
@@ -28,7 +29,7 @@ export const SliderTextContainer = styled.p`
   }
 `;
 
-export const SliderBtnWrapperContainer = styled.div`
+export const SliderBtnWrapperS = styled.div`
   position: absolute;
   top: 70%;
   display: flex;
@@ -43,7 +44,7 @@ export const SliderBtnWrapperContainer = styled.div`
   }
 `;
 
-export const SliderOverlayContainer = styled.div`
+export const SliderOverlayS = styled.div`
   background-image: linear-gradient(
     -40deg,
     #ff362e 0,
@@ -57,17 +58,17 @@ export const SliderOverlayContainer = styled.div`
   height: 100%;
   opacity: 0.8;
 `;
-export const SliderImageContainer = styled.img`
+export const SliderImageS = styled(Img)`
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
 `;
 
-export const SliderViewportContainer = styled.div`
+export const SliderViewportS = styled.div`
   overflow: hidden;
 `;
 
-export const SliderSlidesContainer = styled.div`
+export const SliderSlidesContainerS = styled.div`
   display: flex;
 `;

@@ -3,11 +3,11 @@ import { Link } from 'gatsby';
 
 import { media } from './styles-utils';
 
-export const LogoLinkContainer = styled(Link)`
+export const LogoContainerS = styled(Link)`
   display: block;
 `;
 
-export const LogoContainer = styled.img`
+export const LogoS = styled.img`
   height: 62px;
   width: 220px;
   position: relative;

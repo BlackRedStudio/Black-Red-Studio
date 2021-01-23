@@ -1,17 +1,17 @@
 import React from 'react';
-import { Container } from '../../styles/ContainerStyles';
-import { HeaderContainer } from '../../styles/HeaderStyles';
+import { ContainerS } from '../../styles/ContainerStyles';
+import { HeaderContainerS } from '../../styles/HeaderStyles';
 import LangSwitcher from './LangSwitcher';
 import Logo from './Logo';
 import Nav from './Nav';
 
 const Header = () => (
-  <HeaderContainer>
-    <Container flex>
+  <HeaderContainerS>
+    <ContainerS flex>
       <Logo />
       <Nav />
       <LangSwitcher />
-    </Container>
-  </HeaderContainer>
+    </ContainerS>
+  </HeaderContainerS>
 );
 export default Header;

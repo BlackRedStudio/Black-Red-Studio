@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { media } from './styles-utils';
 
-export const HeaderContainer = styled.header`
+export const HeaderContainerS = styled.header`
   top: 0;
   background: #fff;
   position: fixed;

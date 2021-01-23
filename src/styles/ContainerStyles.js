@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { media } from './styles-utils';
 
-export const Container = styled.div`
+export const ContainerS = styled.div`
   padding-left: 15px;
   padding-right: 15px;
   ${({ flex }) =>

@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Link, graphql, useStaticQuery } from 'gatsby';
 import { getLangs, getUrlForLang } from 'ptz-i18n';
 
-import { LangSwitcherImageContainer } from '../../styles/LangSwitcherStyles';
+import { LangSwitcherImageContainerS } from '../../styles/LangSwitcherStyles';
 import LangContext from '../../contexts/LangContext';
 
 const LangSwitcher = () => {
@@ -41,14 +41,14 @@ const LangSwitcher = () => {
     getUrlForLang(homeLink, url)
   ).map((item) => ({
     ...item,
-    link: item.link.replace(`/${defaultLangKey}/`, '/'),
+    link: item.langKey === defaultLangKey ? `/` : `/${item.langKey}/`,
   }));
 
   const links = langsMenu.map((lang, index) => {
     const img = data.allContentfulAsset.edges[index].node;
     return currentLang !== lang.langKey ? (
       <Link to={lang.link} key={lang.langKey}>
-        <LangSwitcherImageContainer src={img.file.url} alt={img.title} />
+        <LangSwitcherImageContainerS src={img.file.url} alt={img.title} />
       </Link>
     ) : null;
   });

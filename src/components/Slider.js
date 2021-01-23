@@ -3,17 +3,17 @@ import React, { useEffect } from 'react';
 import { useEmblaCarousel } from 'embla-carousel/react';
 
 import {
-  SliderTextContainer,
-  SliderOverlayContainer,
-  SliderBtnWrapperContainer,
-  SliderImageContainer,
-  SliderItemContainer,
-  SliderViewportContainer,
-  SliderSlidesContainer,
+  SliderTextS,
+  SliderOverlayS,
+  SliderBtnWrapperS,
+  SliderImageS,
+  SliderItemS,
+  SliderViewportS,
+  SliderSlidesContainerS,
 } from '../styles/SliderStyles';
 import Button from './Button';
 
-const Slider = ({ baners }) => {
+const Slider = ({ baners, buttonsTitles, buttonsLinks }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, speed: 5 });
 
   useEffect(() => {
@@ -40,38 +40,38 @@ const Slider = ({ baners }) => {
     }
   }, [emblaApi]);
 
-  const slides = baners.map(({ contentful_id, title, file: { url } }) => (
-    <SliderItemContainer key={contentful_id} className="glide__slide">
-      <SliderImageContainer src={url} alt={title} />
-      <SliderOverlayContainer />
-      <SliderTextContainer>{title}</SliderTextContainer>
-      <SliderBtnWrapperContainer>
+  const slides = baners.map(({ contentful_id, title, localFile }) => (
+    <SliderItemS key={contentful_id} className="glide__slide">
+      <SliderImageS fluid={localFile.childImageSharp.fluid} alt={title} />
+      <SliderOverlayS />
+      <SliderTextS>{title}</SliderTextS>
+      <SliderBtnWrapperS>
         <Button
-          to="/"
-          type="white"
-          size="medium"
-          margin="10px 20px"
-          width="170px"
+          to={buttonsLinks[0]}
+          elType="white"
+          elSize="medium"
+          elMargin="10px 20px"
+          elWidth="170px"
         >
-          Projekty
+          {buttonsTitles[0]}
         </Button>
         <Button
-          to="/"
-          type="whiteFilled"
-          size="medium"
-          margin="10px 20px"
-          width="170px"
+          to={buttonsLinks[1]}
+          elType="whiteFilled"
+          elSize="medium"
+          elMargin="10px 20px"
+          elWidth="170px"
         >
-          Oferta
+          {buttonsTitles[1]}
         </Button>
-      </SliderBtnWrapperContainer>
-    </SliderItemContainer>
+      </SliderBtnWrapperS>
+    </SliderItemS>
   ));
 
   return (
-    <SliderViewportContainer ref={emblaRef}>
-      <SliderSlidesContainer>{slides}</SliderSlidesContainer>
-    </SliderViewportContainer>
+    <SliderViewportS ref={emblaRef}>
+      <SliderSlidesContainerS>{slides}</SliderSlidesContainerS>
+    </SliderViewportS>
   );
 };
 
