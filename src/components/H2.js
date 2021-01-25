@@ -8,4 +8,8 @@ const H2 = ({ children, preText, align }) => (
   </>
 );
 
+H2.defaultProps = {
+  align: 'center',
+};
+
 export default H2;

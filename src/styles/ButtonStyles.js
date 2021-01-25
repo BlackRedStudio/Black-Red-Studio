@@ -17,7 +17,7 @@ export const ButtonS = styled.span`
     text-transform: uppercase;
     cursor: pointer;
     text-align: center;
-    transition: background ease-in-out 0.35s;
+    transition: all ease-in-out 0.4s;
     ${({ elType }) => {
       if (elType === 'white')
         return `
@@ -42,6 +42,7 @@ export const ButtonS = styled.span`
           border: 2px solid ${colors.darkRed};
           color: ${colors.red};
           :hover {
+            opacity: 0.8;
             background-image: ${vars.linearGradient};
             color: #fff;
           }

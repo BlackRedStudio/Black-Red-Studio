@@ -6,6 +6,7 @@ import { ContainerS } from '../styles/ContainerStyles';
 import Slider from '../components/homepage/Slider';
 import IntroText from '../components/homepage/IntroText';
 import BanersMiddleSection from '../components/homepage/BanersMiddleSection';
+import OfferGrid from '../components/homepage/OfferGrid';
 
 const Homepage = ({ data }) => {
   const {
@@ -16,6 +17,8 @@ const Homepage = ({ data }) => {
     believeInPerfection,
     textBanersMiddle: { textBanersMiddle },
     banersMiddle,
+    offerHeader,
+    offer,
   } = data.contentfulHomepage;
   return (
     <Layout>
@@ -28,6 +31,7 @@ const Homepage = ({ data }) => {
       <ContainerS>
         <IntroText text={believeInPerfection} />
         <BanersMiddleSection text={textBanersMiddle} baners={banersMiddle} />
+        <OfferGrid offer={offer} header={offerHeader} />
       </ContainerS>
     </Layout>
   );
@@ -60,6 +64,19 @@ export const query = graphql`
             fluid(maxWidth: 900) {
               ...GatsbyImageSharpFluid
             }
+          }
+        }
+      }
+      offerHeader
+      offer {
+        contentful_id
+        title
+        shortDescription {
+          shortDescription
+        }
+        image {
+          localFile {
+            url
           }
         }
       }
