@@ -1,11 +1,11 @@
 import React from 'react';
 
-import H2 from './H2';
+import H2 from '../H2';
 import {
   IntroTextContainerS,
   ListS,
   ListItemS,
-} from '../styles/IntroTextStyles';
+} from '../../styles/IntroTextStyles';
 
 const IntroText = ({ text }) => (
   <IntroTextContainerS>

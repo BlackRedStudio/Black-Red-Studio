@@ -2,10 +2,10 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../layout/Layout';
 import SEO from '../layout/Seo';
-import Slider from '../components/Slider';
 import { ContainerS } from '../styles/ContainerStyles';
-import IntroText from '../components/IntroText';
-import BanersMiddleSection from '../components/BanersMiddleSection';
+import Slider from '../components/homepage/Slider';
+import IntroText from '../components/homepage/IntroText';
+import BanersMiddleSection from '../components/homepage/BanersMiddleSection';
 
 const Homepage = ({ data }) => {
   const {

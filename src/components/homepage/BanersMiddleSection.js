@@ -5,7 +5,7 @@ import {
   BannersMiddleImageS,
   BannersMiddleTextWrapperS,
   BannersMiddleTextS,
-} from '../styles/BannersMiddleStyles';
+} from '../../styles/BannersMiddleStyles';
 
 const BanersMiddleSection = ({ text, baners }) => (
   <BannersMiddleContainerS>

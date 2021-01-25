@@ -10,8 +10,8 @@ import {
   SliderItemS,
   SliderViewportS,
   SliderSlidesContainerS,
-} from '../styles/SliderStyles';
-import Button from './Button';
+} from '../../styles/SliderStyles';
+import Button from '../Button';
 
 const Slider = ({ baners, buttonsTitles, buttonsLinks }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, speed: 5 });
