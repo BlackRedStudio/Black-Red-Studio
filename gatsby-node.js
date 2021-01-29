@@ -32,7 +32,7 @@ exports.createPages = async ({ graphql, actions }) => {
         group(field: node_locale) {
           edges {
             node {
-              link
+              slug
               node_locale
               template
             }
@@ -51,7 +51,7 @@ exports.createPages = async ({ graphql, actions }) => {
       const locale = node.node_locale;
       const localePrefix = locale !== 'en' ? `/${locale}/` : `/`;
       createPage({
-        path: localePrefix + node.link.trim(),
+        path: localePrefix + node.slug.trim(),
         component: path.resolve(`src/templates/${node.template}.js`),
         context: {
           locale,

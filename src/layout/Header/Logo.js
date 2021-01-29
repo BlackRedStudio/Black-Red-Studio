@@ -5,7 +5,9 @@ import { LogoContainerS, LogoS } from '../../styles/LogoStyles';
 const Logo = () => {
   const data = useStaticQuery(graphql`
     {
-      allContentfulAsset(filter: { title: { glob: "logo-blackred*" } }) {
+      allContentfulAsset(
+        filter: { title: { glob: "logo-blackred*" }, node_locale: { eq: "en" } }
+      ) {
         edges {
           node {
             contentful_id

@@ -23,6 +23,56 @@ const LangSwitcher = () => {
           }
         }
       }
+      allContentfulOffer {
+        group(field: node_locale) {
+          edges {
+            node {
+              slug
+            }
+          }
+          fieldValue
+        }
+      }
+      allContentfulTechnologies {
+        group(field: node_locale) {
+          edges {
+            node {
+              slug
+            }
+          }
+          fieldValue
+        }
+      }
+      allContentfulPortfolio {
+        group(field: node_locale) {
+          edges {
+            node {
+              slug
+            }
+          }
+          fieldValue
+        }
+      }
+      allContentfulMenuPosition {
+        group(field: node_locale) {
+          edges {
+            node {
+              slug
+            }
+          }
+          fieldValue
+        }
+      }
+      allContentfulSettings {
+        group(field: node_locale) {
+          edges {
+            node {
+              categorySlugList
+            }
+          }
+          fieldValue
+        }
+      }
       site {
         siteMetadata {
           languages
@@ -31,6 +81,27 @@ const LangSwitcher = () => {
       }
     }
   `);
+
+  const slugsArr = {};
+  const categorySlugsArr = {};
+  const categorySlugList = data.allContentfulSettings.group;
+  const offer = data.allContentfulOffer.group;
+  const technologies = data.allContentfulOffer.group;
+  const portfolio = data.allContentfulOffer.group;
+  const menuPosition = data.allContentfulOffer.group;
+
+  // Build slug array grouped by languages
+  for (let i = 0; i < offer.length; i++) {
+    const langName = offer[i].fieldValue;
+    slugsArr[langName] = [
+      ...offer[i].edges.map((v) => v.node.slug),
+      ...technologies[i].edges.map((v) => v.node.slug),
+      ...portfolio[i].edges.map((v) => v.node.slug),
+      ...menuPosition[i].edges.map((v) => v.node.slug),
+    ];
+    categorySlugsArr[langName] =
+      categorySlugList[i].edges[0].node.categorySlugList;
+  }
 
   const url = window.location.pathname;
   const { languages, defaultLangKey } = data.site.siteMetadata;

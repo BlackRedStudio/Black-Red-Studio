@@ -11,9 +11,9 @@ const Nav = () => {
         group(field: node_locale) {
           edges {
             node {
-              link
-              title
               contentful_id
+              title
+              slug
               node_locale
             }
           }
@@ -31,7 +31,7 @@ const Nav = () => {
     const locale = node.node_locale;
     const localePrefix = locale !== 'en' ? `${locale}/` : ``;
     return (
-      <NavLinkS key={node.contentful_id} to={`/${localePrefix}${node.link}`}>
+      <NavLinkS key={node.contentful_id} to={`/${localePrefix}${node.slug}`}>
         {node.title}
       </NavLinkS>
     );
