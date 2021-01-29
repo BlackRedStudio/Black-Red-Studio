@@ -10,7 +10,7 @@ const LangSwitcher = () => {
   const data = useStaticQuery(graphql`
     query {
       allContentfulAsset(
-        filter: { title: { regex: "/en-GB|pl-PL/" } }
+        filter: { title: { regex: "/en-GB|pl-PL/" }, node_locale: { eq: "en" } }
         sort: { fields: title, order: ASC }
       ) {
         edges {
@@ -106,19 +106,39 @@ const LangSwitcher = () => {
   const url = window.location.pathname;
   const { languages, defaultLangKey } = data.site.siteMetadata;
   const homeLink = `/${currentLang}/`.replace(`/${defaultLangKey}/`, '/');
+  const currUrlArr = window.location.pathname.replace(homeLink, '').split('/');
+  const currLang =
+    homeLink === '/' ? defaultLangKey : homeLink.replaceAll('/', '');
+  // find index for slug that is indexed for all languages
+  const categorySlugIndex = categorySlugsArr[currLang].findIndex(
+    (slug) => slug === currUrlArr[0]
+  );
+  let slugIndex = null;
+  if (currUrlArr[1])
+    slugIndex = slugsArr[currLang].findIndex((slug) => slug === currUrlArr[1]);
+
   const langsMenu = getLangs(
     languages,
     currentLang,
     getUrlForLang(homeLink, url)
-  ).map((item) => ({
-    ...item,
-    link: item.langKey === defaultLangKey ? `/` : `/${item.langKey}/`,
-  }));
-
+  ).map((item) => {
+    const langPrefix =
+      item.langKey === defaultLangKey ? '/' : `/${item.langKey}/`;
+    const categorySlugLink = categorySlugsArr[item.langKey][categorySlugIndex];
+    const slugLink =
+      slugIndex !== null ? slugsArr[item.langKey][slugIndex] : '';
+    let link = langPrefix;
+    // if is not a homepage
+    if (currUrlArr[0] !== '') link += categorySlugLink + slugLink;
+    return {
+      ...item,
+      link,
+    };
+  });
   const links = langsMenu.map((lang, index) => {
     const img = data.allContentfulAsset.edges[index].node;
     return currentLang !== lang.langKey ? (
-      <Link to={lang.link} key={lang.langKey}>
+      <Link to={lang.link} key={lang.langKey} state={{ lang: currentLang }}>
         <LangSwitcherImageContainerS src={img.file.url} alt={img.title} />
       </Link>
     ) : null;
