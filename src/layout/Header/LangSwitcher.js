@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import { Link, graphql, useStaticQuery } from 'gatsby';
-import { getLangs, getUrlForLang } from 'ptz-i18n';
 
 import { LangSwitcherImageContainerS } from '../../styles/LangSwitcherStyles';
 import LangContext from '../../contexts/LangContext';
+import { languages, defaultLangKey } from '../../utils/language-helper';
 
 const LangSwitcher = () => {
   const currentLang = useContext(LangContext);
@@ -73,12 +73,6 @@ const LangSwitcher = () => {
           fieldValue
         }
       }
-      site {
-        siteMetadata {
-          languages
-          defaultLangKey
-        }
-      }
     }
   `);
 
@@ -103,8 +97,6 @@ const LangSwitcher = () => {
       categorySlugList[i].edges[0].node.categorySlugList;
   }
 
-  const url = window.location.pathname;
-  const { languages, defaultLangKey } = data.site.siteMetadata;
   const homeLink = `/${currentLang}/`.replace(`/${defaultLangKey}/`, '/');
   const currUrlArr = window.location.pathname.replace(homeLink, '').split('/');
   const currLang =
@@ -117,21 +109,16 @@ const LangSwitcher = () => {
   if (currUrlArr[1])
     slugIndex = slugsArr[currLang].findIndex((slug) => slug === currUrlArr[1]);
 
-  const langsMenu = getLangs(
-    languages,
-    currentLang,
-    getUrlForLang(homeLink, url)
-  ).map((item) => {
-    const langPrefix =
-      item.langKey === defaultLangKey ? '/' : `/${item.langKey}/`;
-    const categorySlugLink = categorySlugsArr[item.langKey][categorySlugIndex];
-    const slugLink =
-      slugIndex !== null ? slugsArr[item.langKey][slugIndex] : '';
+  const langsMenu = languages.map((lang) => {
+    const langPrefix = lang === defaultLangKey ? '/' : `/${lang}/`;
+    const categorySlugLink = categorySlugsArr[lang][categorySlugIndex];
+    const slugLink = slugIndex !== null ? slugsArr[lang][slugIndex] : '';
     let link = langPrefix;
     // if is not a homepage
     if (currUrlArr[0] !== '') link += categorySlugLink + slugLink;
+
     return {
-      ...item,
+      langKey: lang,
       link,
     };
   });

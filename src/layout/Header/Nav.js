@@ -23,7 +23,7 @@ const Nav = () => {
     }
   `);
 
-  const menuForCurrentLang = data.allContentfulMenuPosition.group.filter(
+const menuForCurrentLang = data.allContentfulMenuPosition.group.filter(
     ({ fieldValue }) => fieldValue === currentLang
   );
 
