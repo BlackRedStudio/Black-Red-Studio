@@ -39,6 +39,55 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      allContentfulTechnologies {
+        group(field: node_locale) {
+          edges {
+            node {
+              slug
+              node_locale
+              internal {
+                type
+              }
+            }
+          }
+        }
+      }
+      allContentfulPortfolio {
+        group(field: node_locale) {
+          edges {
+            node {
+              slug
+              node_locale
+              internal {
+                type
+              }
+            }
+          }
+        }
+      }
+      allContentfulOffer {
+        group(field: node_locale) {
+          edges {
+            node {
+              slug
+              node_locale
+              internal {
+                type
+              }
+            }
+          }
+        }
+      }
+      allContentfulSettings {
+        group(field: node_locale) {
+          edges {
+            node {
+              categorySlugList
+            }
+          }
+          fieldValue
+        }
+      }
     }
   `);
 
@@ -59,4 +108,42 @@ exports.createPages = async ({ graphql, actions }) => {
       });
     });
   });
+  // Generate pages for categories
+  const categorySlugsArr = {};
+  const categorySlugList = result.data.allContentfulSettings.group;
+  const technologies = result.data.allContentfulTechnologies.group;
+  const offer = result.data.allContentfulOffer.group;
+  const portfolio = result.data.allContentfulPortfolio.group;
+
+  // Build slug array grouped by languages
+  for (let i = 0; i < categorySlugList.length; i++) {
+    const langName = categorySlugList[i].fieldValue;
+    categorySlugsArr[langName] =
+      categorySlugList[i].edges[0].node.categorySlugList;
+  }
+
+  const generatePagesForCategories = (data, template) => {
+    data.forEach(({ edges }) => {
+      edges.forEach(({ node }) => {
+        const locale = node.node_locale;
+        const localePrefix = locale !== 'en' ? `/${locale}/` : `/`;
+        const entryType = node.internal.type
+          .replace('Contentful', '')
+          .toLowerCase();
+        const categorySlugIndex = categorySlugsArr.en.indexOf(entryType);
+        const categorySlug = `${categorySlugsArr[locale][categorySlugIndex]}/`;
+        const slug = localePrefix + categorySlug + node.slug.trim();
+        createPage({
+          path: slug,
+          component: path.resolve(`src/templates/${template}.js`),
+          context: {
+            locale,
+          },
+        });
+      });
+    });
+  };
+  generatePagesForCategories(technologies, 'TechnologiesItem');
+  generatePagesForCategories(offer, 'OfferItem');
+  generatePagesForCategories(portfolio, 'PortfolioItem');
 };

@@ -80,9 +80,9 @@ const LangSwitcher = () => {
   const categorySlugsArr = {};
   const categorySlugList = data.allContentfulSettings.group;
   const offer = data.allContentfulOffer.group;
-  const technologies = data.allContentfulOffer.group;
-  const portfolio = data.allContentfulOffer.group;
-  const menuPosition = data.allContentfulOffer.group;
+  const technologies = data.allContentfulTechnologies.group;
+  const portfolio = data.allContentfulPortfolio.group;
+  const menuPosition = data.allContentfulMenuPosition.group;
 
   // Build slug array grouped by languages
   for (let i = 0; i < offer.length; i++) {
@@ -115,7 +115,7 @@ const LangSwitcher = () => {
     const slugLink = slugIndex !== null ? slugsArr[lang][slugIndex] : '';
     let link = langPrefix;
     // if is not a homepage
-    if (currUrlArr[0] !== '') link += categorySlugLink + slugLink;
+    if (currUrlArr[0] !== '') link += `${categorySlugLink} / ${slugLink}`;
 
     return {
       langKey: lang,
