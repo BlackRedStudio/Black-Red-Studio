@@ -7,19 +7,8 @@ module.exports = {
     title: `Tworzenie stron internetowych`,
     description: `Oferujemy tworzenie stron oraz aplikacji internetowych do różnych zastosowań, pisanie skryptów, oraz naprawę błędów`,
     author: `Sebastian Machaj`,
-    languages: ['en', 'pl'],
-    defaultLangKey: 'en',
   },
   plugins: [
-    {
-      resolve: `gatsby-plugin-i18n`,
-      options: {
-        langKeyDefault: 'en',
-        langKeyForNull: 'en',
-        prefixDefault: false,
-        useLangKeyLayout: false,
-      },
-    },
     {
       resolve: `gatsby-source-contentful`,
       options: {

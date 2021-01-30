@@ -11,14 +11,6 @@ import { GlobalStyle } from '../styles/GlobalStyles';
 import { defaultLangKey, languages } from '../utils/language-helper';
 
 const Layout = ({ children }) => {
-  // To Class Components if auto detect browser language
-  // constructor(props) {
-  //   super(props);
-
-  //   const isCurrKeyLangExist = window.sessionStorage.getItem('currentLanguageKey');
-  //   if(!isCurrKeyLangExist) navigate( setLanguage() );
-  // }
-  // const langKey = window.sessionStorage.getItem('currentLanguageKey');
   const pathNameArr = window.location.pathname.split('/');
   const langKey =
     languages.indexOf(pathNameArr[1]) > -1 ? pathNameArr[1] : defaultLangKey;
