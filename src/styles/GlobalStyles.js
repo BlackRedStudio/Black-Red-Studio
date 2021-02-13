@@ -33,4 +33,10 @@ export const GlobalStyle = createGlobalStyle`
       outline: 0;
     }
   }
+  @keyframes opacity-transform-y {
+      100% {
+          opacity: 1;
+          transform: translateY(0);
+      }
+  }
 `;

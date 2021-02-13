@@ -1,6 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import { useEmblaCarousel } from 'embla-carousel/react';
+
+import sliderAutoplayHook from '../../utils/slider-autoplay-hook';
 
 import {
   SliderTextS,
@@ -16,32 +18,10 @@ import Button from '../Button';
 const Slider = ({ baners, buttonsTitles, buttonsLinks }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, speed: 5 });
 
-  useEffect(() => {
-    if (emblaApi) {
-      let banerAutoplay = 0;
-
-      const stop = () => {
-        window.clearTimeout(banerAutoplay);
-        banerAutoplay = 0;
-      };
-
-      const play = () => {
-        stop();
-        window.requestAnimationFrame(() => {
-          banerAutoplay = window.setTimeout(() => {
-            emblaApi.scrollNext();
-            play();
-          }, 4000);
-        });
-      };
-
-      play();
-      emblaApi.on('select', () => play());
-    }
-  }, [emblaApi]);
+  sliderAutoplayHook(emblaApi);
 
   const slides = baners.map(({ contentful_id, title, localFile }) => (
-    <SliderItemS key={contentful_id} className="glide__slide">
+    <SliderItemS key={contentful_id}>
       <SliderImageS fluid={localFile.childImageSharp.fluid} alt={title} />
       <SliderOverlayS />
       <SliderTextS>{title}</SliderTextS>

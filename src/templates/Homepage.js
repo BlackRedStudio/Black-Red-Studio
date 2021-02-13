@@ -7,6 +7,7 @@ import Slider from '../components/homepage/Slider';
 import IntroText from '../components/homepage/IntroText';
 import BanersMiddleSection from '../components/homepage/BanersMiddleSection';
 import OfferGrid from '../components/homepage/OfferGrid';
+import TechnologiesSlider from '../components/homepage/TechnologiesSlider';
 
 const Homepage = ({ data }) => {
   const {
@@ -19,6 +20,8 @@ const Homepage = ({ data }) => {
     banersMiddle,
     offerHeader,
     offer,
+    technologiesHeader,
+    technologies,
   } = data.contentfulHomepage;
   return (
     <Layout>
@@ -32,6 +35,10 @@ const Homepage = ({ data }) => {
         <IntroText text={believeInPerfection} />
         <BanersMiddleSection text={textBanersMiddle} baners={banersMiddle} />
         <OfferGrid offer={offer} header={offerHeader} />
+        <TechnologiesSlider
+          technologies={technologies}
+          header={technologiesHeader}
+        />
       </ContainerS>
     </Layout>
   );
@@ -75,6 +82,19 @@ export const query = graphql`
           shortDescription
         }
         image {
+          localFile {
+            url
+          }
+        }
+      }
+      technologiesHeader
+      technologies {
+        contentful_id
+        title
+        shortDescription {
+          shortDescription
+        }
+        logo {
           localFile {
             url
           }
