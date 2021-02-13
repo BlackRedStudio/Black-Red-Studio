@@ -5,14 +5,15 @@ const html = require('remark-html');
 
 exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions;
+  const dataToConvert = node.description || node.process;
   if (
     node.internal.mediaType === `text/markdown` &&
-    node.description !== undefined
+    dataToConvert !== undefined
   ) {
     remark()
       .use(guide)
       .use(html)
-      .process(node.description, (err, file) => {
+      .process(dataToConvert, (err, file) => {
         if (err) throw err;
 
         createNodeField({
