@@ -1,5 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
+import { colors } from './styles-utils';
+
 export const GlobalStyle = createGlobalStyle`
   *, *::before, *::after {
     box-sizing: border-box;
@@ -14,6 +16,7 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     font-family: 'Raleway', sans-serif;
     font-size: 1.6rem;
+    background-color: ${colors.lightGray};
   }
   h1 {
     margin: 0;
