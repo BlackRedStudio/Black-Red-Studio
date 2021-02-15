@@ -10,6 +10,7 @@ import OfferGrid from '../components/homepage/OfferGrid';
 import TechnologiesSlider from '../components/homepage/TechnologiesSlider';
 import ProcessLine from '../components/homepage/ProcessLine';
 import WorkWith from '../components/homepage/WorkWith';
+import PortfolioGallery from '../components/homepage/PortfolioGallery';
 
 const Homepage = ({ data }) => {
   const {
@@ -28,6 +29,9 @@ const Homepage = ({ data }) => {
     process,
     workWithHeader,
     workWith,
+    portfolioHeader,
+    portfolioGallery,
+    portfolioButton,
   } = data.contentfulHomepage;
   return (
     <Layout>
@@ -49,6 +53,11 @@ const Homepage = ({ data }) => {
           <ProcessLine process={process} header={processHeader} />
           <WorkWith workWith={workWith} header={workWithHeader} />
         </ContainerInnerS>
+        <PortfolioGallery
+          portfolio={portfolioGallery}
+          header={portfolioHeader}
+          button={portfolioButton}
+        />
       </ContainerS>
     </Layout>
   );
@@ -141,6 +150,24 @@ export const query = graphql`
           }
         }
       }
+      portfolioHeader
+      portfolioGallery {
+        contentful_id
+        images {
+          localFile {
+            childImageSharp {
+              fluid(maxWidth: 320) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+        title
+        shortDescription {
+          shortDescription
+        }
+      }
+      portfolioButton
     }
   }
 `;
