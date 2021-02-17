@@ -11,6 +11,7 @@ import TechnologiesSlider from '../components/homepage/TechnologiesSlider';
 import ProcessLine from '../components/homepage/ProcessLine';
 import WorkWith from '../components/homepage/WorkWith';
 import PortfolioGallery from '../components/homepage/PortfolioGallery';
+import ContactForm from '../components/ContactForm';
 
 const Homepage = ({ data }) => {
   const {
@@ -58,6 +59,7 @@ const Homepage = ({ data }) => {
           header={portfolioHeader}
           button={portfolioButton}
         />
+        <ContactForm />
       </ContainerS>
     </Layout>
   );
@@ -134,6 +136,7 @@ export const query = graphql`
       }
       workWithHeader
       workWith {
+        contentful_id
         title
         icon {
           localFile {
