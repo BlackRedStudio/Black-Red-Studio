@@ -11,7 +11,7 @@ import TechnologiesSlider from '../components/homepage/TechnologiesSlider';
 import ProcessLine from '../components/homepage/ProcessLine';
 import WorkWith from '../components/homepage/WorkWith';
 import PortfolioGallery from '../components/homepage/PortfolioGallery';
-import ContactForm from '../components/ContactForm';
+import HomepageContact from '../components/homepage/HomepageContact';
 
 const Homepage = ({ data }) => {
   const {
@@ -33,6 +33,9 @@ const Homepage = ({ data }) => {
     portfolioHeader,
     portfolioGallery,
     portfolioButton,
+    contactHeader,
+    form,
+    addressData,
   } = data.contentfulHomepage;
   return (
     <Layout>
@@ -59,7 +62,11 @@ const Homepage = ({ data }) => {
           header={portfolioHeader}
           button={portfolioButton}
         />
-        <ContactForm />
+        <HomepageContact
+          header={contactHeader}
+          form={form}
+          addressData={addressData}
+        />
       </ContainerS>
     </Layout>
   );
@@ -171,6 +178,19 @@ export const query = graphql`
         }
       }
       portfolioButton
+      contactHeader
+      form {
+        contentful_id
+        isMandatory
+        placeholder
+        title
+        type
+      }
+      addressData {
+        fields {
+          htmlData
+        }
+      }
     }
   }
 `;
