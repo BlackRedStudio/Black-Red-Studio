@@ -126,64 +126,76 @@ import * as Yup from 'yup';
 
 import { TextInput, Checkbox } from './FormFields';
 
-const ContactForm = () => (
-  <>
-    <Formik
-      initialValues={{
-        firstName: '',
-        lastName: '',
-        email: '',
-        acceptedTerms: false,
-      }}
-      validationSchema={Yup.object({
-        firstName: Yup.string()
-          .max(15, 'Must be 15 characters or less')
-          .required('Required'),
-        lastName: Yup.string()
-          .max(20, 'Must be 20 characters or less')
-          .required('Required'),
-        email: Yup.string().email('Invalid email address').required('Required'),
-        acceptedTerms: Yup.boolean()
-          .required('Required')
-          .oneOf([true], 'You must accept the terms and conditions.'),
-      })}
-      onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          JSON.stringify(values, null, 2);
-          setSubmitting(false);
-        }, 400);
-      }}
-    >
-      <Form>
-        <TextInput
-          label="First Name"
-          name="firstName"
-          type="text"
-          placeholder="Jane"
-        />
-
-        <TextInput
-          label="Last Name"
-          name="lastName"
-          type="text"
-          placeholder="Doe"
-        />
-
-        <TextInput
-          label="Email Address"
-          name="email"
-          type="email"
-          placeholder="jane@formik.com"
-        />
-
-        <Checkbox name="acceptedTerms">
-          I accept the terms and conditions
-        </Checkbox>
-
-        <button type="submit">Submit</button>
-      </Form>
-    </Formik>
-  </>
-);
+const ContactForm = ({ form }) => {
+  const initialValues = {};
+  const formFieldList = form.map(
+    ({
+      contentful_id,
+      isMandatory,
+      title,
+      placeholder,
+      type,
+      nameAttribute,
+    }) => {
+      if (type === 'text' || type === 'textarea' || type === 'email') {
+        initialValues[nameAttribute] = '';
+        return (
+          <TextInput
+            key={contentful_id}
+            label={title}
+            name={nameAttribute}
+            type={type}
+            placeholder={placeholder}
+            isMandatory={isMandatory}
+          />
+        );
+      }
+      if (type === 'checkbox') {
+        initialValues[nameAttribute] = false;
+        return (
+          <Checkbox
+            key={contentful_id}
+            name={nameAttribute}
+            isMandatory={isMandatory}
+            placeholder={placeholder}
+          />
+        );
+      }
+      return null;
+    }
+  );
+  return (
+    <div>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={Yup.object({
+          firstName: Yup.string()
+            .max(15, 'Must be 15 characters or less')
+            .required('Required'),
+          lastName: Yup.string()
+            .max(20, 'Must be 20 characters or less')
+            .required('Required'),
+          email: Yup.string()
+            .email('Invalid email address')
+            .required('Required'),
+          acceptedTerms: Yup.boolean()
+            .required('Required')
+            .oneOf([true], 'You must accept the terms and conditions.'),
+        })}
+        onSubmit={(values, { setSubmitting }) => {
+          setTimeout(() => {
+            JSON.stringify(values, null, 2);
+            setSubmitting(false);
+          }, 400);
+        }}
+      >
+        <Form>
+          {formFieldList}
+          <button type="submit">Submit</button>
+        </Form>
+      </Formik>
+    </div>
+  );
+};
 
 export default ContactForm;

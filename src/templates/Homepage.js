@@ -36,6 +36,7 @@ const Homepage = ({ data }) => {
     contactHeader,
     form,
     addressData,
+    formBackground,
   } = data.contentfulHomepage;
   return (
     <Layout>
@@ -62,12 +63,13 @@ const Homepage = ({ data }) => {
           header={portfolioHeader}
           button={portfolioButton}
         />
-        <HomepageContact
-          header={contactHeader}
-          form={form}
-          addressData={addressData}
-        />
       </ContainerS>
+      <HomepageContact
+        header={contactHeader}
+        form={form}
+        addressData={addressData}
+        background={formBackground}
+      />
     </Layout>
   );
 };
@@ -185,10 +187,20 @@ export const query = graphql`
         placeholder
         title
         type
+        nameAttribute
       }
       addressData {
         fields {
           htmlData
+        }
+      }
+      formBackground {
+        localFile {
+          childImageSharp {
+            fluid(maxWidth: 1920) {
+              ...GatsbyImageSharpFluid
+            }
+          }
         }
       }
     }

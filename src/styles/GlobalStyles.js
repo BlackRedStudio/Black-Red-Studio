@@ -32,6 +32,7 @@ export const GlobalStyle = createGlobalStyle`
   }
   a {
     text-decoration: none;
+    color: ${colors.lightRed};
     :focus {
       outline: 0;
     }

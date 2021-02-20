@@ -8,5 +8,7 @@ export default {
   linearGradient:
     'linear-gradient( -40deg, #ff362e 0%, #f11a3a 51%, #e60647 100%)',
   linearGradientInverted:
-    'linear-gradient(-40deg, #e60647 0,#f11a3a 49%,#ff362e 100%);',
+    'linear-gradient(-40deg, #e60647 0,#f11a3a 49%,#ff362e 100%)',
+  linearGradientAlt:
+    'linear-gradient(-40deg, #111dde 0, #051c90 49%, #e60647 100%)',
 };
