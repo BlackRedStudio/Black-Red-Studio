@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import { media, colors, vars } from './styles-utils';
 
 export const ButtonS = styled.span`
-  > a {
+  > a,
+  > span {
     font-size: 1.4rem;
     font-weight: 600;
     margin: ${({ elMargin }) => elMargin};
@@ -36,6 +37,14 @@ export const ButtonS = styled.span`
           :hover {
             background: transparent;
             color: #fff;
+          }
+      `;
+      if (elType === 'inverted')
+        return `
+          color: #fff;
+          background-image: ${vars.linearGradient};
+          :hover {
+            background-image: ${vars.linearGradientInverted};
           }
       `;
       return `

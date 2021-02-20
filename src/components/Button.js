@@ -3,14 +3,22 @@ import { Link } from 'gatsby';
 
 import { ButtonS } from '../styles/ButtonStyles';
 
-const Button = ({ children, to, elType, elSize, elWidth, elMargin }) => (
+const Button = ({
+  children,
+  to,
+  elType,
+  elSize,
+  elWidth,
+  elMargin,
+  isLink,
+}) => (
   <ButtonS
     elType={elType}
     elSize={elSize}
     elWidth={elWidth}
     elMargin={elMargin}
   >
-    <Link to={to}>{children}</Link>
+    {isLink ? <Link to={to}>{children}</Link> : <span>{children}</span>}
   </ButtonS>
 );
 
@@ -20,6 +28,7 @@ Button.defaultProps = {
   elSize: 'small',
   elWidth: 'initial',
   elMargin: '15px 0 0 0',
+  isLink: true,
 };
 
 export default Button;

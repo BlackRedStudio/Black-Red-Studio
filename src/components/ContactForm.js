@@ -125,6 +125,7 @@ import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 
 import { TextInput, Checkbox } from './FormFields';
+import Button from './Button';
 
 const ContactForm = ({ form }) => {
   const initialValues = {};
@@ -161,6 +162,13 @@ const ContactForm = ({ form }) => {
           />
         );
       }
+      if (type === 'send') {
+        return (
+          <Button type="submit" elType="inverted" elWidth="100%" isLink={false}>
+            {title}
+          </Button>
+        );
+      }
       return null;
     }
   );
@@ -189,10 +197,7 @@ const ContactForm = ({ form }) => {
           }, 400);
         }}
       >
-        <Form>
-          {formFieldList}
-          <button type="submit">Submit</button>
-        </Form>
+        <Form>{formFieldList}</Form>
       </Formik>
     </div>
   );

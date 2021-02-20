@@ -28,6 +28,7 @@ export const TextInput = ({ label, name, placeholder, type, isMandatory }) => {
           {...field}
           type={type}
           placeholder={placeholder}
+          rows={10}
           required={isMandatory}
         />
       )}
