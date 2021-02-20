@@ -31,3 +31,9 @@ export const HomepageContactOverlayS = styled.div`
   z-index: -1;
   background-image: ${vars.linearGradientAlt};
 `;
+export const AddressColumnS = styled.div`
+  text-align: center;
+  color: #fff;
+  font-size: 1.9rem;
+  padding-top: 25px;
+`;

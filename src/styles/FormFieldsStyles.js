@@ -42,8 +42,8 @@ export const ErrorS = styled.div`
   color: ${colors.red};
 `;
 export const CheckboxS = styled.input`
-  background-color: #fafafa;
-  border: 1px solid #cacece;
+  background-color: ${colors.lightGray};
+  border: 1px solid ${colors.darkGray};
   box-shadow: 0 1px 2px rgba(0 0 0 0.05),
     inset 0px -15px 10px -12px rgba(0 0 0 0.05);
   padding: 9px;
@@ -54,12 +54,15 @@ export const CheckboxS = styled.input`
   height: 20px;
   margin-right: 10px;
   appearance: none;
+  &:focus {
+    outline: none;
+  }
   &:checked:after {
     content: '✓';
     font-size: 14px;
     position: absolute;
     top: 0px;
     left: 3px;
-    color: #e60647;
+    color: ${colors.darkRed};
   }
 `;

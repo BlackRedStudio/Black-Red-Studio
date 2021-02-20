@@ -1,9 +1,11 @@
 import React from 'react';
 
+import { AddressColumnS } from '../styles/HomepageContactContainerStyles';
+
 const AddressColumn = ({
   addressData: {
     fields: { htmlData },
   },
-}) => <div dangerouslySetInnerHTML={{ __html: htmlData }} />;
+}) => <AddressColumnS dangerouslySetInnerHTML={{ __html: htmlData }} />;
 
 export default AddressColumn;
