@@ -12,7 +12,7 @@ const H2 = ({ children, preText, align, color, marginBottom }) => (
 
 H2.defaultProps = {
   align: 'center',
-  color: false,
+  color: null,
   marginBottom: '30px',
 };
 

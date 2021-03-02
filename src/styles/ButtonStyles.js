@@ -4,7 +4,7 @@ import { media, colors, vars } from './styles-utils';
 
 export const ButtonS = styled.span`
   > a,
-  > span {
+  > button {
     font-size: 1.4rem;
     font-weight: 600;
     margin: ${({ elMargin }) => elMargin};
@@ -13,6 +13,7 @@ export const ButtonS = styled.span`
       if (elSize === 'medium') return '18px 40px';
       return '14px 30px';
     }};
+    border: none;
     width: ${({ elWidth }) => elWidth};
     display: inline-block;
     text-transform: uppercase;

@@ -11,6 +11,7 @@ const Button = ({
   elWidth,
   elMargin,
   isLink,
+  type,
 }) => (
   <ButtonS
     elType={elType}
@@ -18,7 +19,11 @@ const Button = ({
     elWidth={elWidth}
     elMargin={elMargin}
   >
-    {isLink ? <Link to={to}>{children}</Link> : <span>{children}</span>}
+    {isLink ? (
+      <Link to={to}>{children}</Link>
+    ) : (
+      <button type={type === 'submit' ? 'submit' : 'button'}>{children}</button>
+    )}
   </ButtonS>
 );
 
@@ -29,6 +34,7 @@ Button.defaultProps = {
   elWidth: 'initial',
   elMargin: '15px 0 0 0',
   isLink: true,
+  type: null,
 };
 
 export default Button;
