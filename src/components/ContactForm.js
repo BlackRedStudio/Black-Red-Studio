@@ -9,6 +9,7 @@ import Button from './Button';
 const ContactForm = ({ form }) => {
   const initialValues = {};
   const currentLang = useContext(LangContext);
+
   const handleSubmit = async (values, setSubmitting) => {
     const functionURL = 'https://emerald-markhor-6035.twil.io/send-email';
     const { nameSurname, email, subject, message, accept } = values;
@@ -33,11 +34,14 @@ const ContactForm = ({ form }) => {
   const formFieldList = form.map(
     ({
       contentful_id,
-      isMandatory,
       title,
       placeholder,
       type,
       nameAttribute,
+      minLength,
+      error1,
+      maxLength,
+      error2,
     }) => {
       if (type === 'text' || type === 'textarea' || type === 'email') {
         initialValues[nameAttribute] = '';
@@ -49,7 +53,12 @@ const ContactForm = ({ form }) => {
             name={nameAttribute}
             type={type}
             placeholder={placeholder}
-            isMandatory={isMandatory}
+            validateProps={{
+              minLength,
+              error1,
+              maxLength,
+              error2,
+            }}
           />
         );
       }
@@ -59,8 +68,8 @@ const ContactForm = ({ form }) => {
           <Checkbox
             key={contentful_id}
             name={nameAttribute}
-            isMandatory={isMandatory}
             placeholder={placeholder}
+            errorMsg={error1}
           />
         );
       }

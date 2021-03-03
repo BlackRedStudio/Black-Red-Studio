@@ -26,7 +26,7 @@ export const TextareaS = styled.textarea`
   ${inputStyles}
 `;
 export const FormInputWrapperS = styled.div`
-  margin-bottom: 25px;
+  margin-bottom: 30px;
 `;
 export const LabelS = styled.label`
   font-size: 1.4rem;
@@ -40,6 +40,10 @@ export const LabelS = styled.label`
 `;
 export const ErrorS = styled.div`
   color: ${colors.red};
+  position: absolute;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-top: 3px;
 `;
 export const CheckboxS = styled.input`
   background-color: ${colors.lightGray};

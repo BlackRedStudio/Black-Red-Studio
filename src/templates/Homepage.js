@@ -183,11 +183,14 @@ export const query = graphql`
       contactHeader
       form {
         contentful_id
-        isMandatory
         placeholder
         title
         type
         nameAttribute
+        minLength
+        error1
+        maxLength
+        error2
       }
       addressData {
         fields {

@@ -10,27 +10,32 @@ import {
   ErrorS,
 } from '../styles/FormFieldsStyles';
 
-export const TextInput = ({ label, name, placeholder, type, isMandatory }) => {
-  const [field, meta] = useField({ name });
-
+export const TextInput = ({
+  label,
+  name,
+  placeholder,
+  type,
+  validateProps: { minLength, error1, maxLength, error2 },
+}) => {
+  const validate = (value) => {
+    if (type === 'email') {
+      if (!value) return error1;
+      if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value.email))
+        return error2;
+    } else {
+      if (value.length < minLength) return error1;
+      if (value.length > maxLength) return error2;
+    }
+    return null;
+  };
+  const [field, meta] = useField({ name, validate });
   return (
     <FormInputWrapperS>
       <LabelS htmlFor={name}>{label}</LabelS>
       {type !== 'textarea' ? (
-        <InputS
-          {...field}
-          type={type}
-          placeholder={placeholder}
-          required={isMandatory}
-        />
+        <InputS {...field} type={type} placeholder={placeholder} />
       ) : (
-        <TextareaS
-          {...field}
-          type={type}
-          placeholder={placeholder}
-          rows={10}
-          required={isMandatory}
-        />
+        <TextareaS {...field} type={type} placeholder={placeholder} rows={10} />
       )}
       {meta.touched && meta.error ? (
         <ErrorS className="error">{meta.error}</ErrorS>
@@ -39,17 +44,17 @@ export const TextInput = ({ label, name, placeholder, type, isMandatory }) => {
   );
 };
 
-export const Checkbox = ({ name, placeholder, isMandatory }) => {
-  const [field, meta] = useField({ name, type: 'checkbox' });
+export const Checkbox = ({ name, placeholder, errorMsg }) => {
+  const validate = (value) => {
+    if (!value) return errorMsg;
+    return null;
+  };
+  const [field, meta] = useField({ name, type: 'checkbox', validate });
+
   return (
     <FormInputWrapperS>
       <LabelS>
-        <CheckboxS
-          type="checkbox"
-          {...field}
-          name={name}
-          required={isMandatory}
-        />
+        <CheckboxS {...field} type="checkbox" name={name} />
         <span dangerouslySetInnerHTML={{ __html: placeholder }} />
       </LabelS>
       {meta.touched && meta.error ? <ErrorS>{meta.error}</ErrorS> : null}
