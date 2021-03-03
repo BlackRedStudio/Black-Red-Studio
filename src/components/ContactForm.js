@@ -1,13 +1,14 @@
 // export default ContactForm;
-import React from 'react';
+import React, { useContext } from 'react';
 import { Formik, Form } from 'formik';
 
+import LangContext from '../contexts/LangContext';
 import { TextInput, Checkbox } from './FormFields';
 import Button from './Button';
 
 const ContactForm = ({ form }) => {
   const initialValues = {};
-
+  const currentLang = useContext(LangContext);
   const handleSubmit = async (values, setSubmitting) => {
     const functionURL = 'https://emerald-markhor-6035.twil.io/send-email';
     const { nameSurname, email, subject, message, accept } = values;
@@ -23,6 +24,7 @@ const ContactForm = ({ form }) => {
         subject,
         message,
         accept,
+        currentLang,
       }).toString(),
     });
     setSubmitting(false);
