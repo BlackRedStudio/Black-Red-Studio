@@ -11,7 +11,13 @@ import {
 } from '../../styles/HomepageContactContainerStyles';
 import { ContainerS, ContainerInnerS } from '../../styles/ContainerStyles';
 
-const HomepageContact = ({ header, form, addressData, background }) => {
+const HomepageContact = ({
+  header,
+  form,
+  addressData,
+  background,
+  messages,
+}) => {
   const {
     localFile: {
       childImageSharp: { fluid },
@@ -24,7 +30,7 @@ const HomepageContact = ({ header, form, addressData, background }) => {
           {header[1]}
         </H2>
         <ContainerInnerS>
-          <ContactForm form={form} />
+          <ContactForm form={form} messages={messages} />
           <AddressColumn addressData={addressData} />
         </ContainerInnerS>
       </ContainerS>

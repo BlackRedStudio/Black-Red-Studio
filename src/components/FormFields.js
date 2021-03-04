@@ -1,5 +1,5 @@
 import React from 'react';
-import { useField } from 'formik';
+import { useField, ErrorMessage } from 'formik';
 
 import {
   FormInputWrapperS,
@@ -20,7 +20,7 @@ export const TextInput = ({
   const validate = (value) => {
     if (type === 'email') {
       if (!value) return error1;
-      if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value.email))
+      if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value))
         return error2;
     } else {
       if (value.length < minLength) return error1;
@@ -28,7 +28,7 @@ export const TextInput = ({
     }
     return null;
   };
-  const [field, meta] = useField({ name, validate });
+  const [field] = useField({ name, validate });
   return (
     <FormInputWrapperS>
       <LabelS htmlFor={name}>{label}</LabelS>
@@ -37,9 +37,7 @@ export const TextInput = ({
       ) : (
         <TextareaS {...field} type={type} placeholder={placeholder} rows={10} />
       )}
-      {meta.touched && meta.error ? (
-        <ErrorS className="error">{meta.error}</ErrorS>
-      ) : null}
+      <ErrorMessage component={ErrorS} name={name} />
     </FormInputWrapperS>
   );
 };
@@ -49,7 +47,7 @@ export const Checkbox = ({ name, placeholder, errorMsg }) => {
     if (!value) return errorMsg;
     return null;
   };
-  const [field, meta] = useField({ name, type: 'checkbox', validate });
+  const [field] = useField({ name, type: 'checkbox', validate });
 
   return (
     <FormInputWrapperS>
@@ -57,7 +55,7 @@ export const Checkbox = ({ name, placeholder, errorMsg }) => {
         <CheckboxS {...field} type="checkbox" name={name} />
         <span dangerouslySetInnerHTML={{ __html: placeholder }} />
       </LabelS>
-      {meta.touched && meta.error ? <ErrorS>{meta.error}</ErrorS> : null}
+      <ErrorMessage component={ErrorS} name={name} />
     </FormInputWrapperS>
   );
 };

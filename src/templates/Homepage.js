@@ -37,6 +37,7 @@ const Homepage = ({ data }) => {
     form,
     addressData,
     formBackground,
+    messages,
   } = data.contentfulHomepage;
   return (
     <Layout>
@@ -69,6 +70,7 @@ const Homepage = ({ data }) => {
         form={form}
         addressData={addressData}
         background={formBackground}
+        messages={messages}
       />
     </Layout>
   );
@@ -191,6 +193,12 @@ export const query = graphql`
         error1
         maxLength
         error2
+      }
+      messages {
+        title
+        description {
+          description
+        }
       }
       addressData {
         fields {
