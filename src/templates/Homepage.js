@@ -193,6 +193,7 @@ export const query = graphql`
         error1
         maxLength
         error2
+        additionalData
       }
       messages {
         title

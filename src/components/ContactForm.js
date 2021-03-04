@@ -1,6 +1,7 @@
 // export default ContactForm;
 import React, { useContext, useState } from 'react';
 import { Formik, Form } from 'formik';
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 import LangContext from '../contexts/LangContext';
 import { TextInput, Checkbox } from './FormFields';
@@ -14,13 +15,44 @@ const ContactForm = ({ form, messages }) => {
     msg: null,
     msgType: null,
   });
+  const { executeRecaptcha } = useGoogleReCaptcha();
+
   const { preloader, msg, msgType } = formResponse;
   const initialValues = {};
   const currentLang = useContext(LangContext);
+
   const handleSubmit = async (values, actions) => {
     setFormResponse({ preloader: true });
     const functionURL = 'https://emerald-markhor-6035.twil.io/send-email';
     const { nameSurname, email, subject, message, accept } = values;
+    const msgContent = {
+      error: messages.filter((v) => v.title === 'FormFailed'),
+      success: messages.filter((v) => v.title === 'FormSuccess'),
+    };
+    const errorSchema = {
+      preloader: false,
+      msg: msgContent.error[0].description.description,
+      msgType: 'error',
+    };
+    const successSchema = {
+      preloader: false,
+      msg: msgContent.success[0].description.description,
+      msgType: 'success',
+    };
+
+    if (!executeRecaptcha) {
+      setFormResponse(errorSchema);
+      actions.setSubmitting(false);
+      return false;
+    }
+
+    const token = await executeRecaptcha('homepageee');
+
+    if (!token) {
+      setFormResponse(errorSchema);
+      actions.setSubmitting(false);
+      return false;
+    }
 
     const res = await fetch(functionURL, {
       method: 'post',
@@ -36,25 +68,14 @@ const ContactForm = ({ form, messages }) => {
         currentLang,
       }).toString(),
     });
-    const msgContent = {
-      error: messages.filter((v) => v.title === 'FormFailed'),
-      success: messages.filter((v) => v.title === 'FormSuccess'),
-    };
     if (res.status !== 200) {
-      setFormResponse({
-        preloader: false,
-        msg: msgContent.error[0].description.description,
-        msgType: 'error',
-      });
+      setFormResponse(errorSchema);
     } else {
-      setFormResponse({
-        preloader: false,
-        msg: msgContent.success[0].description.description,
-        msgType: 'success',
-      });
+      setFormResponse(successSchema);
       actions.resetForm();
     }
     actions.setSubmitting(false);
+    return false;
   };
 
   const formFieldList = form.map(
@@ -68,6 +89,7 @@ const ContactForm = ({ form, messages }) => {
       error1,
       maxLength,
       error2,
+      additionalData,
     }) => {
       if (type === 'text' || type === 'textarea' || type === 'email') {
         initialValues[nameAttribute] = '';
@@ -96,6 +118,7 @@ const ContactForm = ({ form, messages }) => {
             name={nameAttribute}
             placeholder={placeholder}
             errorMsg={error1}
+            additionalData={additionalData}
           />
         );
       }

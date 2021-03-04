@@ -30,6 +30,9 @@ export const GlobalStyle = createGlobalStyle`
       font-family: 'Lora', sans-serif;
       font-weight: 500;
   }
+  .grecaptcha-badge {
+    visibility: hidden;
+  }
   a {
     text-decoration: none;
     color: ${colors.lightRed};

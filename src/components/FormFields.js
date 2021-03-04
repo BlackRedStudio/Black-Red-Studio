@@ -42,18 +42,25 @@ export const TextInput = ({
   );
 };
 
-export const Checkbox = ({ name, placeholder, errorMsg }) => {
+export const Checkbox = ({ name, placeholder, errorMsg, additionalData }) => {
   const validate = (value) => {
     if (!value) return errorMsg;
     return null;
   };
-  const [field] = useField({ name, type: 'checkbox', validate });
+  const [field] = useField({ name, validate });
 
   return (
     <FormInputWrapperS>
       <LabelS>
         <CheckboxS {...field} type="checkbox" name={name} />
         <span dangerouslySetInnerHTML={{ __html: placeholder }} />
+        {additionalData && (
+          <>
+            <br />
+            <br />
+            <span dangerouslySetInnerHTML={{ __html: additionalData }} />
+          </>
+        )}
       </LabelS>
       <ErrorMessage component={ErrorS} name={name} />
     </FormInputWrapperS>
