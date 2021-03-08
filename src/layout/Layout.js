@@ -6,6 +6,7 @@ import '@fontsource/lora/500.css';
 import '@fontsource/lora/700.css';
 import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 import Header from './Header/Header';
+import Footer from './Footer';
 import LangContext from '../contexts/LangContext';
 import { GlobalStyle } from '../styles/GlobalStyles';
 import { defaultLangKey, languages } from '../utils/language-helper';
@@ -20,7 +21,7 @@ const Layout = ({ children }) => {
         <GlobalStyle />
         <Header />
         <main>{children}</main>
-        <footer>asdasd</footer>
+        <Footer />
       </GoogleReCaptchaProvider>
     </LangContext.Provider>
   );

@@ -6,4 +6,5 @@ export default {
   lightGray: '#f8f8f8',
   gray: '#eee',
   darkGray: '#cacece',
+  darkGrayAlt: '#808080',
 };
