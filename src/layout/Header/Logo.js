@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import { LogoContainerS, LogoS } from '../../styles/LogoStyles';
+import { LogoContainerS, LogoS } from '../../styles/HeaderStyles';
 
 const Logo = () => {
   const data = useStaticQuery(graphql`
