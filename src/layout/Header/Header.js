@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import { ContainerS } from '../../styles/ContainerStyles';
 import { HeaderContainerS } from '../../styles/HeaderStyles';
 import LangSwitcher from './LangSwitcher';
@@ -6,23 +6,23 @@ import Logo from './Logo';
 import Nav from './Nav';
 
 const Header = () => {
-  const headerRef = useRef(null);
-
-  const checkScrollPosition = (body) => {
+  const checkScrollPosition = (body, header) => {
     if (body[0].scrollTop > window.innerHeight)
-      headerRef.current.classList.add('scrolled');
-    else headerRef.current.classList.remove('scrolled');
+      header[0].classList.add('scrolled');
+    else header[0].classList.remove('scrolled');
   };
 
   useEffect(() => {
     const body = document.getElementsByTagName('html');
-    checkScrollPosition(body);
+    const header = document.getElementsByTagName('header');
+    checkScrollPosition(body, header);
     window.addEventListener('scroll', () => {
-      checkScrollPosition(body);
+      checkScrollPosition(body, header);
     });
-  });
+  }, []);
+
   return (
-    <HeaderContainerS ref={headerRef}>
+    <HeaderContainerS>
       <ContainerS flex>
         <Logo />
         <Nav />
