@@ -12,6 +12,7 @@ import ProcessLine from '../components/homepage/ProcessLine';
 import WorkWith from '../components/homepage/WorkWith';
 import PortfolioGallery from '../components/homepage/PortfolioGallery';
 import HomepageContact from '../components/homepage/HomepageContact';
+import Modal from '../components/Modal';
 
 const Homepage = ({ data }) => {
   const {
@@ -38,6 +39,7 @@ const Homepage = ({ data }) => {
     addressData,
     formBackground,
     messages,
+    modals: { modalTitle, modalName, modalDescription, modalButton },
   } = data.contentfulHomepage;
   return (
     <Layout>
@@ -71,6 +73,12 @@ const Homepage = ({ data }) => {
         addressData={addressData}
         background={formBackground}
         messages={messages}
+      />
+      <Modal
+        modalName={modalName}
+        modalHeader={modalTitle}
+        modalDescription={modalDescription.fields.htmlData}
+        modalButton={modalButton}
       />
     </Layout>
   );
@@ -214,6 +222,16 @@ export const query = graphql`
             }
           }
         }
+      }
+      modals {
+        modalTitle
+        modalName
+        modalDescription {
+          fields {
+            htmlData
+          }
+        }
+        modalButton
       }
     }
   }

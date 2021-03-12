@@ -6,7 +6,10 @@ const html = require('remark-html');
 exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions;
   const dataToConvert =
-    node.description || node.addressData || node.contactFooter;
+    node.description ||
+    node.addressData ||
+    node.contactFooter ||
+    node.modalDescription;
   if (
     node.internal.mediaType === `text/markdown` &&
     dataToConvert !== undefined

@@ -36,6 +36,8 @@ export const HeaderContainerS = styled.header`
   transition: transform 0.35s linear;
   &.scrolled {
     background: #fff;
+    padding-top: 5px;
+    padding-bottom: 5px;
     h1 img:first-child {
       display: initial;
     }

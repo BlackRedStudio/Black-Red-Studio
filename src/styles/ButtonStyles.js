@@ -48,6 +48,14 @@ export const ButtonS = styled.span`
             background-image: ${vars.linearGradientInverted};
           }
       `;
+      if (elType === 'black')
+        return `
+          color: #fff;
+          background: #000;
+          :hover {
+            background: ${colors.lightBlack};
+          }
+      `;
       return `
           border: 2px solid ${colors.darkRed};
           color: ${colors.red};

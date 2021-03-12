@@ -42,6 +42,6 @@ export const OfferTitleS = styled.h3`
 `;
 export const OfferDescriptionS = styled.p`
   @media (${media.small}) {
-    height: 50px;
+    height: 70px;
   }
 `;

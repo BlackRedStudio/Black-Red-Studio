@@ -18,6 +18,9 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 1.6rem;
     background-color: ${colors.lightGray};
   }
+  .overflow {
+    overflow: hidden;
+  }
   h1 {
     margin: 0;
   }
