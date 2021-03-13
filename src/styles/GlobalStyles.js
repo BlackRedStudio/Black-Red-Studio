@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-import { colors } from './styles-utils';
+import { media, colors } from './styles-utils';
 
 export const GlobalStyle = createGlobalStyle`
   *, *::before, *::after {
@@ -23,6 +23,12 @@ export const GlobalStyle = createGlobalStyle`
   }
   h1 {
     margin: 0;
+  }
+  h2 {
+    font-size: 3.0rem;
+    @media(${media.large}) {
+      font-size: 6.0rem;
+    }
   }
   p {
     margin: 0;

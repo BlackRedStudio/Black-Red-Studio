@@ -1,15 +1,11 @@
 import styled from 'styled-components';
 
-import { media, colors } from './styles-utils';
+import { colors } from './styles-utils';
 
 export const H2S = styled.h2`
-  font-size: 3rem;
   margin: 0 0 ${(p) => p.marginBottom};
   ${(p) => p.color && `color: ${p.color};`}
   text-align: ${({ align }) => align};
-  @media (${media.large}) {
-    font-size: 6rem;
-  }
 `;
 
 export const PreHeaderS = styled.p`

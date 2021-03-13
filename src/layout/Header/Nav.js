@@ -7,14 +7,16 @@ const Nav = () => {
   const currentLang = useContext(LangContext);
   const data = useStaticQuery(graphql`
     query {
-      allContentfulMenuPosition {
+      allContentfulSettings {
         group(field: node_locale) {
           edges {
             node {
-              contentful_id
-              title
-              slug
-              node_locale
+              mainMenu {
+                contentful_id
+                title
+                slug
+                node_locale
+              }
             }
           }
           fieldValue
@@ -23,19 +25,20 @@ const Nav = () => {
     }
   `);
 
-const menuForCurrentLang = data.allContentfulMenuPosition.group.filter(
+  const menuForCurrentLang = data.allContentfulSettings.group.filter(
     ({ fieldValue }) => fieldValue === currentLang
   );
-
-  const menuList = menuForCurrentLang[0].edges.map(({ node }) => {
-    const locale = node.node_locale;
-    const localePrefix = locale !== 'en' ? `${locale}/` : ``;
-    return (
-      <NavLinkS key={node.contentful_id} to={`/${localePrefix}${node.slug}`}>
-        {node.title}
-      </NavLinkS>
-    );
-  });
+  const menuList = menuForCurrentLang[0].edges[0].node.mainMenu.map(
+    ({ node_locale, contentful_id, slug, title }) => {
+      const locale = node_locale;
+      const localePrefix = locale !== 'en' ? `${locale}/` : ``;
+      return (
+        <NavLinkS key={contentful_id} to={`/${localePrefix}${slug}`}>
+          {title}
+        </NavLinkS>
+      );
+    }
+  );
 
   return <NavContainerS>{menuList}</NavContainerS>;
 };
