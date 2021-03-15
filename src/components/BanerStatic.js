@@ -7,14 +7,14 @@ import {
 } from '../styles/BanerStaticStyles';
 import smoothVerticalScrolling from '../utils/smoth-scroll';
 
-const BanerStatic = () => {
+const BanerStatic = ({ headers }) => {
   const ScrollDown = () => {
     smoothVerticalScrolling(window.innerHeight, 500);
   };
   return (
     <BanerStaticS>
-      <p>Chciałbyś posiadać własną stronę internetową?</p>
-      <h2>Sprawdź naszą ofertę!</h2>
+      <p>{headers[0]}</p>
+      <h2>{headers[1]}</h2>
       <CollisionBoxS onClick={() => ScrollDown()}>
         <ScrollDownWrapperS>
           <ArrowsS />

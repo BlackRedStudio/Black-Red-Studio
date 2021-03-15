@@ -28,6 +28,8 @@ export const ContainerS = styled.div`
 export const ContainerInnerS = styled.div`
   display: flex;
   flex-wrap: wrap;
+  padding-top: ${(p) => (p.paddingTop ? `${p.paddingTop}px` : `0`)};
+  padding-bottom: ${(p) => (p.paddingBottom ? `${p.paddingBottom}px` : `0`)};
   > div {
     width: 100%;
     ${(p) => {
@@ -59,4 +61,14 @@ export const ContainerInnerS = styled.div`
       `;
     }}
   }
+`;
+export const BoxS = styled.div`
+  font-size: ${(p) => (p.fontSize ? p.fontSize : `1.6rem`)};
+  display: flex;
+  padding: ${(p) => (p.padding ? p.padding : `0`)};
+  align-items: ${(p) => (p.alignItems ? p.alignItems : `flex-start`)};
+  justify-content: ${(p) =>
+    p.justifyContent ? p.justifyContent : `flex-start`};
+  letter-spacing: ${(p) => (p.letterSpacing ? p.letterSpacing : `normal`)};
+  line-height: ${(p) => (p.lineHeight ? p.lineHeight : `normal`)};
 `;

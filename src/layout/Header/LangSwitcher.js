@@ -115,7 +115,7 @@ const LangSwitcher = () => {
     const slugLink = slugIndex !== null ? slugsArr[lang][slugIndex] : '';
     let link = langPrefix;
     // if is not a homepage
-    if (currUrlArr[0] !== '') link += `${categorySlugLink} / ${slugLink}`;
+    if (currUrlArr[0] !== '') link += `${categorySlugLink}/${slugLink}`;
 
     return {
       langKey: lang,
