@@ -1,6 +1,5 @@
 const smoothVerticalScrolling = (distance, time) => {
-  const top = distance;
-  const amplitude = top / 200;
+  const amplitude = (distance - window.scrollY) / 100;
   let curTime = 0;
   while (curTime <= time) {
     window.setTimeout(() => window.scrollBy(0, amplitude), curTime);

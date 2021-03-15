@@ -7,8 +7,7 @@ import Nav from './Nav';
 
 const Header = () => {
   const checkScrollPosition = (body, header) => {
-    if (body[0].scrollTop > window.innerHeight)
-      header[0].classList.add('scrolled');
+    if (body[0].scrollTop > 150) header[0].classList.add('scrolled');
     else header[0].classList.remove('scrolled');
   };
 
