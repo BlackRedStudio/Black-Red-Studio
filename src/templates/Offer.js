@@ -26,7 +26,7 @@ const Offer = ({ data }) => {
           <BoxS
             fontSize="2rem"
             alignItems="center"
-            padding="0 15px 0 0"
+            padding="0 30px 0 0"
             lineHeight="1.2"
             letterSpacing=".5px"
           >
@@ -43,7 +43,7 @@ const Offer = ({ data }) => {
           <BoxS
             fontSize="2rem"
             alignItems="center"
-            padding="0 0 0 15px"
+            padding="0 0 0 30px"
             lineHeight="1.2"
             letterSpacing=".5px"
           >
@@ -91,6 +91,7 @@ export const query = graphql`
       offer {
         contentful_id
         title
+        slug
         shortDescription {
           shortDescription
         }

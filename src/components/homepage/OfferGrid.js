@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
+import LangContext from '../../contexts/LangContext';
 import Button from '../Button';
 import H2 from '../H2';
 import {
@@ -12,10 +13,12 @@ import {
 } from '../../styles/OfferGridStyles';
 
 const OfferGrid = ({ offer, header }) => {
+  const currentLang = useContext(LangContext);
   const offerList = offer.map((singleOffer) => {
     const {
       contentful_id,
       title,
+      slug,
       shortDescription: { shortDescription },
       image: {
         localFile: { url },
@@ -26,7 +29,11 @@ const OfferGrid = ({ offer, header }) => {
         <OfferImgS src={url} />
         <OfferTitleS>{title}</OfferTitleS>
         <OfferDescriptionS>{shortDescription}</OfferDescriptionS>
-        <Button>Pełna oferta</Button>
+        {currentLang === 'en' ? (
+          <Button to={`offer/${slug}`}>Pełna oferta</Button>
+        ) : (
+          <Button to={`oferta/${slug}`}>Pełna oferta</Button>
+        )}
       </OfferItemS>
     );
   });

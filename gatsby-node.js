@@ -137,12 +137,14 @@ exports.createPages = async ({ graphql, actions }) => {
           .toLowerCase();
         const categorySlugIndex = categorySlugsArr.en.indexOf(entryType);
         const categorySlug = `${categorySlugsArr[locale][categorySlugIndex]}/`;
-        const slug = localePrefix + categorySlug + node.slug.trim();
+        const pageSlug = node.slug.trim();
+        const slug = localePrefix + categorySlug + pageSlug;
         createPage({
           path: slug,
           component: path.resolve(`src/templates/${template}.js`),
           context: {
             locale,
+            pageSlug,
           },
         });
       });

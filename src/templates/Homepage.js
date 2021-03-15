@@ -118,6 +118,7 @@ export const query = graphql`
       offer {
         contentful_id
         title
+        slug
         shortDescription {
           shortDescription
         }
