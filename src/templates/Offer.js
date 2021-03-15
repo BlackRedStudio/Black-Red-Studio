@@ -8,7 +8,7 @@ import OfferGrid from '../components/homepage/OfferGrid';
 import { ContainerInnerS, ContainerS, BoxS } from '../styles/ContainerStyles';
 
 const Offer = ({ data }) => {
-  const { offerHeader, offer } = data.contentfulHomepage;
+  const { offerHeader, offer, offerButton } = data.contentfulHomepage;
   const {
     title,
     headerMainTitle,
@@ -50,7 +50,11 @@ const Offer = ({ data }) => {
             {descriptionRow2}
           </BoxS>
         </ContainerInnerS>
-        <OfferGrid offer={offer} header={offerHeader} />
+        <OfferGrid
+          offer={offer}
+          header={offerHeader}
+          offerButton={offerButton}
+        />
       </ContainerS>
     </Layout>
   );
@@ -101,6 +105,7 @@ export const query = graphql`
           }
         }
       }
+      offerButton
     }
   }
 `;

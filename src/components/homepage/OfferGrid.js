@@ -12,8 +12,15 @@ import {
   OfferDescriptionS,
 } from '../../styles/OfferGridStyles';
 
-const OfferGrid = ({ offer, header }) => {
+const OfferGrid = ({ offer, header, offerButton, isHomepage }) => {
   const currentLang = useContext(LangContext);
+
+  const extraUrlAssign = () => {
+    if (isHomepage) return currentLang === 'pl' ? 'oferta/' : 'offer/';
+    return '';
+  };
+  const extraUrl = extraUrlAssign();
+
   const offerList = offer.map((singleOffer) => {
     const {
       contentful_id,
@@ -29,11 +36,7 @@ const OfferGrid = ({ offer, header }) => {
         <OfferImgS src={url} />
         <OfferTitleS>{title}</OfferTitleS>
         <OfferDescriptionS>{shortDescription}</OfferDescriptionS>
-        {currentLang === 'en' ? (
-          <Button to={`offer/${slug}`}>Pełna oferta</Button>
-        ) : (
-          <Button to={`oferta/${slug}`}>Pełna oferta</Button>
-        )}
+        <Button to={extraUrl + slug}>{offerButton}</Button>
       </OfferItemS>
     );
   });

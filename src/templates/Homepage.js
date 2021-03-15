@@ -25,6 +25,7 @@ const Homepage = ({ data }) => {
     banersMiddle,
     offerHeader,
     offer,
+    offerButton,
     technologiesHeader,
     technologies,
     processHeader,
@@ -52,7 +53,12 @@ const Homepage = ({ data }) => {
       <ContainerS>
         <IntroText text={believeInPerfection} />
         <BanersMiddleSection text={textBanersMiddle} baners={banersMiddle} />
-        <OfferGrid offer={offer} header={offerHeader} />
+        <OfferGrid
+          offer={offer}
+          header={offerHeader}
+          offerButton={offerButton}
+          isHomepage
+        />
         <TechnologiesSlider
           technologies={technologies}
           header={technologiesHeader}
@@ -128,6 +134,7 @@ export const query = graphql`
           }
         }
       }
+      offerButton
       technologiesHeader
       technologies {
         contentful_id
