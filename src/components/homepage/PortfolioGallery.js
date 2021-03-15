@@ -8,8 +8,9 @@ import {
   PortfolioContainerS,
   PortfolioItemWrapperS,
 } from '../../styles/PortfolioGalleryStyles';
+import H3 from '../H3';
 
-const PortfolioGallery = ({ portfolio, header, button }) => {
+const PortfolioGallery = ({ portfolio, header, button, smallHeader }) => {
   const PortfolioList = portfolio.map((singlePortfolio) => (
     <PortfolioGalleryItem
       key={singlePortfolio.contentful_id}
@@ -19,11 +20,22 @@ const PortfolioGallery = ({ portfolio, header, button }) => {
 
   return (
     <PortfolioContainerS>
-      <H2 preText={header[0]}>{header[1]}</H2>
+      {header && smallHeader ? (
+        <H3>{header}</H3>
+      ) : (
+        <H2 preText={header[0]}>{header[1]}</H2>
+      )}
       <PortfolioItemWrapperS>{PortfolioList}</PortfolioItemWrapperS>
-      <Button to={button[1]} elSize="big" elWidth="25%" elMargin="30px auto 0">
-        {button[0]}
-      </Button>
+      {button && (
+        <Button
+          to={button[1]}
+          elSize="big"
+          elWidth="25%"
+          elMargin="30px auto 0"
+        >
+          {button[0]}
+        </Button>
+      )}
     </PortfolioContainerS>
   );
 };

@@ -57,7 +57,6 @@ const Homepage = ({ data }) => {
           offer={offer}
           header={offerHeader}
           offerButton={offerButton}
-          isHomepage
         />
         <TechnologiesSlider
           technologies={technologies}

@@ -22,8 +22,9 @@ const Offer = ({ data }) => {
       <SEO title={title} />
       <BanerStatic headers={headerMainTitle} />
       <ContainerS>
-        <ContainerInnerS paddingTop={50} paddingBottom={50}>
+        <ContainerInnerS paddingTop={100}>
           <BoxS
+            display="flex"
             fontSize="2rem"
             alignItems="center"
             padding="0 30px 0 0"
@@ -41,6 +42,7 @@ const Offer = ({ data }) => {
             <Img fluid={imageRow2.localFile.childImageSharp.fluid} />
           </div>
           <BoxS
+            display="flex"
             fontSize="2rem"
             alignItems="center"
             padding="0 0 0 30px"

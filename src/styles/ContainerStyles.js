@@ -64,11 +64,12 @@ export const ContainerInnerS = styled.div`
 `;
 export const BoxS = styled.div`
   font-size: ${(p) => (p.fontSize ? p.fontSize : `1.6rem`)};
-  display: flex;
+  display: ${(p) => (p.display ? p.display : `block`)};
   padding: ${(p) => (p.padding ? p.padding : `0`)};
   align-items: ${(p) => (p.alignItems ? p.alignItems : `flex-start`)};
   justify-content: ${(p) =>
     p.justifyContent ? p.justifyContent : `flex-start`};
   letter-spacing: ${(p) => (p.letterSpacing ? p.letterSpacing : `normal`)};
   line-height: ${(p) => (p.lineHeight ? p.lineHeight : `normal`)};
+  flex-direction: ${(p) => (p.flexDirection ? p.flexDirection : `row`)};
 `;

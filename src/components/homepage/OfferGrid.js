@@ -12,14 +12,9 @@ import {
   OfferDescriptionS,
 } from '../../styles/OfferGridStyles';
 
-const OfferGrid = ({ offer, header, offerButton, isHomepage }) => {
+const OfferGrid = ({ offer, header, offerButton }) => {
   const currentLang = useContext(LangContext);
-
-  const extraUrlAssign = () => {
-    if (isHomepage) return currentLang === 'pl' ? 'oferta/' : 'offer/';
-    return '';
-  };
-  const extraUrl = extraUrlAssign();
+  const extraUrl = currentLang === 'pl' ? '/pl/oferta/' : '/offer/';
 
   const offerList = offer.map((singleOffer) => {
     const {

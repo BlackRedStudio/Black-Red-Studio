@@ -7,7 +7,7 @@ export const BanerStaticS = styled.div`
   background-image: ${vars.linearGradient};
   color: #fff;
   text-align: center;
-  height: 100vh;
+  height: ${(p) => (p.half ? `50vh` : `100vh`)};
   padding-top: 72px;
   display: flex;
   justify-content: center;

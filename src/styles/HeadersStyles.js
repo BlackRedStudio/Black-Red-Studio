@@ -15,3 +15,10 @@ export const PreHeaderS = styled.p`
   text-align: center;
   margin-bottom: 16px;
 `;
+
+export const H3S = styled.h3`
+  font-size: 3rem;
+  margin: 0 0 ${(p) => p.marginBottom};
+  ${(p) => p.color && `color: ${p.color};`}
+  text-align: ${({ align }) => align};
+`;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { H2S, PreHeaderS } from '../styles/H2Styles';
+import { H2S, PreHeaderS } from '../styles/HeadersStyles';
 
 const H2 = ({ children, preText, align, color, marginBottom }) => (
   <>
