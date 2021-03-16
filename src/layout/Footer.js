@@ -10,6 +10,7 @@ import {
   FooterHeaderS,
   FooterTagS,
 } from '../styles/FooterStyles';
+import { Spacer } from '../styles/HelpersStyles';
 
 const Footer = () => {
   const currentLang = useContext(LangContext);
@@ -64,6 +65,7 @@ const Footer = () => {
   ));
   return (
     <FooterContainerS>
+      <Spacer />
       <ContainerS>
         <ContainerInnerS>
           <FooterBoxS width="30%" padding="0">
@@ -82,6 +84,7 @@ const Footer = () => {
           </FooterBoxS>
         </ContainerInnerS>
       </ContainerS>
+      <Spacer />
     </FooterContainerS>
   );
 };

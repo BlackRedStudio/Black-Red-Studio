@@ -1,15 +1,5 @@
 import styled from 'styled-components';
 
-import { media, vars } from './styles-utils';
-
-export const TechnologiesContainerS = styled.section`
-  ${vars.paddingTopMedium}
-  ${vars.paddingBottomMedium}
-  @media (${media.large}) {
-    ${vars.paddingTopLarge}
-    ${vars.paddingBottomLarge}
-  }
-`;
 export const TechnologiesListViewportS = styled.div`
   overflow: hidden;
 `;

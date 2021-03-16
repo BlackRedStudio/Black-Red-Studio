@@ -5,7 +5,6 @@ import LangContext from '../contexts/LangContext';
 import H2 from './H2';
 import H3 from './H3';
 import {
-  TechnologiesContainerS,
   TechnologiesItemS,
   TechnologiesWrapperS,
   TechnologiesItemImageS,
@@ -32,14 +31,14 @@ const TechnologiesGrid = ({ technologies, header, smallHeader }) => {
     );
   });
   return (
-    <TechnologiesContainerS>
+    <section>
       {header && smallHeader ? (
         <H3>{header}</H3>
       ) : (
         <H2 preText={header[0]}>{header[1]}</H2>
       )}
       <TechnologiesWrapperS>{technologiesList}</TechnologiesWrapperS>
-    </TechnologiesContainerS>
+    </section>
   );
 };
 

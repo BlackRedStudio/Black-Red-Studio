@@ -5,13 +5,10 @@ import { media, vars } from './styles-utils';
 
 export const BannersMiddleContainerS = styled.section`
   position: relative;
-  ${vars.paddingTopMedium}
-  @media(${media.large}) {
-    ${vars.paddingTopLarge}
+  @media (${media.large}) {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    height: 960px;
     overflow: hidden;
   }
 `;
@@ -40,7 +37,7 @@ export const BannersMiddleImageS = styled(Img)`
 export const BannersMiddleTextWrapperS = styled.div`
   z-index: 5;
   position: absolute;
-  top: 200px;
+  top: 150px;
   margin: 0 -15px;
   opacity: 0.9;
   padding: 30px;

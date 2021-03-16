@@ -4,7 +4,6 @@ import LangContext from '../../contexts/LangContext';
 import Button from '../Button';
 import H2 from '../H2';
 import {
-  OfferGridContainerS,
   OfferListWrapperS,
   OfferItemS,
   OfferImgS,
@@ -36,10 +35,10 @@ const OfferGrid = ({ offer, header, offerButton }) => {
     );
   });
   return (
-    <OfferGridContainerS>
+    <section>
       <H2 preText={header[0]}>{header[1]}</H2>
       <OfferListWrapperS>{offerList}</OfferListWrapperS>
-    </OfferGridContainerS>
+    </section>
   );
 };
 

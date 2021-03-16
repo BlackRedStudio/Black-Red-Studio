@@ -1,11 +1,9 @@
 import styled from 'styled-components';
 
-import { media, vars } from './styles-utils';
+import { media } from './styles-utils';
 
 export const IntroTextContainerS = styled.section`
-  ${vars.paddingTopMedium}
   @media (${media.large}) {
-    ${vars.paddingTopLarge}
     display: flex;
     align-items: center;
   }

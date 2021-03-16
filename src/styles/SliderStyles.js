@@ -65,7 +65,7 @@ export const SliderImageS = styled(Img)`
   object-fit: cover;
 `;
 
-export const SliderViewportS = styled.div`
+export const SliderViewportS = styled.section`
   overflow: hidden;
 `;
 

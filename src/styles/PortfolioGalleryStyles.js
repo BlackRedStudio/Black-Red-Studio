@@ -1,16 +1,10 @@
 import styled from 'styled-components';
 import { Link } from 'gatsby';
 
-import { media, vars } from './styles-utils';
+import { vars } from './styles-utils';
 
-export const PortfolioContainerS = styled.div`
+export const PortfolioContainerS = styled.section`
   text-align: center;
-  ${vars.paddingTopMedium}
-  ${vars.paddingBottomMedium}
-    @media(${media.large}) {
-    ${vars.paddingTopLarge}
-    ${vars.paddingBottomLarge}
-  }
 `;
 export const PortfolioItemWrapperS = styled.div`
   display: flex;

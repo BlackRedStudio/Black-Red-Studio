@@ -7,7 +7,6 @@ import sliderAutoplayHook from '../../utils/slider-autoplay-hook';
 import TechnologyItem from './TechnologyItem';
 
 import {
-  TechnologiesContainerS,
   TechnologiesListWrapperS,
   TechnologiesListViewportS,
 } from '../../styles/TechnologiesSliderStyles';
@@ -27,7 +26,7 @@ const TechnologiesSlider = ({ header, technologies }) => {
     <TechnologyItem key={technology.contentful_id} technology={technology} />
   ));
   return (
-    <TechnologiesContainerS>
+    <section>
       <H2 preText={header[0]}>{header[1]}</H2>
       <div ref={elRef}>
         <TechnologiesListViewportS ref={emblaRef}>
@@ -36,7 +35,7 @@ const TechnologiesSlider = ({ header, technologies }) => {
           </TechnologiesListWrapperS>
         </TechnologiesListViewportS>
       </div>
-    </TechnologiesContainerS>
+    </section>
   );
 };
 

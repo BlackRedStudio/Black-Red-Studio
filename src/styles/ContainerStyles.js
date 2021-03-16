@@ -28,8 +28,6 @@ export const ContainerS = styled.div`
 export const ContainerInnerS = styled.div`
   display: flex;
   flex-wrap: wrap;
-  padding-top: ${(p) => (p.paddingTop ? `${p.paddingTop}px` : `0`)};
-  padding-bottom: ${(p) => (p.paddingBottom ? `${p.paddingBottom}px` : `0`)};
   > div {
     width: 100%;
     ${(p) => {

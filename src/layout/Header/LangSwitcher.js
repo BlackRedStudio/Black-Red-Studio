@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link, graphql, useStaticQuery } from 'gatsby';
 
-import { LangSwitcherImageContainerS } from '../../styles/LangSwitcherStyles';
+import { LangSwitcherIconS } from '../../styles/HeaderStyles';
 import LangContext from '../../contexts/LangContext';
 import { languages, defaultLangKey } from '../../utils/language-helper';
 
@@ -126,7 +126,7 @@ const LangSwitcher = () => {
     const img = data.allContentfulAsset.edges[index].node;
     return currentLang !== lang.langKey ? (
       <Link to={lang.link} key={lang.langKey} state={{ lang: currentLang }}>
-        <LangSwitcherImageContainerS src={img.file.url} alt={img.title} />
+        <LangSwitcherIconS src={img.file.url} alt={img.title} />
       </Link>
     ) : null;
   });

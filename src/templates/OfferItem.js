@@ -3,10 +3,11 @@ import { graphql } from 'gatsby';
 import Layout from '../layout/Layout';
 import SEO from '../layout/Seo';
 import BanerStatic from '../components/BanerStatic';
-import { ImageS } from '../styles/OfferStyles';
-import { BoxS, ContainerInnerS, ContainerS } from '../styles/ContainerStyles';
 import PortfolioGallery from '../components/homepage/PortfolioGallery';
 import TechnologiesGrid from '../components/TechnologiesGrid';
+import { ImageS } from '../styles/OfferStyles';
+import { BoxS, ContainerInnerS, ContainerS } from '../styles/ContainerStyles';
+import { Spacer } from '../styles/HelpersStyles';
 
 const OfferItem = ({ data }) => {
   const {
@@ -25,29 +26,34 @@ const OfferItem = ({ data }) => {
       <SEO title={title} />
       <BanerStatic headers={title} half />
       <ContainerS>
-        <ContainerInnerS>
-          <BoxS padding="100px 0">
-            <ImageS src={url} alt="" />
-          </BoxS>
-          <BoxS
-            dangerouslySetInnerHTML={{ __html: htmlData }}
-            padding="100px 0"
-            fontSize="2rem"
-            display="flex"
-            justifyContent="center"
-            flexDirection="column"
-          />
-        </ContainerInnerS>
+        <Spacer heightPC="50px" heightMobile="20px" />
+        <section>
+          <ContainerInnerS>
+            <BoxS>
+              <ImageS src={url} alt="" />
+            </BoxS>
+            <BoxS
+              dangerouslySetInnerHTML={{ __html: htmlData }}
+              fontSize="2rem"
+              display="flex"
+              justifyContent="center"
+              flexDirection="column"
+            />
+          </ContainerInnerS>
+        </section>
+        <Spacer heightPC="50px" heightMobile="20px" />
         <TechnologiesGrid
           technologies={technologies}
           header="Powiązane technologie"
           smallHeader
         />
+        <Spacer />
         <PortfolioGallery
           portfolio={portfolio}
           header="Powiązane portfolio"
           smallHeader
         />
+        <Spacer />
       </ContainerS>
     </Layout>
   );

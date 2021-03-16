@@ -1,15 +1,7 @@
 import styled from 'styled-components';
 
-import { media, vars } from './styles-utils';
+import { media } from './styles-utils';
 
-export const TechnologiesContainerS = styled.section`
-  ${vars.paddingTopMedium}
-  ${vars.paddingBottomMedium}
-  @media (${media.large}) {
-    ${vars.paddingTopLarge}
-    ${vars.paddingBottomLarge}
-  }
-`;
 export const TechnologiesWrapperS = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -17,6 +9,11 @@ export const TechnologiesWrapperS = styled.div`
 export const TechnologiesItemS = styled.div`
   width: 33.33%;
   padding: 15px;
+  a {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
   @media (${media.large}) {
     width: 10%;
   }

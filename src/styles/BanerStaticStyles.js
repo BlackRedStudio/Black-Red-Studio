@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Arrows from '../assets/arrows.svg';
 import { vars } from './styles-utils';
 
-export const BanerStaticS = styled.div`
+export const BanerStaticS = styled.section`
   background-image: ${vars.linearGradient};
   color: #fff;
   text-align: center;

@@ -10,6 +10,7 @@ import {
   HomepageContactOverlayS,
 } from '../../styles/HomepageContactContainerStyles';
 import { ContainerS, ContainerInnerS } from '../../styles/ContainerStyles';
+import { Spacer } from '../../styles/HelpersStyles';
 
 const HomepageContact = ({
   header,
@@ -25,6 +26,7 @@ const HomepageContact = ({
   } = background;
   return (
     <HomepageContactContainerS>
+      <Spacer />
       <ContainerS>
         <H2 preText={header[0]} color="#fff" marginBottom="70px">
           {header[1]}
@@ -36,6 +38,7 @@ const HomepageContact = ({
       </ContainerS>
       <BackgroundImageS fluid={fluid} />
       <HomepageContactOverlayS />
+      <Spacer />
     </HomepageContactContainerS>
   );
 };

@@ -1,16 +1,10 @@
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 
-import { media, colors, vars } from './styles-utils';
+import { media, colors } from './styles-utils';
 
 export const FooterContainerS = styled.footer`
   background: #000;
-  ${vars.paddingTopMedium}
-  ${vars.paddingBottomMedium}
-    @media(${media.large}) {
-    ${vars.paddingTopLarge}
-    ${vars.paddingBottomLarge}
-  }
 `;
 export const FooterBoxS = styled.div`
   width: ${(p) => p.width} !important;

@@ -14,13 +14,13 @@ const ProcessLine = ({ process, header }) => {
   ));
 
   return (
-    <div>
+    <section>
       <H2 preText={header[0]}>{header[1]}</H2>
       <ProcessContainerS>
         <ProcessLineS />
         {ProcessList}
       </ProcessContainerS>
-    </div>
+    </section>
   );
 };
 

@@ -1,16 +1,10 @@
 import styled from 'styled-components';
 import Img from 'gatsby-image';
 
-import { media, vars } from './styles-utils';
+import { vars } from './styles-utils';
 
-export const HomepageContactContainerS = styled.div`
+export const HomepageContactContainerS = styled.section`
   position: relative;
-  ${vars.paddingTopMedium}
-  ${vars.paddingBottomMedium}
-    @media (${media.large}) {
-    ${vars.paddingTopLarge}
-    ${vars.paddingBottomLarge}
-  }
 `;
 
 export const BackgroundImageS = styled(Img)`

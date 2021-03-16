@@ -2,10 +2,9 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../layout/Layout';
 import SEO from '../layout/Seo';
-import { ContainerS, ContainerInnerS } from '../styles/ContainerStyles';
 import Slider from '../components/homepage/Slider';
 import IntroText from '../components/homepage/IntroText';
-import BanersMiddleSection from '../components/homepage/BanersMiddleSection';
+import BanersMiddle from '../components/homepage/BanersMiddle';
 import OfferGrid from '../components/homepage/OfferGrid';
 import TechnologiesSlider from '../components/homepage/TechnologiesSlider';
 import ProcessLine from '../components/homepage/ProcessLine';
@@ -13,6 +12,8 @@ import WorkWith from '../components/homepage/WorkWith';
 import PortfolioGallery from '../components/homepage/PortfolioGallery';
 import HomepageContact from '../components/homepage/HomepageContact';
 import Modal from '../components/Modal';
+import { ContainerS, ContainerInnerS } from '../styles/ContainerStyles';
+import { Spacer } from '../styles/HelpersStyles';
 
 const Homepage = ({ data }) => {
   const {
@@ -51,26 +52,33 @@ const Homepage = ({ data }) => {
         buttonsLinks={banersButtonsLinks}
       />
       <ContainerS>
+        <Spacer />
         <IntroText text={believeInPerfection} />
-        <BanersMiddleSection text={textBanersMiddle} baners={banersMiddle} />
+        <Spacer />
+        <BanersMiddle text={textBanersMiddle} baners={banersMiddle} />
+        <Spacer />
         <OfferGrid
           offer={offer}
           header={offerHeader}
           offerButton={offerButton}
         />
+        <Spacer />
         <TechnologiesSlider
           technologies={technologies}
           header={technologiesHeader}
         />
+        <Spacer />
         <ContainerInnerS>
           <ProcessLine process={process} header={processHeader} />
           <WorkWith workWith={workWith} header={workWithHeader} />
         </ContainerInnerS>
+        <Spacer />
         <PortfolioGallery
           portfolio={portfolioGallery}
           header={portfolioHeader}
           button={portfolioButton}
         />
+        <Spacer />
       </ContainerS>
       <HomepageContact
         header={contactHeader}

@@ -1,15 +1,7 @@
 import styled from 'styled-components';
 
-import { media, vars } from './styles-utils';
+import { media } from './styles-utils';
 
-export const OfferGridContainerS = styled.section`
-  ${vars.paddingTopMedium}
-  ${vars.paddingBottomMedium}
-  @media (${media.large}) {
-    ${vars.paddingTopLarge}
-    ${vars.paddingBottomLarge}
-  }
-`;
 export const OfferListWrapperS = styled.div`
   text-align: center;
   @media (${media.small}) {

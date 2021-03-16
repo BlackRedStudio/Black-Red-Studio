@@ -7,7 +7,7 @@ import {
   BannersMiddleTextS,
 } from '../../styles/BannersMiddleStyles';
 
-const BanersMiddleSection = ({ text, baners }) => (
+const BanersMiddle = ({ text, baners }) => (
   <BannersMiddleContainerS>
     <div>
       <BannersMiddleImageS
@@ -41,4 +41,4 @@ const BanersMiddleSection = ({ text, baners }) => (
   </BannersMiddleContainerS>
 );
 
-export default BanersMiddleSection;
+export default BanersMiddle;
