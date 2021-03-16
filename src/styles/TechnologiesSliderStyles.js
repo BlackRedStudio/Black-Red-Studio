@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 
+export const TechnologiesContainerS = styled.section`
+  text-align: center;
+`;
 export const TechnologiesListViewportS = styled.div`
   overflow: hidden;
 `;

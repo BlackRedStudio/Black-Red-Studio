@@ -29,6 +29,7 @@ const Homepage = ({ data }) => {
     offerButton,
     technologiesHeader,
     technologies,
+    technologiesButton,
     processHeader,
     process,
     workWithHeader,
@@ -66,6 +67,7 @@ const Homepage = ({ data }) => {
         <TechnologiesSlider
           technologies={technologies}
           header={technologiesHeader}
+          technologiesButton={technologiesButton}
         />
         <Spacer />
         <ContainerInnerS>
@@ -155,6 +157,7 @@ export const query = graphql`
           }
         }
       }
+      technologiesButton
       processHeader
       process {
         contentful_id

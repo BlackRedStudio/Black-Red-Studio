@@ -10,6 +10,7 @@ import { BoxS, ContainerInnerS, ContainerS } from '../styles/ContainerStyles';
 import { Spacer } from '../styles/HelpersStyles';
 
 const OfferItem = ({ data }) => {
+  const { offerItemHeaders } = data.contentfulOfferPage;
   const {
     title,
     description: {
@@ -29,7 +30,7 @@ const OfferItem = ({ data }) => {
         <Spacer heightPC="50px" heightMobile="20px" />
         <section>
           <ContainerInnerS>
-            <BoxS>
+            <BoxS display="flex" justifyContent="center" flexDirection="column">
               <ImageS src={url} alt="" />
             </BoxS>
             <BoxS
@@ -44,13 +45,13 @@ const OfferItem = ({ data }) => {
         <Spacer heightPC="50px" heightMobile="20px" />
         <TechnologiesGrid
           technologies={technologies}
-          header="Powiązane technologie"
+          header={offerItemHeaders[0]}
           smallHeader
         />
         <Spacer />
         <PortfolioGallery
           portfolio={portfolio}
-          header="Powiązane portfolio"
+          header={offerItemHeaders[1]}
           smallHeader
         />
         <Spacer />
@@ -61,6 +62,9 @@ const OfferItem = ({ data }) => {
 
 export const query = graphql`
   query($locale: String!, $pageSlug: String!) {
+    contentfulOfferPage(node_locale: { eq: $locale }) {
+      offerItemHeaders
+    }
     contentfulOffer(node_locale: { eq: $locale }, slug: { eq: $pageSlug }) {
       title
       description {

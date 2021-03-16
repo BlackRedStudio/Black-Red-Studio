@@ -13,7 +13,7 @@ import {
 const TechnologiesGrid = ({ technologies, header, smallHeader }) => {
   const currentLang = useContext(LangContext);
   const extraUrl = currentLang === 'pl' ? '/pl/technologie/' : '/technologies/';
-  const technologiesList = technologies.map((technology) => {
+  const technologiesList = technologies.map(technology => {
     const {
       contentful_id,
       title,
@@ -32,11 +32,9 @@ const TechnologiesGrid = ({ technologies, header, smallHeader }) => {
   });
   return (
     <section>
-      {header && smallHeader ? (
-        <H3>{header}</H3>
-      ) : (
-        <H2 preText={header[0]}>{header[1]}</H2>
-      )}
+      {smallHeader
+        ? header && <H3>{header}</H3>
+        : header && <H2 preText={header[0]}>{header[1]}</H2>}
       <TechnologiesWrapperS>{technologiesList}</TechnologiesWrapperS>
     </section>
   );

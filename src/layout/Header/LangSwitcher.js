@@ -83,15 +83,14 @@ const LangSwitcher = () => {
   const technologies = data.allContentfulTechnologies.group;
   const portfolio = data.allContentfulPortfolio.group;
   const menuPosition = data.allContentfulMenuPosition.group;
-
   // Build slug array grouped by languages
   for (let i = 0; i < offer.length; i++) {
     const langName = offer[i].fieldValue;
     slugsArr[langName] = [
-      ...offer[i].edges.map((v) => v.node.slug),
-      ...technologies[i].edges.map((v) => v.node.slug),
-      ...portfolio[i].edges.map((v) => v.node.slug),
-      ...menuPosition[i].edges.map((v) => v.node.slug),
+      ...offer[i].edges.map(v => v.node.slug),
+      ...technologies[i].edges.map(v => v.node.slug),
+      ...portfolio[i].edges.map(v => v.node.slug),
+      ...menuPosition[i].edges.map(v => v.node.slug),
     ];
     categorySlugsArr[langName] =
       categorySlugList[i].edges[0].node.categorySlugList;
@@ -103,13 +102,13 @@ const LangSwitcher = () => {
     homeLink === '/' ? defaultLangKey : homeLink.replaceAll('/', '');
   // find index for slug that is indexed for all languages
   const categorySlugIndex = categorySlugsArr[currLang].findIndex(
-    (slug) => slug === currUrlArr[0]
+    slug => slug === currUrlArr[0]
   );
   let slugIndex = null;
   if (currUrlArr[1])
-    slugIndex = slugsArr[currLang].findIndex((slug) => slug === currUrlArr[1]);
+    slugIndex = slugsArr[currLang].findIndex(slug => slug === currUrlArr[1]);
 
-  const langsMenu = languages.map((lang) => {
+  const langsMenu = languages.map(lang => {
     const langPrefix = lang === defaultLangKey ? '/' : `/${lang}/`;
     const categorySlugLink = categorySlugsArr[lang][categorySlugIndex];
     const slugLink = slugIndex !== null ? slugsArr[lang][slugIndex] : '';

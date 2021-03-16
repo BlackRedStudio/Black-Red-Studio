@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import LangContext from '../../contexts/LangContext';
 import Button from '../Button';
 import H2 from '../H2';
+import H3 from '../H3';
 import {
   OfferListWrapperS,
   OfferItemS,
@@ -11,11 +12,11 @@ import {
   OfferDescriptionS,
 } from '../../styles/OfferGridStyles';
 
-const OfferGrid = ({ offer, header, offerButton }) => {
+const OfferGrid = ({ offer, header, offerButton, smallHeader }) => {
   const currentLang = useContext(LangContext);
   const extraUrl = currentLang === 'pl' ? '/pl/oferta/' : '/offer/';
 
-  const offerList = offer.map((singleOffer) => {
+  const offerList = offer.map(singleOffer => {
     const {
       contentful_id,
       title,
@@ -36,7 +37,11 @@ const OfferGrid = ({ offer, header, offerButton }) => {
   });
   return (
     <section>
-      <H2 preText={header[0]}>{header[1]}</H2>
+      {header && smallHeader ? (
+        <H3>{header}</H3>
+      ) : (
+        <H2 preText={header[0]}>{header[1]}</H2>
+      )}
       <OfferListWrapperS>{offerList}</OfferListWrapperS>
     </section>
   );
