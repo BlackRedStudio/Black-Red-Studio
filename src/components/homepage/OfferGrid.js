@@ -15,7 +15,6 @@ import {
 const OfferGrid = ({ offer, header, offerButton, smallHeader }) => {
   const currentLang = useContext(LangContext);
   const extraUrl = currentLang === 'pl' ? '/pl/oferta/' : '/offer/';
-
   const offerList = offer.map(singleOffer => {
     const {
       contentful_id,
@@ -37,11 +36,9 @@ const OfferGrid = ({ offer, header, offerButton, smallHeader }) => {
   });
   return (
     <section>
-      {header && smallHeader ? (
-        <H3>{header}</H3>
-      ) : (
-        <H2 preText={header[0]}>{header[1]}</H2>
-      )}
+      {smallHeader
+        ? header && <H3>{header}</H3>
+        : header && <H2 preText={header[0]}>{header[1]}</H2>}
       <OfferListWrapperS>{offerList}</OfferListWrapperS>
     </section>
   );

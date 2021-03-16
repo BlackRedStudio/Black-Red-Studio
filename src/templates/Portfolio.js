@@ -9,22 +9,17 @@ import { Spacer } from '../styles/HelpersStyles';
 
 const Portfolios = ({ data }) => {
   const {
-    portfolioHeader,
-    portfolioGallery,
-    portfolioButton,
-  } = data.contentfulHomepage;
-  const { title, headerMainTitle } = data.contentfulPortfolioPage;
+    title,
+    headerMainTitle,
+    portfolioToShow,
+  } = data.contentfulPortfolioPage;
   return (
     <Layout>
       <SEO title={title} />
       <BanerStatic headers={headerMainTitle} />
       <ContainerS>
         <Spacer />
-        <PortfolioGallery
-          portfolio={portfolioGallery}
-          header={portfolioHeader}
-          button={portfolioButton}
-        />
+        <PortfolioGallery portfolio={portfolioToShow} />
         <Spacer />
       </ContainerS>
     </Layout>
@@ -33,10 +28,13 @@ const Portfolios = ({ data }) => {
 
 export const query = graphql`
   query($locale: String!) {
-    contentfulHomepage(node_locale: { eq: $locale }) {
-      portfolioHeader
-      portfolioGallery {
+    contentfulPortfolioPage(node_locale: { eq: $locale }) {
+      title
+      headerMainTitle
+      portfolioToShow {
         contentful_id
+        title
+        slug
         images {
           localFile {
             childImageSharp {
@@ -46,16 +44,10 @@ export const query = graphql`
             }
           }
         }
-        title
         shortDescription {
           shortDescription
         }
       }
-      portfolioButton
-    }
-    contentfulPortfolioPage(node_locale: { eq: $locale }) {
-      title
-      headerMainTitle
     }
   }
 `;

@@ -148,6 +148,7 @@ export const query = graphql`
       technologies {
         contentful_id
         title
+        slug
         shortDescription {
           shortDescription
         }
@@ -193,6 +194,8 @@ export const query = graphql`
       portfolioHeader
       portfolioGallery {
         contentful_id
+        title
+        slug
         images {
           localFile {
             childImageSharp {
@@ -202,7 +205,6 @@ export const query = graphql`
             }
           }
         }
-        title
         shortDescription {
           shortDescription
         }

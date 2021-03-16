@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'gatsby';
-import LangContext from '../contexts/LangContext';
 
+import LangContext from '../contexts/LangContext';
 import H2 from './H2';
 import H3 from './H3';
 import {

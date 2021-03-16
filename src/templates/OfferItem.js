@@ -79,6 +79,8 @@ export const query = graphql`
       }
       portfolio {
         contentful_id
+        title
+        slug
         images {
           localFile {
             childImageSharp {
@@ -88,7 +90,6 @@ export const query = graphql`
             }
           }
         }
-        title
         shortDescription {
           shortDescription
         }

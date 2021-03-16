@@ -1,17 +1,16 @@
 import React from 'react';
 
 import H2 from '../H2';
+import H3 from '../H3';
 import Button from '../Button';
 import PortfolioGalleryItem from './PortfolioGalleryItem';
-
 import {
   PortfolioContainerS,
   PortfolioItemWrapperS,
 } from '../../styles/PortfolioGalleryStyles';
-import H3 from '../H3';
 
 const PortfolioGallery = ({ portfolio, header, button, smallHeader }) => {
-  const PortfolioList = portfolio.map((singlePortfolio) => (
+  const PortfolioList = portfolio.map(singlePortfolio => (
     <PortfolioGalleryItem
       key={singlePortfolio.contentful_id}
       portfolio={singlePortfolio}
@@ -20,11 +19,9 @@ const PortfolioGallery = ({ portfolio, header, button, smallHeader }) => {
 
   return (
     <PortfolioContainerS>
-      {header && smallHeader ? (
-        <H3>{header}</H3>
-      ) : (
-        <H2 preText={header[0]}>{header[1]}</H2>
-      )}
+      {smallHeader
+        ? header && <H3>{header}</H3>
+        : header && <H2 preText={header[0]}>{header[1]}</H2>}
       <PortfolioItemWrapperS>{PortfolioList}</PortfolioItemWrapperS>
       {button && (
         <Button

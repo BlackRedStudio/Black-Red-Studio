@@ -1,7 +1,7 @@
-import React from 'react';
-
+import React, { useContext } from 'react';
 import Img from 'gatsby-image';
 
+import LangContext from '../../contexts/LangContext';
 import {
   PortfolioItemS,
   PortfolioItemImageWrapperS,
@@ -9,8 +9,11 @@ import {
 } from '../../styles/PortfolioGalleryStyles';
 
 const PortfolioGalleryItem = ({ portfolio }) => {
+  const currentLang = useContext(LangContext);
+  const extraUrl = currentLang === 'pl' ? '/pl/portfolio/' : '/portfolio/';
   const {
     title,
+    slug,
     shortDescription: { shortDescription },
     images,
   } = portfolio;
@@ -23,7 +26,7 @@ const PortfolioGalleryItem = ({ portfolio }) => {
 
   return (
     <PortfolioItemS>
-      <PortfolioItemImageWrapperS to="/">
+      <PortfolioItemImageWrapperS to={extraUrl + slug}>
         <Img fluid={fluid} alt={title} />
         <PortfolioHiddenDescS>
           <p>

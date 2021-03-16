@@ -1,3 +1,4 @@
+import { Link } from 'gatsby';
 import styled from 'styled-components';
 
 export const TechnologiesContainerS = styled.section`
@@ -10,7 +11,7 @@ export const TechnologiesListWrapperS = styled.div`
   display: flex;
   align-items: center;
 `;
-export const TechnologyItemS = styled.div`
+export const TechnologyItemS = styled(Link)`
   position: relative;
   min-width: 20%;
   width: 20%;

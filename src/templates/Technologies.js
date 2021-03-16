@@ -34,6 +34,7 @@ export const query = graphql`
       technologiesToShow {
         contentful_id
         title
+        slug
         shortDescription {
           shortDescription
         }
