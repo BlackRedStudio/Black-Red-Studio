@@ -15,9 +15,10 @@ export const TextInput = ({
   name,
   placeholder,
   type,
+  templateAlt,
   validateProps: { minLength, error1, maxLength, error2 },
 }) => {
-  const validate = (value) => {
+  const validate = value => {
     if (type === 'email') {
       if (!value) return error1;
       if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value))
@@ -31,19 +32,38 @@ export const TextInput = ({
   const [field] = useField({ name, validate });
   return (
     <FormInputWrapperS>
-      <LabelS htmlFor={name}>{label}</LabelS>
+      <LabelS htmlFor={name} templateAlt={templateAlt}>
+        {label}
+      </LabelS>
       {type !== 'textarea' ? (
-        <InputS {...field} type={type} placeholder={placeholder} />
+        <InputS
+          {...field}
+          type={type}
+          placeholder={placeholder}
+          templateAlt={templateAlt}
+        />
       ) : (
-        <TextareaS {...field} type={type} placeholder={placeholder} rows={10} />
+        <TextareaS
+          {...field}
+          type={type}
+          placeholder={placeholder}
+          rows={10}
+          templateAlt={templateAlt}
+        />
       )}
       <ErrorMessage component={ErrorS} name={name} />
     </FormInputWrapperS>
   );
 };
 
-export const Checkbox = ({ name, placeholder, errorMsg, additionalData }) => {
-  const validate = (value) => {
+export const Checkbox = ({
+  name,
+  placeholder,
+  errorMsg,
+  additionalData,
+  templateAlt,
+}) => {
+  const validate = value => {
     if (!value) return errorMsg;
     return null;
   };
@@ -51,8 +71,13 @@ export const Checkbox = ({ name, placeholder, errorMsg, additionalData }) => {
 
   return (
     <FormInputWrapperS>
-      <LabelS>
-        <CheckboxS {...field} type="checkbox" name={name} />
+      <LabelS templateAlt={templateAlt} align="left">
+        <CheckboxS
+          {...field}
+          type="checkbox"
+          name={name}
+          templateAlt={templateAlt}
+        />
         <span dangerouslySetInnerHTML={{ __html: placeholder }} />
         {additionalData && (
           <>

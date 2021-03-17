@@ -3,10 +3,13 @@ import { graphql } from 'gatsby';
 import Layout from '../layout/Layout';
 import SEO from '../layout/Seo';
 import BanerStatic from '../components/BanerStatic';
-import { ContainerS } from '../styles/ContainerStyles';
+import ContactForm from '../components/ContactForm';
+import AddressColumn from '../components/AddressColumn';
+import { ContainerS, ContainerInnerS } from '../styles/ContainerStyles';
 import { Spacer } from '../styles/HelpersStyles';
 
 const Contact = ({ data }) => {
+  const { form, messages, addressData } = data.contentfulHomepage;
   const { title, headerMainTitle } = data.contentfulContactPage;
   return (
     <Layout>
@@ -14,7 +17,12 @@ const Contact = ({ data }) => {
       <BanerStatic headers={headerMainTitle} />
       <ContainerS>
         <Spacer />
-        <section>asdasd</section>
+        <section>
+          <ContainerInnerS>
+            <ContactForm form={form} messages={messages} templateAlt />
+            <AddressColumn addressData={addressData} templateAlt />
+          </ContainerInnerS>
+        </section>
         <Spacer />
       </ContainerS>
     </Layout>
@@ -23,6 +31,31 @@ const Contact = ({ data }) => {
 
 export const query = graphql`
   query($locale: String!) {
+    contentfulHomepage(node_locale: { eq: $locale }) {
+      form {
+        contentful_id
+        placeholder
+        title
+        type
+        nameAttribute
+        minLength
+        error1
+        maxLength
+        error2
+        additionalData
+      }
+      messages {
+        title
+        description {
+          description
+        }
+      }
+      addressData {
+        fields {
+          htmlData
+        }
+      }
+    }
     contentfulContactPage(node_locale: { eq: $locale }) {
       title
       headerMainTitle

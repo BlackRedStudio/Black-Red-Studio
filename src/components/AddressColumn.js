@@ -1,11 +1,21 @@
 import React from 'react';
 
-import { AddressColumnS } from '../styles/HomepageContactContainerStyles';
+import { AddressColumnS } from '../styles/HomepageContactStyles';
+import Map from './Map';
 
 const AddressColumn = ({
   addressData: {
     fields: { htmlData },
   },
-}) => <AddressColumnS dangerouslySetInnerHTML={{ __html: htmlData }} />;
+  templateAlt,
+}) => (
+  <div>
+    <AddressColumnS
+      dangerouslySetInnerHTML={{ __html: htmlData }}
+      templateAlt={templateAlt}
+    />
+    {templateAlt && <Map />}
+  </div>
+);
 
 export default AddressColumn;

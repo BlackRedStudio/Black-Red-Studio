@@ -27,7 +27,15 @@ export const HomepageContactOverlayS = styled.div`
 `;
 export const AddressColumnS = styled.div`
   text-align: center;
-  color: #fff;
+  color: ${p => (p.templateAlt ? `#000` : `#fff`)};
   font-size: 1.9rem;
   padding-top: 25px;
+  a {
+    font-weight: 700;
+  }
+`;
+export const Iframe = styled.iframe`
+  border: 0;
+  margin-top: 41px;
+  padding: 0 30px;
 `;

@@ -9,7 +9,7 @@ import Button from './Button';
 import Preloader from './Preloader';
 import Notification from './Notification';
 
-const ContactForm = ({ form, messages }) => {
+const ContactForm = ({ form, messages, templateAlt }) => {
   const [formResponse, setFormResponse] = useState({
     preloader: false,
     msg: null,
@@ -26,8 +26,8 @@ const ContactForm = ({ form, messages }) => {
     const functionURL = 'https://emerald-markhor-6035.twil.io/send-email';
     const { nameSurname, email, subject, message, accept } = values;
     const msgContent = {
-      error: messages.filter((v) => v.title === 'FormFailed'),
-      success: messages.filter((v) => v.title === 'FormSuccess'),
+      error: messages.filter(v => v.title === 'FormFailed'),
+      success: messages.filter(v => v.title === 'FormSuccess'),
     };
     const errorSchema = {
       preloader: false,
@@ -101,6 +101,7 @@ const ContactForm = ({ form, messages }) => {
             name={nameAttribute}
             type={type}
             placeholder={placeholder}
+            templateAlt={templateAlt}
             validateProps={{
               minLength,
               error1,
@@ -119,6 +120,7 @@ const ContactForm = ({ form, messages }) => {
             placeholder={placeholder}
             errorMsg={error1}
             additionalData={additionalData}
+            templateAlt={templateAlt}
           />
         );
       }

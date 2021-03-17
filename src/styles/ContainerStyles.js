@@ -5,7 +5,7 @@ import { media } from './styles-utils';
 export const ContainerS = styled.div`
   padding-left: 15px;
   padding-right: 15px;
-  ${(p) =>
+  ${p =>
     p.flex &&
     `
     display: flex;
@@ -28,9 +28,10 @@ export const ContainerS = styled.div`
 export const ContainerInnerS = styled.div`
   display: flex;
   flex-wrap: wrap;
-  > div {
+  > div,
+  > section {
     width: 100%;
-    ${(p) => {
+    ${p => {
       if (p.children.length === 2)
         return `
         @media (${media.medium}) {
@@ -61,13 +62,12 @@ export const ContainerInnerS = styled.div`
   }
 `;
 export const BoxS = styled.div`
-  font-size: ${(p) => (p.fontSize ? p.fontSize : `1.6rem`)};
-  display: ${(p) => (p.display ? p.display : `block`)};
-  padding: ${(p) => (p.padding ? p.padding : `0`)};
-  align-items: ${(p) => (p.alignItems ? p.alignItems : `flex-start`)};
-  justify-content: ${(p) =>
-    p.justifyContent ? p.justifyContent : `flex-start`};
-  letter-spacing: ${(p) => (p.letterSpacing ? p.letterSpacing : `normal`)};
-  line-height: ${(p) => (p.lineHeight ? p.lineHeight : `normal`)};
-  flex-direction: ${(p) => (p.flexDirection ? p.flexDirection : `row`)};
+  font-size: ${p => (p.fontSize ? p.fontSize : `1.6rem`)};
+  display: ${p => (p.display ? p.display : `block`)};
+  padding: ${p => (p.padding ? p.padding : `0`)};
+  align-items: ${p => (p.alignItems ? p.alignItems : `flex-start`)};
+  justify-content: ${p => (p.justifyContent ? p.justifyContent : `flex-start`)};
+  letter-spacing: ${p => (p.letterSpacing ? p.letterSpacing : `normal`)};
+  line-height: ${p => (p.lineHeight ? p.lineHeight : `normal`)};
+  flex-direction: ${p => (p.flexDirection ? p.flexDirection : `row`)};
 `;

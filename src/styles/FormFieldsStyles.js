@@ -21,9 +21,25 @@ const inputStyles = `
 
 export const InputS = styled.input`
   ${inputStyles}
+  ${p =>
+    p.templateAlt &&
+    `background: #fff;
+  border-color: #d9d9d9;
+  color: #000;
+  &::placeholder {
+    color: #000;
+  }`}
 `;
 export const TextareaS = styled.textarea`
   ${inputStyles}
+  ${p =>
+    p.templateAlt &&
+    `background: #fff;
+  border-color: #d9d9d9;
+  color: #000;
+  &::placeholder {
+    color: #000;
+  }`}
 `;
 export const FormInputWrapperS = styled.div`
   margin-bottom: 30px;
@@ -31,8 +47,9 @@ export const FormInputWrapperS = styled.div`
 export const LabelS = styled.label`
   font-size: 1.4rem;
   font-weight: 700;
-  color: #fff;
-  text-align: center;
+  color: ${p => (p.templateAlt ? `#000` : `#fff`)};
+  text-align: ${p => p.align || `center`};
+  display: block;
   letter-spacing: 0.7px;
   @media (${media.medium}) {
     font-size: 1.6rem;
@@ -46,7 +63,7 @@ export const ErrorS = styled.div`
   margin-top: 3px;
 `;
 export const CheckboxS = styled.input`
-  background-color: ${colors.lightGray};
+  background-color: ${p => (p.templateAlt ? `#fff` : colors.lightGray)};
   border: 1px solid ${colors.darkGray};
   box-shadow: 0 1px 2px rgba(0 0 0 0.05),
     inset 0px -15px 10px -12px rgba(0 0 0 0.05);

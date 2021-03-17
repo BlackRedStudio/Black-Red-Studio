@@ -8,7 +8,7 @@ import {
   HomepageContactContainerS,
   BackgroundImageS,
   HomepageContactOverlayS,
-} from '../../styles/HomepageContactContainerStyles';
+} from '../../styles/HomepageContactStyles';
 import { ContainerS, ContainerInnerS } from '../../styles/ContainerStyles';
 import { Spacer } from '../../styles/HelpersStyles';
 
