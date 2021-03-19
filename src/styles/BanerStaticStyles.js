@@ -7,7 +7,7 @@ export const BanerStaticS = styled.section`
   background-image: ${vars.linearGradient};
   color: #fff;
   text-align: center;
-  height: ${(p) => (p.half ? `50vh` : `100vh`)};
+  height: ${p => (p.half ? `50vh` : `100vh`)};
   padding-top: 72px;
   display: flex;
   justify-content: center;
@@ -20,7 +20,7 @@ export const BanerStaticS = styled.section`
   }
 `;
 export const ArrowsS = styled(Arrows)`
-  width: 20px;
+  width: 40px;
   display: inline-block;
   transition: 0.35s;
 `;

@@ -7,15 +7,20 @@ import OfferGrid from '../components/homepage/OfferGrid';
 import TechnologiesGrid from '../components/TechnologiesGrid';
 import { BoxS, ContainerS } from '../styles/ContainerStyles';
 import { Spacer } from '../styles/HelpersStyles';
-import H3 from '../components/H3';
 import Slider from '../components/homepage/Slider';
+import PortfolioInfo from '../components/PortfolioInfo';
 
 const PortfolioItem = ({ data }) => {
   const { offerButton } = data.contentfulHomepage;
-  const { portfolioItemHeaders } = data.contentfulPortfolioPage;
+  const {
+    portfolioItemHeaders,
+    portfolioItemAboveInfoHeader,
+    portfolioItemInfoIcons,
+    portfolioItemInfoHeaders,
+  } = data.contentfulPortfolioPage;
   const {
     title,
-    url,
+    infoContents,
     description: {
       fields: { htmlData },
     },
@@ -29,14 +34,17 @@ const PortfolioItem = ({ data }) => {
       <SEO title={title} />
       <BanerStatic headers={title} half />
       <ContainerS>
-        <Spacer heightPC="50px" heightMobile="20px" />
+        <Spacer />
         <section>
-          <H3>
-            <a href={`https://${url}`} target="_blank" rel="noreferrer">
-              {url}
-            </a>
-          </H3>
+          <PortfolioInfo
+            aboveInfoHeadersText={portfolioItemAboveInfoHeader}
+            infoIcons={portfolioItemInfoIcons}
+            infoHeaders={portfolioItemInfoHeaders}
+            infoContents={infoContents}
+          />
+          <Spacer heightPC="50px" heightMobile="20px" />
           <Slider baners={images} noOverlay />
+          <Spacer heightPC="70px" heightMobile="40px" />
           <BoxS
             dangerouslySetInnerHTML={{ __html: htmlData }}
             fontSize="2rem"
@@ -45,7 +53,7 @@ const PortfolioItem = ({ data }) => {
             flexDirection="column"
           />
         </section>
-        <Spacer heightPC="50px" heightMobile="20px" />
+        <Spacer />
         <TechnologiesGrid
           technologies={technologies}
           header={portfolioItemHeaders[0]}
@@ -71,11 +79,18 @@ export const query = graphql`
     }
     contentfulPortfolioPage(node_locale: { eq: $locale }) {
       portfolioItemHeaders
+      portfolioItemAboveInfoHeader
+      portfolioItemInfoIcons {
+        localFile {
+          url
+        }
+      }
+      portfolioItemInfoHeaders
     }
     contentfulPortfolio(node_locale: { eq: $locale }, slug: { eq: $pageSlug }) {
       contentful_id
       title
-      url
+      infoContents
       description {
         fields {
           htmlData
