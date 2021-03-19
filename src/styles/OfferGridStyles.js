@@ -5,16 +5,13 @@ import { media } from './styles-utils';
 export const OfferListWrapperS = styled.div`
   text-align: center;
   @media (${media.small}) {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 30px;
   }
 `;
 export const OfferItemS = styled.div`
-  margin: 0 auto;
   margin-top: 40px;
-  @media (${media.small}) {
-    width: 400px;
-  }
 `;
 export const OfferImgS = styled.img`
   max-width: 70px;

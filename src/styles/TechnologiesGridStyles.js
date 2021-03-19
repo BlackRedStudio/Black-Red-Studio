@@ -3,16 +3,18 @@ import styled from 'styled-components';
 import { media } from './styles-utils';
 
 export const TechnologiesWrapperS = styled.div`
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-gap: 60px;
+  grid-template-columns: repeat(3, 1fr);
+  @media (${media.large}) {
+    grid-template-columns: repeat(10, 1fr);
+  }
 `;
 export const TechnologiesItemImageS = styled.img`
   width: 100%;
   transition: 0.35s;
 `;
 export const TechnologiesItemS = styled.div`
-  width: 33.33%;
-  padding: 30px;
   a {
     height: 100%;
     display: flex;
@@ -22,8 +24,5 @@ export const TechnologiesItemS = styled.div`
         transform: translateY(-20px);
       }
     }
-  }
-  @media (${media.large}) {
-    width: 10%;
   }
 `;

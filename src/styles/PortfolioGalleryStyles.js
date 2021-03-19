@@ -7,14 +7,12 @@ export const PortfolioContainerS = styled.section`
   text-align: center;
 `;
 export const PortfolioItemWrapperS = styled.div`
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
 `;
 export const PortfolioItemS = styled.div`
-  width: 25%;
-  padding: 10px;
   perspective: 600px;
-  margin: 0 auto;
 `;
 export const PortfolioItemImageWrapperS = styled(Link)`
   display: block;
