@@ -5,7 +5,6 @@ import { media } from './styles-utils';
 
 export const SliderItemS = styled.div`
   position: relative;
-  height: 100vh;
   min-width: 100%;
   cursor: all-scroll;
 `;

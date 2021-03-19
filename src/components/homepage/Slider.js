@@ -15,7 +15,7 @@ import {
 } from '../../styles/SliderStyles';
 import Button from '../Button';
 
-const Slider = ({ baners, buttonsTitles, buttonsLinks }) => {
+const Slider = ({ baners, buttonsTitles, buttonsLinks, noOverlay }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, speed: 5 });
 
   sliderAutoplayHook(emblaApi);
@@ -23,28 +23,30 @@ const Slider = ({ baners, buttonsTitles, buttonsLinks }) => {
   const slides = baners.map(({ contentful_id, title, localFile }) => (
     <SliderItemS key={contentful_id}>
       <SliderImageS fluid={localFile.childImageSharp.fluid} alt={title} />
-      <SliderOverlayS />
-      <SliderTextS>{title}</SliderTextS>
-      <SliderBtnWrapperS>
-        <Button
-          to={buttonsLinks[0]}
-          elType="white"
-          elSize="medium"
-          elMargin="10px 20px"
-          elWidth="170px"
-        >
-          {buttonsTitles[0]}
-        </Button>
-        <Button
-          to={buttonsLinks[1]}
-          elType="whiteFilled"
-          elSize="medium"
-          elMargin="10px 20px"
-          elWidth="170px"
-        >
-          {buttonsTitles[1]}
-        </Button>
-      </SliderBtnWrapperS>
+      {!noOverlay && <SliderOverlayS />}
+      {title && <SliderTextS>{title}</SliderTextS>}
+      {buttonsLinks && (
+        <SliderBtnWrapperS>
+          <Button
+            to={buttonsLinks[0]}
+            elType="white"
+            elSize="medium"
+            elMargin="10px 20px"
+            elWidth="170px"
+          >
+            {buttonsTitles[0]}
+          </Button>
+          <Button
+            to={buttonsLinks[1]}
+            elType="whiteFilled"
+            elSize="medium"
+            elMargin="10px 20px"
+            elWidth="170px"
+          >
+            {buttonsTitles[1]}
+          </Button>
+        </SliderBtnWrapperS>
+      )}
     </SliderItemS>
   ));
 

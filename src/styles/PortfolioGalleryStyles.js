@@ -14,6 +14,7 @@ export const PortfolioItemS = styled.div`
   width: 25%;
   padding: 10px;
   perspective: 600px;
+  margin: 0 auto;
 `;
 export const PortfolioItemImageWrapperS = styled(Link)`
   display: block;
