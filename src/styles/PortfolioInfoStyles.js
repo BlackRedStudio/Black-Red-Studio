@@ -25,6 +25,9 @@ export const PortfolioInfoTextS = styled.div`
     color: ${colors.lightBlack};
     display: block;
   }
+  span:nth-child(2) {
+    color: ${colors.lightRed};
+  }
 `;
 export const PortfolioInfoIconS = styled.img`
   width: 50px;

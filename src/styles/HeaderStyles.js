@@ -57,5 +57,6 @@ export const HeaderContainerS = styled.header`
   }
 `;
 export const LangSwitcherIconS = styled.img`
-  width: 24px;
+  width: 27px;
+  margin-top: 4px;
 `;

@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../layout/Layout';
 import SEO from '../layout/Seo';
-import Slider from '../components/homepage/Slider';
+// import Slider from '../components/homepage/Slider';
 import IntroText from '../components/homepage/IntroText';
 import BanersMiddle from '../components/homepage/BanersMiddle';
 import OfferGrid from '../components/homepage/OfferGrid';
@@ -14,11 +14,12 @@ import HomepageContact from '../components/homepage/HomepageContact';
 import Modal from '../components/Modal';
 import { ContainerS, ContainerInnerS } from '../styles/ContainerStyles';
 import { Spacer } from '../styles/HelpersStyles';
+import BanerMovie from '../components/homepage/BanerMovie';
 
 const Homepage = ({ data }) => {
   const {
     title,
-    banerMain,
+    // banerMain,
     banersButtonsTitle,
     banersButtonsLinks,
     believeInPerfection,
@@ -47,11 +48,16 @@ const Homepage = ({ data }) => {
   return (
     <Layout>
       <SEO title={title} />
-      <Slider
-        baners={banerMain}
+      <BanerMovie
+        title="Najwyższa jakość"
         buttonsTitles={banersButtonsTitle}
         buttonsLinks={banersButtonsLinks}
       />
+      {/* <Slider
+        baners={banerMain}
+        buttonsTitles={banersButtonsTitle}
+        buttonsLinks={banersButtonsLinks}
+      /> */}
       <ContainerS>
         <Spacer />
         <IntroText text={believeInPerfection} />

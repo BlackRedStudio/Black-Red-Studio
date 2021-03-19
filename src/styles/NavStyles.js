@@ -16,7 +16,7 @@ export const NavLinkS = styled(Link)`
   text-transform: uppercase;
   color: #000;
   font-weight: 800;
-  font-size: 1.9rem;
+  font-size: 2.2rem;
   border-bottom: 1px solid #eee;
   @media (${media.large}) {
     color: #fff;

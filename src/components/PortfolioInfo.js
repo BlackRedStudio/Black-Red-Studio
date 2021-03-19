@@ -22,9 +22,17 @@ const PortfolioInfo = ({
       />
       <PortfolioInfoTextS>
         <span>{infoHeaders[k]}</span>
-        <a href={`https://${infoHeaders[k]}`} target="_blank" rel="noreferrer">
-          {infoContents[k]}
-        </a>
+        {k === 0 ? (
+          <a
+            href={`https://${infoContents[k]}`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {infoContents[k]}
+          </a>
+        ) : (
+          <span>{infoContents[k]}</span>
+        )}
       </PortfolioInfoTextS>
     </PortfolioInfoItemS>
   ));

@@ -43,20 +43,6 @@ export const SliderBtnWrapperS = styled.div`
   }
 `;
 
-export const SliderOverlayS = styled.div`
-  background-image: linear-gradient(
-    -40deg,
-    #ff362e 0,
-    #f11a3a 49%,
-    #e60647 100%
-  );
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0.8;
-`;
 export const SliderImageS = styled(Img)`
   display: block;
   width: 100%;

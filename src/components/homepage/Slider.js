@@ -6,13 +6,13 @@ import sliderAutoplayHook from '../../utils/slider-autoplay-hook';
 
 import {
   SliderTextS,
-  SliderOverlayS,
   SliderBtnWrapperS,
   SliderImageS,
   SliderItemS,
   SliderViewportS,
   SliderSlidesContainerS,
 } from '../../styles/SliderStyles';
+import { SliderOverlayS } from '../../styles/HelpersStyles';
 import Button from '../Button';
 
 const Slider = ({ baners, buttonsTitles, buttonsLinks, noOverlay }) => {
