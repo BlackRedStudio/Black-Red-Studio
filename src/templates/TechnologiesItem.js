@@ -36,7 +36,7 @@ const TechnologiesItem = ({ data }) => {
             </BoxS>
             <BoxS
               dangerouslySetInnerHTML={{ __html: htmlData }}
-              fontSize="2rem"
+              fontSize="1.8rem"
               display="flex"
               justifyContent="center"
               flexDirection="column"

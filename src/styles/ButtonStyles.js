@@ -60,7 +60,6 @@ export const ButtonS = styled.span`
           border: 2px solid ${colors.darkRed};
           color: ${colors.red};
           :hover {
-            opacity: 0.8;
             background-image: ${vars.linearGradient};
             color: #fff;
           }

@@ -5,7 +5,7 @@ import SEO from '../layout/Seo';
 import BanerStatic from '../components/BanerStatic';
 import PortfolioGallery from '../components/homepage/PortfolioGallery';
 import TechnologiesGrid from '../components/TechnologiesGrid';
-import { ImageS } from '../styles/OfferStyles';
+import { ImageS, IconS } from '../styles/OfferStyles';
 import { BoxS, ContainerInnerS, ContainerS } from '../styles/ContainerStyles';
 import { Spacer } from '../styles/HelpersStyles';
 
@@ -27,22 +27,27 @@ const OfferItem = ({ data }) => {
       <SEO title={title} />
       <BanerStatic headers={title} half />
       <ContainerS>
-        <Spacer heightPC="50px" heightMobile="20px" />
+        <Spacer />
         <section>
           <ContainerInnerS>
             <BoxS display="flex" justifyContent="center" flexDirection="column">
-              <ImageS src={url} alt="" />
+              <ImageS
+                src="https://image.shutterstock.com/shutterstock/photos/1677149725/display_1500/stock-photo-cropped-view-of-ux-designer-holding-pencil-while-planning-sketch-applications-near-colleague-at-1677149725.jpg"
+                alt=""
+              />
             </BoxS>
             <BoxS
-              dangerouslySetInnerHTML={{ __html: htmlData }}
-              fontSize="2rem"
+              fontSize="1.8rem"
               display="flex"
               justifyContent="center"
               flexDirection="column"
-            />
+            >
+              <IconS src={url} alt="" />
+              <div dangerouslySetInnerHTML={{ __html: htmlData }} />
+            </BoxS>
           </ContainerInnerS>
         </section>
-        <Spacer heightPC="50px" heightMobile="20px" />
+        <Spacer />
         <TechnologiesGrid
           technologies={technologies}
           header={offerItemHeaders[0]}

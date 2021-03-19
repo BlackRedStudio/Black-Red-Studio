@@ -47,7 +47,7 @@ const PortfolioItem = ({ data }) => {
           <Spacer heightPC="70px" heightMobile="40px" />
           <BoxS
             dangerouslySetInnerHTML={{ __html: htmlData }}
-            fontSize="2rem"
+            fontSize="1.8rem"
             display="flex"
             justifyContent="center"
             flexDirection="column"
