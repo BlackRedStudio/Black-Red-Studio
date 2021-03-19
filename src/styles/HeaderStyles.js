@@ -38,6 +38,7 @@ export const HeaderContainerS = styled.header`
     background: #fff;
     padding-top: 5px;
     padding-bottom: 5px;
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.3);
     h1 img:first-child {
       display: initial;
     }
@@ -50,7 +51,6 @@ export const HeaderContainerS = styled.header`
   }
   @media (${media.large}) {
     display: block;
-    transition: background 0.35s;
     padding-top: 20px;
     padding-bottom: 20px;
     background: transparent;

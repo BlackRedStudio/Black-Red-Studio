@@ -9,7 +9,8 @@ export const CloudWrapperS = styled.div`
   top: 0;
   width: 100%;
   padding: 10px;
-  border-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
   background: ${colors.dark}dd;
   animation: opacity-transform-y 0.7s both ease-in-out;
 `;
