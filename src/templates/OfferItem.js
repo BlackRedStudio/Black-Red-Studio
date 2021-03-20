@@ -21,6 +21,7 @@ const OfferItem = ({ data }) => {
     },
     technologies,
     portfolio,
+    imageBaner,
   } = data.contentfulOffer;
   return (
     <Layout>
@@ -30,9 +31,14 @@ const OfferItem = ({ data }) => {
         <Spacer />
         <section>
           <ContainerInnerS>
-            <BoxS display="flex" justifyContent="center" flexDirection="column">
+            <BoxS
+              display="flex"
+              justifyContent="center"
+              flexDirection="column"
+              padding="0 50px 0 0"
+            >
               <ImageS
-                src="https://image.shutterstock.com/shutterstock/photos/1677149725/display_1500/stock-photo-cropped-view-of-ux-designer-holding-pencil-while-planning-sketch-applications-near-colleague-at-1677149725.jpg"
+                fluid={imageBaner.localFile.childImageSharp.fluid}
                 alt=""
               />
             </BoxS>
@@ -80,6 +86,15 @@ export const query = graphql`
       image {
         localFile {
           url
+        }
+      }
+      imageBaner {
+        localFile {
+          childImageSharp {
+            fluid(maxWidth: 650) {
+              ...GatsbyImageSharpFluid
+            }
+          }
         }
       }
       portfolio {

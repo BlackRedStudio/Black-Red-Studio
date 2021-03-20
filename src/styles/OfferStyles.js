@@ -1,10 +1,9 @@
+import Img from 'gatsby-image';
 import styled from 'styled-components';
 
-export const ImageS = styled.img`
+export const ImageS = styled(Img)`
   width: 100%;
-  padding-right: 50px;
   height: 100%;
-  object-fit: cover;
 `;
 export const IconS = styled.img`
   max-width: 250px;
