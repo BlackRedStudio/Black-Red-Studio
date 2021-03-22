@@ -1,7 +1,7 @@
 import Img from 'gatsby-image';
 import styled from 'styled-components';
 
-import { media } from './styles-utils';
+import { media, colors } from './styles-utils';
 
 export const SliderItemS = styled.div`
   position: relative;
@@ -13,7 +13,7 @@ export const SliderTextS = styled.p`
   font-family: Lora, sans-serif;
   font-size: 4rem;
   margin-bottom: 70px;
-  color: #fff;
+  color: ${colors.darkRed};
   font-weight: 300;
   position: absolute;
   top: 200px;

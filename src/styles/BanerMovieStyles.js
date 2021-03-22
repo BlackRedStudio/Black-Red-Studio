@@ -7,4 +7,5 @@ export const BanerVideoS = styled.video`
   width: 100%;
   height: 100vh;
   object-fit: cover;
+  background: #000;
 `;

@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 import Img from 'gatsby-image';
 
-import { vars } from './styles-utils';
-
 export const HomepageContactContainerS = styled.section`
   position: relative;
 `;
@@ -23,7 +21,7 @@ export const HomepageContactOverlayS = styled.div`
   width: 100%;
   opacity: 0.8;
   z-index: -1;
-  background-image: ${vars.linearGradientAlt};
+  background: rgba(0, 0, 0, 0.8);
 `;
 export const AddressColumnS = styled.div`
   text-align: center;

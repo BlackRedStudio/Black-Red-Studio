@@ -28,12 +28,21 @@ const Nav = () => {
   const menuForCurrentLang = data.allContentfulSettings.group.filter(
     ({ fieldValue }) => fieldValue === currentLang
   );
+  let site = 'default';
+  site =
+    window.location.pathname === '/' || window.location.pathname === '/pl/'
+      ? 'homepage'
+      : 'default';
   const menuList = menuForCurrentLang[0].edges[0].node.mainMenu.map(
     ({ node_locale, contentful_id, slug, title }) => {
       const locale = node_locale;
       const localePrefix = locale !== 'en' ? `${locale}/` : ``;
       return (
-        <NavLinkS key={contentful_id} to={`/${localePrefix}${slug}`}>
+        <NavLinkS
+          key={contentful_id}
+          to={`/${localePrefix}${slug}`}
+          site={site}
+        >
           {title}
         </NavLinkS>
       );

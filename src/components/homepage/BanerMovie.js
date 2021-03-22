@@ -20,7 +20,6 @@ const BanerMovie = ({ title, buttonsTitles, buttonsLinks }) => (
       <SliderBtnWrapperS>
         <Button
           to={buttonsLinks[0]}
-          elType="white"
           elSize="medium"
           elMargin="10px 20px"
           elWidth="170px"
@@ -29,7 +28,7 @@ const BanerMovie = ({ title, buttonsTitles, buttonsLinks }) => (
         </Button>
         <Button
           to={buttonsLinks[1]}
-          elType="whiteFilled"
+          elType="inverted"
           elSize="medium"
           elMargin="10px 20px"
           elWidth="170px"

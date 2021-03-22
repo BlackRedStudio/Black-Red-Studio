@@ -15,15 +15,20 @@ export const LogoS = styled.img`
   transition: 0.35s linear;
   pointer-events: none;
   padding-left: 20px;
-  display: ${({ logoTitle }) =>
-    logoTitle === 'logo-blackred-white' ? 'none' : 'initial'};
+  &:first-child {
+    display: none;
+  }
   &:hover {
     opacity: 0.8;
   }
   @media (${media.large}) {
     padding-left: 0;
-    display: ${({ logoTitle }) =>
-      logoTitle !== 'logo-blackred-white' ? 'none' : 'initial'};
+    &:first-child {
+      display: initial;
+    }
+    &:last-child {
+      display: none;
+    }
   }
 `;
 
@@ -40,10 +45,10 @@ export const HeaderContainerS = styled.header`
     padding-bottom: 5px;
     box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.3);
     h1 img:first-child {
-      display: initial;
+      display: none;
     }
     h1 img:last-child {
-      display: none;
+      display: initial;
     }
     a {
       color: #000;

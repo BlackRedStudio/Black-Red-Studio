@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'gatsby';
 
-import { media } from './styles-utils';
+import { media, colors } from './styles-utils';
 
 export const NavContainerS = styled.nav`
   @media (${media.large}) {
@@ -22,10 +22,10 @@ export const NavLinkS = styled(Link)`
     color: #fff;
     border: 0;
     letter-spacing: 0.7px;
-    transition: 0.35s;
+    transition: transform 0.35s;
     padding: 20px 15px;
     :hover {
-      opacity: 0.8;
+      color: ${p => (p.site === 'homepage' ? colors.darkRed : `#fff`)};
       transform: translateY(-7px);
     }
   }

@@ -9,7 +9,8 @@ export const Spacer = styled.div`
 `;
 
 export const SliderOverlayS = styled.div`
-  background: ${p => p.background || vars.linearGradient};
+  /* background: ${p => p.background || vars.linearGradient}; */
+  background: rgba(0, 0, 0, 0.8);
   position: absolute;
   top: 0;
   left: 0;

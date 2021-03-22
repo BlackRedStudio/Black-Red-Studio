@@ -20,19 +20,31 @@ const Logo = () => {
       }
     }
   `);
+
+  let site = 'default';
+  site =
+    window.location.pathname === '/' || window.location.pathname === '/pl/'
+      ? 'homepage'
+      : 'default';
   return (
     <div>
       <h1>
         <LogoContainerS to="/">
           {data.allContentfulAsset.edges.map(
-            ({ node: { contentful_id, title, file } }) => (
-              <LogoS
-                key={contentful_id}
-                src={file.url}
-                logoTitle={title}
-                alt={title}
-              />
-            )
+            ({ node: { contentful_id, title, file } }) => {
+              if (site === 'homepage' && title === 'logo-blackred-white-alt')
+                return false;
+              if (site === 'default' && title === 'logo-blackred-white')
+                return false;
+              return (
+                <LogoS
+                  key={contentful_id}
+                  src={file.url}
+                  logoTitle={title}
+                  alt={title}
+                />
+              );
+            }
           )}
         </LogoContainerS>
       </h1>
