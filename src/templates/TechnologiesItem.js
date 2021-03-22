@@ -5,7 +5,7 @@ import SEO from '../layout/Seo';
 import BanerStatic from '../components/BanerStatic';
 import PortfolioGallery from '../components/homepage/PortfolioGallery';
 import OfferGrid from '../components/homepage/OfferGrid';
-import { ImageS } from '../styles/OfferStyles';
+import { IconS, ImageS } from '../styles/OfferStyles';
 import { BoxS, ContainerInnerS, ContainerS } from '../styles/ContainerStyles';
 import { Spacer } from '../styles/HelpersStyles';
 
@@ -20,6 +20,7 @@ const TechnologiesItem = ({ data }) => {
     logo: {
       localFile: { url },
     },
+    imageBaner,
     offer,
     portfolio,
   } = data.contentfulTechnologies;
@@ -31,16 +32,26 @@ const TechnologiesItem = ({ data }) => {
         <Spacer heightPC="50px" heightMobile="20px" />
         <section>
           <ContainerInnerS>
-            <BoxS display="flex" justifyContent="center" flexDirection="column">
-              <ImageS src={url} alt="" />
+            <BoxS
+              display="flex"
+              justifyContent="center"
+              flexDirection="column"
+              padding="0 50px 0 0"
+            >
+              <ImageS
+                fluid={imageBaner.localFile.childImageSharp.fluid}
+                alt=""
+              />
             </BoxS>
             <BoxS
-              dangerouslySetInnerHTML={{ __html: htmlData }}
               fontSize="1.8rem"
               display="flex"
               justifyContent="center"
               flexDirection="column"
-            />
+            >
+              <IconS src={url} alt="" />
+              <div dangerouslySetInnerHTML={{ __html: htmlData }} />
+            </BoxS>
           </ContainerInnerS>
         </section>
         <Spacer heightPC="50px" heightMobile="20px" />
@@ -84,6 +95,15 @@ export const query = graphql`
       logo {
         localFile {
           url
+        }
+      }
+      imageBaner {
+        localFile {
+          childImageSharp {
+            fluid(maxWidth: 650) {
+              ...GatsbyImageSharpFluid
+            }
+          }
         }
       }
       offer {
