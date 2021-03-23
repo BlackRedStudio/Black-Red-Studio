@@ -19,7 +19,6 @@ import BanerMovie from '../components/homepage/BanerMovie';
 const Homepage = ({ data }) => {
   const {
     title,
-    // banerMain,
     banersButtonsTitle,
     banersButtonsLinks,
     believeInPerfection,
@@ -53,11 +52,6 @@ const Homepage = ({ data }) => {
         buttonsTitles={banersButtonsTitle}
         buttonsLinks={banersButtonsLinks}
       />
-      {/* <Slider
-        baners={banerMain}
-        buttonsTitles={banersButtonsTitle}
-        buttonsLinks={banersButtonsLinks}
-      /> */}
       <ContainerS>
         <Spacer />
         <IntroText text={believeInPerfection} />
@@ -109,17 +103,6 @@ export const query = graphql`
   query($locale: String!) {
     contentfulHomepage(node_locale: { eq: $locale }) {
       title
-      banerMain {
-        contentful_id
-        title
-        localFile {
-          childImageSharp {
-            fluid(maxWidth: 1920) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
       banersButtonsTitle
       banersButtonsLinks
       believeInPerfection
