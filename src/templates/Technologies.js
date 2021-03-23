@@ -38,7 +38,7 @@ export const query = graphql`
         shortDescription {
           shortDescription
         }
-        logo {
+        image {
           localFile {
             url
           }

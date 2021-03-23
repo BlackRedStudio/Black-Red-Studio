@@ -18,7 +18,7 @@ const TechnologiesGrid = ({ technologies, header, smallHeader }) => {
       contentful_id,
       title,
       slug,
-      logo: {
+      image: {
         localFile: { url },
       },
     } = technology;

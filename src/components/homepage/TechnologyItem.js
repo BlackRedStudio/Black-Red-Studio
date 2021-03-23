@@ -16,7 +16,7 @@ const TechnologyItem = ({ technology }) => {
     title,
     slug,
     shortDescription: { shortDescription },
-    logo: {
+    image: {
       localFile: { url },
     },
   } = technology;

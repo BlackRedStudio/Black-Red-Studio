@@ -5,6 +5,7 @@ import SEO from '../layout/Seo';
 import BanerStatic from '../components/BanerStatic';
 import PortfolioGallery from '../components/homepage/PortfolioGallery';
 import TechnologiesGrid from '../components/TechnologiesGrid';
+import SiblingsSwitcher from '../components/SiblingsSwitcher';
 import { ImageS, IconS } from '../styles/OfferStyles';
 import { BoxS, ContainerInnerS, ContainerS } from '../styles/ContainerStyles';
 import { Spacer } from '../styles/HelpersStyles';
@@ -27,6 +28,11 @@ const OfferItem = ({ data }) => {
     <Layout>
       <SEO title={title} />
       <BanerStatic headers={title} half />
+      <SiblingsSwitcher
+        prevSibling={data.prevSibling}
+        nextSibling={data.nextSibling}
+        type="offer"
+      />
       <ContainerS>
         <Spacer />
         <section>
@@ -72,9 +78,32 @@ const OfferItem = ({ data }) => {
 };
 
 export const query = graphql`
-  query($locale: String!, $pageSlug: String!) {
+  query(
+    $locale: String!
+    $pageSlug: String!
+    $prevSibling: String!
+    $nextSibling: String!
+  ) {
     contentfulOfferPage(node_locale: { eq: $locale }) {
       offerItemHeaders
+    }
+    prevSibling: contentfulOffer(slug: { eq: $prevSibling }) {
+      title
+      slug
+      image {
+        localFile {
+          url
+        }
+      }
+    }
+    nextSibling: contentfulOffer(slug: { eq: $nextSibling }) {
+      title
+      slug
+      image {
+        localFile {
+          url
+        }
+      }
     }
     contentfulOffer(node_locale: { eq: $locale }, slug: { eq: $pageSlug }) {
       title
@@ -101,7 +130,7 @@ export const query = graphql`
         contentful_id
         title
         slug
-        images {
+        image {
           localFile {
             childImageSharp {
               fluid(maxWidth: 320) {
@@ -118,7 +147,7 @@ export const query = graphql`
         contentful_id
         title
         slug
-        logo {
+        image {
           localFile {
             url
           }

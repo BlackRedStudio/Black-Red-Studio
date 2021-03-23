@@ -9,7 +9,7 @@ import { ContainerInnerS, ContainerS, BoxS } from '../styles/ContainerStyles';
 import { Spacer } from '../styles/HelpersStyles';
 
 const Offer = ({ data }) => {
-  const { offerHeader, offer, offerButton } = data.contentfulHomepage;
+  const { offerHeader, offerButton } = data.contentfulHomepage;
   const {
     title,
     headerMainTitle,
@@ -17,6 +17,7 @@ const Offer = ({ data }) => {
     imageRow1,
     descriptionRow2: { descriptionRow2 },
     imageRow2,
+    offerToShow,
   } = data.contentfulOfferPage;
   return (
     <Layout>
@@ -58,7 +59,7 @@ const Offer = ({ data }) => {
         </section>
         <Spacer />
         <OfferGrid
-          offer={offer}
+          offer={offerToShow}
           header={offerHeader}
           offerButton={offerButton}
         />
@@ -97,10 +98,7 @@ export const query = graphql`
           }
         }
       }
-    }
-    contentfulHomepage(node_locale: { eq: $locale }) {
-      offerHeader
-      offer {
+      offerToShow {
         contentful_id
         title
         slug
@@ -113,6 +111,9 @@ export const query = graphql`
           }
         }
       }
+    }
+    contentfulHomepage(node_locale: { eq: $locale }) {
+      offerHeader
       offerButton
     }
   }

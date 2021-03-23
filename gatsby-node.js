@@ -93,6 +93,36 @@ exports.createPages = async ({ graphql, actions }) => {
           fieldValue
         }
       }
+      allContentfulTechnologiesPage {
+        group(field: node_locale) {
+          nodes {
+            technologiesToShow {
+              slug
+            }
+          }
+          fieldValue
+        }
+      }
+      allContentfulOfferPage {
+        group(field: node_locale) {
+          nodes {
+            offerToShow {
+              slug
+            }
+          }
+          fieldValue
+        }
+      }
+      allContentfulPortfolioPage {
+        group(field: node_locale) {
+          nodes {
+            portfolioToShow {
+              slug
+            }
+          }
+          fieldValue
+        }
+      }
     }
   `);
 
@@ -127,6 +157,41 @@ exports.createPages = async ({ graphql, actions }) => {
       categorySlugList[i].edges[0].node.categorySlugList;
   }
 
+  // generate siblings slugs for items, for prev/next functionality
+  const createSiblings = (locale, pageSlug, type) => {
+    const siblings = {};
+    let allSiblings = null;
+    let nodeName = null;
+    if (type === 'TechnologiesItem') {
+      allSiblings = result.data.allContentfulTechnologiesPage.group;
+      nodeName = 'technologiesToShow';
+    } else if (type === 'OfferItem') {
+      allSiblings = result.data.allContentfulOfferPage.group;
+      nodeName = 'offerToShow';
+    } else if (type === 'PortfolioItem') {
+      allSiblings = result.data.allContentfulPortfolioPage.group;
+      nodeName = 'portfolioToShow';
+    } else return null;
+
+    allSiblings.forEach(({ nodes, fieldValue }) => {
+      siblings[fieldValue] = nodes[0][nodeName].map(({ slug }) => slug);
+    });
+    const siblingIndex = siblings[locale].indexOf(pageSlug);
+    const siblingsLength = siblings[locale].length;
+    // if  siblingIndex is last in array get first item from array for nextSibling, otherwise take next
+    const nextSibling =
+      siblingsLength - 1 === siblingIndex
+        ? siblings[locale][0]
+        : siblings[locale][siblingIndex + 1];
+    // if  siblingIndex is first in array get last item from array for prevSibling, otherwise take prev
+    const prevSibling =
+      siblingIndex === 0
+        ? siblings[locale][siblingsLength - 1]
+        : siblings[locale][siblingIndex - 1];
+
+    return { nextSibling, prevSibling };
+  };
+
   const generatePagesForCategories = (data, template) => {
     data.forEach(({ edges }) => {
       edges.forEach(({ node }) => {
@@ -139,12 +204,19 @@ exports.createPages = async ({ graphql, actions }) => {
         const categorySlug = `${categorySlugsArr[locale][categorySlugIndex]}/`;
         const pageSlug = node.slug.trim();
         const slug = localePrefix + categorySlug + pageSlug;
+        const { nextSibling, prevSibling } = createSiblings(
+          locale,
+          pageSlug,
+          template
+        );
         createPage({
           path: slug,
           component: path.resolve(`src/templates/${template}.js`),
           context: {
             locale,
             pageSlug,
+            nextSibling,
+            prevSibling,
           },
         });
       });

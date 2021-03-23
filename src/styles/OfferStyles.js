@@ -6,7 +6,7 @@ export const ImageS = styled(Img)`
   height: 100%;
 `;
 export const IconS = styled.img`
-  max-width: 250px;
+  max-width: ${p => p.maxWidth || `250px`};
   display: block;
   margin: 0 auto 20px;
 `;

@@ -5,6 +5,7 @@ import SEO from '../layout/Seo';
 import BanerStatic from '../components/BanerStatic';
 import PortfolioGallery from '../components/homepage/PortfolioGallery';
 import OfferGrid from '../components/homepage/OfferGrid';
+import SiblingsSwitcher from '../components/SiblingsSwitcher';
 import { IconS, ImageS } from '../styles/OfferStyles';
 import { BoxS, ContainerInnerS, ContainerS } from '../styles/ContainerStyles';
 import { Spacer } from '../styles/HelpersStyles';
@@ -17,7 +18,7 @@ const TechnologiesItem = ({ data }) => {
     description: {
       fields: { htmlData },
     },
-    logo: {
+    image: {
       localFile: { url },
     },
     imageBaner,
@@ -28,6 +29,11 @@ const TechnologiesItem = ({ data }) => {
     <Layout>
       <SEO title={title} />
       <BanerStatic headers={title} half />
+      <SiblingsSwitcher
+        prevSibling={data.prevSibling}
+        nextSibling={data.nextSibling}
+        type="technologies"
+      />
       <ContainerS>
         <Spacer heightPC="50px" heightMobile="20px" />
         <section>
@@ -38,6 +44,7 @@ const TechnologiesItem = ({ data }) => {
               flexDirection="column"
               padding="0 50px 0 0"
             >
+              <IconS src={url} alt="" maxWidth="150px" />
               <ImageS
                 fluid={imageBaner.localFile.childImageSharp.fluid}
                 alt=""
@@ -49,7 +56,6 @@ const TechnologiesItem = ({ data }) => {
               justifyContent="center"
               flexDirection="column"
             >
-              <IconS src={url} alt="" />
               <div dangerouslySetInnerHTML={{ __html: htmlData }} />
             </BoxS>
           </ContainerInnerS>
@@ -74,12 +80,35 @@ const TechnologiesItem = ({ data }) => {
 };
 
 export const query = graphql`
-  query($locale: String!, $pageSlug: String!) {
+  query(
+    $locale: String!
+    $pageSlug: String!
+    $prevSibling: String!
+    $nextSibling: String!
+  ) {
     contentfulHomepage(node_locale: { eq: $locale }) {
       offerButton
     }
     contentfulTechnologiesPage(node_locale: { eq: $locale }) {
       technologiesItemHeaders
+    }
+    prevSibling: contentfulTechnologies(slug: { eq: $prevSibling }) {
+      title
+      slug
+      image {
+        localFile {
+          url
+        }
+      }
+    }
+    nextSibling: contentfulTechnologies(slug: { eq: $nextSibling }) {
+      title
+      slug
+      image {
+        localFile {
+          url
+        }
+      }
     }
     contentfulTechnologies(
       node_locale: { eq: $locale }
@@ -92,7 +121,7 @@ export const query = graphql`
           htmlData
         }
       }
-      logo {
+      image {
         localFile {
           url
         }
@@ -123,7 +152,7 @@ export const query = graphql`
         contentful_id
         title
         slug
-        images {
+        image {
           localFile {
             childImageSharp {
               fluid(maxWidth: 320) {

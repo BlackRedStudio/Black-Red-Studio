@@ -15,14 +15,14 @@ const PortfolioGalleryItem = ({ portfolio }) => {
     title,
     slug,
     shortDescription: { shortDescription },
-    images,
+    image,
   } = portfolio;
 
   const {
     localFile: {
       childImageSharp: { fluid },
     },
-  } = images[0];
+  } = image;
 
   return (
     <PortfolioItemS>

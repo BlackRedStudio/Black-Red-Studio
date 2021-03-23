@@ -141,7 +141,7 @@ export const query = graphql`
         shortDescription {
           shortDescription
         }
-        logo {
+        image {
           localFile {
             url
           }
@@ -185,7 +185,7 @@ export const query = graphql`
         contentful_id
         title
         slug
-        images {
+        image {
           localFile {
             childImageSharp {
               fluid(maxWidth: 320) {

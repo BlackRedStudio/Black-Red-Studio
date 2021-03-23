@@ -5,10 +5,11 @@ import SEO from '../layout/Seo';
 import BanerStatic from '../components/BanerStatic';
 import OfferGrid from '../components/homepage/OfferGrid';
 import TechnologiesGrid from '../components/TechnologiesGrid';
-import { BoxS, ContainerS } from '../styles/ContainerStyles';
-import { Spacer } from '../styles/HelpersStyles';
+import SiblingsSwitcher from '../components/SiblingsSwitcher';
 import Slider from '../components/homepage/Slider';
 import PortfolioInfo from '../components/PortfolioInfo';
+import { BoxS, ContainerS } from '../styles/ContainerStyles';
+import { Spacer } from '../styles/HelpersStyles';
 
 const PortfolioItem = ({ data }) => {
   const { offerButton } = data.contentfulHomepage;
@@ -33,6 +34,11 @@ const PortfolioItem = ({ data }) => {
     <Layout>
       <SEO title={title} />
       <BanerStatic headers={title} half />
+      <SiblingsSwitcher
+        prevSibling={data.prevSibling}
+        nextSibling={data.nextSibling}
+        type="portfolio"
+      />
       <ContainerS>
         <Spacer />
         <section>
@@ -73,7 +79,12 @@ const PortfolioItem = ({ data }) => {
 };
 
 export const query = graphql`
-  query($locale: String!, $pageSlug: String!) {
+  query(
+    $locale: String!
+    $pageSlug: String!
+    $prevSibling: String!
+    $nextSibling: String!
+  ) {
     contentfulHomepage(node_locale: { eq: $locale }) {
       offerButton
     }
@@ -86,6 +97,24 @@ export const query = graphql`
         }
       }
       portfolioItemInfoHeaders
+    }
+    prevSibling: contentfulPortfolio(slug: { eq: $prevSibling }) {
+      title
+      slug
+      image {
+        localFile {
+          url
+        }
+      }
+    }
+    nextSibling: contentfulPortfolio(slug: { eq: $nextSibling }) {
+      title
+      slug
+      image {
+        localFile {
+          url
+        }
+      }
     }
     contentfulPortfolio(node_locale: { eq: $locale }, slug: { eq: $pageSlug }) {
       contentful_id
@@ -122,7 +151,7 @@ export const query = graphql`
         contentful_id
         title
         slug
-        logo {
+        image {
           localFile {
             url
           }
