@@ -39,8 +39,8 @@ const SiblingsSwitcher = ({ prevSibling, nextSibling, type }) => {
         <SiblingsTitleS>{prevTitle}</SiblingsTitleS>
         <SiblingsImageS src={prevImage} alt={prevTitle} />
       </SiblingsSwitcherS>
-      <SiblingsArrowS next />
-      <SiblingsSwitcherS to={extraUrl + nextSlug} next>
+      <SiblingsArrowS next="true" />
+      <SiblingsSwitcherS to={extraUrl + nextSlug} next="true">
         <SiblingsTitleS>{nextTitle}</SiblingsTitleS>
         <SiblingsImageS src={nextImage} alt={nextTitle} />
       </SiblingsSwitcherS>
