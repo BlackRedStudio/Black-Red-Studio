@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import AniLink from 'gatsby-plugin-transition-link/AniLink';
 
 import { ButtonS } from '../styles/ButtonStyles';
 
@@ -22,7 +22,9 @@ const Button = ({
     elMargin={elMargin}
   >
     {isLink ? (
-      <Link to={to}>{children}</Link>
+      <AniLink to={to} paintDrip hex="#fc3031">
+        {children}
+      </AniLink>
     ) : (
       <button type={type === 'submit' ? 'submit' : 'button'}>{children}</button>
     )}

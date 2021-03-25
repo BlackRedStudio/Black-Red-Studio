@@ -22,6 +22,22 @@ export const GlobalStyle = createGlobalStyle`
   .tl-wrapper {
     overflow-y: auto;
     height: 100vh;
+    scrollbar-color: ${colors.lightRed} ${colors.gray};
+    &::-webkit-scrollbar {
+      width: 17px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: ${colors.gray};
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: ${colors.lightRed};
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: ${colors.darkRed};
+    }
   }
   .overflow {
     overflow: hidden;

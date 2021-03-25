@@ -39,6 +39,11 @@ export const LogoS = styled.img`
       display: none;
     }
   }
+  @-moz-document url-prefix() {
+    top: 30px;
+    left: 50px;
+    transform: scale(1.5);
+  }
 `;
 
 export const HeaderContainerS = styled.header`
@@ -55,7 +60,7 @@ export const HeaderContainerS = styled.header`
     }
   }
   @media (${media.large}) {
-    right: 16px;
+    right: 17px;
     display: block;
     padding-top: 20px;
     padding-bottom: 20px;
