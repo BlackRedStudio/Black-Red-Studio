@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Layout from '../layout/Layout';
 import SEO from '../layout/Seo';
+import Footer from '../layout/Footer';
 import BanerStatic from '../components/BanerStatic';
 import PortfolioGallery from '../components/homepage/PortfolioGallery';
 import TechnologiesGrid from '../components/TechnologiesGrid';
@@ -25,7 +25,7 @@ const OfferItem = ({ data }) => {
     imageBaner,
   } = data.contentfulOffer;
   return (
-    <Layout>
+    <>
       <SEO title={title} />
       <BanerStatic headers={title} half />
       <SiblingsSwitcher
@@ -73,7 +73,8 @@ const OfferItem = ({ data }) => {
         />
         <Spacer />
       </ContainerS>
-    </Layout>
+      <Footer />
+    </>
   );
 };
 

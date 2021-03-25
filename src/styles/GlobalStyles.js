@@ -17,6 +17,11 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Raleway', sans-serif;
     font-size: 1.6rem;
     background-color: ${colors.lightGray};
+    overflow: hidden;
+  }
+  .tl-wrapper {
+    overflow-y: auto;
+    height: 100vh;
   }
   .overflow {
     overflow: hidden;

@@ -1,8 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Layout from '../layout/Layout';
 import SEO from '../layout/Seo';
-// import Slider from '../components/homepage/Slider';
+import Footer from '../layout/Footer';
 import IntroText from '../components/homepage/IntroText';
 import BanersMiddle from '../components/homepage/BanersMiddle';
 import OfferGrid from '../components/homepage/OfferGrid';
@@ -45,7 +44,7 @@ const Homepage = ({ data }) => {
     modals: { modalTitle, modalName, modalDescription, modalButton },
   } = data.contentfulHomepage;
   return (
-    <Layout>
+    <>
       <SEO title={title} />
       <BanerMovie
         title="Najwyższa jakość"
@@ -95,7 +94,8 @@ const Homepage = ({ data }) => {
         modalDescription={modalDescription.fields.htmlData}
         modalButton={modalButton}
       />
-    </Layout>
+      <Footer />
+    </>
   );
 };
 

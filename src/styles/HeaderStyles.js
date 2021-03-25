@@ -61,6 +61,9 @@ export const HeaderContainerS = styled.header`
     background: transparent;
   }
 `;
+export const LangSwitcherLinkS = styled.div`
+  cursor: pointer;
+`;
 export const LangSwitcherIconS = styled.img`
   width: 27px;
   margin-top: 4px;

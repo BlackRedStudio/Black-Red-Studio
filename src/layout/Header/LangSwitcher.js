@@ -1,7 +1,10 @@
 import React, { useContext } from 'react';
-import { Link, graphql, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery, navigate } from 'gatsby';
 
-import { LangSwitcherIconS } from '../../styles/HeaderStyles';
+import {
+  LangSwitcherLinkS,
+  LangSwitcherIconS,
+} from '../../styles/HeaderStyles';
 import LangContext from '../../contexts/LangContext';
 import { languages, defaultLangKey } from '../../utils/language-helper';
 
@@ -121,12 +124,21 @@ const LangSwitcher = () => {
       link,
     };
   });
+  const handleLangChange = (link, lang) => {
+    const wrapperTopPosition = document.querySelector('.tl-wrapper').scrollTop;
+    navigate(link, {
+      state: { lang, wrapperTopPosition },
+    });
+  };
   const links = langsMenu.map((lang, index) => {
     const img = data.allContentfulAsset.edges[index].node;
     return currentLang !== lang.langKey ? (
-      <Link to={lang.link} key={lang.langKey} state={{ lang: currentLang }}>
+      <LangSwitcherLinkS
+        key={lang.langKey}
+        onClick={() => handleLangChange(lang.link, currentLang)}
+      >
         <LangSwitcherIconS src={img.file.url} alt={img.title} />
-      </Link>
+      </LangSwitcherLinkS>
     ) : null;
   });
   return <>{links}</>;

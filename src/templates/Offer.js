@@ -1,8 +1,8 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
-import Layout from '../layout/Layout';
 import SEO from '../layout/Seo';
+import Footer from '../layout/Footer';
 import BanerStatic from '../components/BanerStatic';
 import OfferGrid from '../components/homepage/OfferGrid';
 import { ContainerInnerS, ContainerS, BoxS } from '../styles/ContainerStyles';
@@ -20,7 +20,7 @@ const Offer = ({ data }) => {
     offerToShow,
   } = data.contentfulOfferPage;
   return (
-    <Layout>
+    <>
       <SEO title={title} />
       <BanerStatic headers={headerMainTitle} />
       <ContainerS>
@@ -65,7 +65,8 @@ const Offer = ({ data }) => {
         />
         <Spacer />
       </ContainerS>
-    </Layout>
+      <Footer />
+    </>
   );
 };
 

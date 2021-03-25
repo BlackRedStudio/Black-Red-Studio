@@ -37,11 +37,17 @@ const Nav = () => {
     ({ node_locale, contentful_id, slug, title }) => {
       const locale = node_locale;
       const localePrefix = locale !== 'en' ? `${locale}/` : ``;
+
       return (
         <NavLinkS
           key={contentful_id}
           to={`/${localePrefix}${slug}`}
           site={site}
+          swipe
+          direction="left"
+          preventScrollJump
+          entryOffset={100}
+          duration={2}
         >
           {title}
         </NavLinkS>

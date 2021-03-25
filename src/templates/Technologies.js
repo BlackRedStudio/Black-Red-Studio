@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Layout from '../layout/Layout';
 import SEO from '../layout/Seo';
+import Footer from '../layout/Footer';
 import BanerStatic from '../components/BanerStatic';
 import TechnologiesGrid from '../components/TechnologiesGrid';
 import { ContainerS } from '../styles/ContainerStyles';
@@ -14,7 +14,7 @@ const Technologies = ({ data }) => {
     technologiesToShow,
   } = data.contentfulTechnologiesPage;
   return (
-    <Layout>
+    <>
       <SEO title={title} />
       <BanerStatic headers={headerMainTitle} />
       <ContainerS>
@@ -22,7 +22,8 @@ const Technologies = ({ data }) => {
         <TechnologiesGrid technologies={technologiesToShow} />
         <Spacer />
       </ContainerS>
-    </Layout>
+      <Footer />
+    </>
   );
 };
 

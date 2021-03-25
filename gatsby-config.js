@@ -51,6 +51,12 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
     {
+      resolve: `gatsby-plugin-transition-link`,
+      options: {
+        layout: require.resolve(`./src/layout/Layout.js`),
+      },
+    },
+    {
       resolve: `gatsby-plugin-sharp`,
       options: {
         defaultQuality: 79,
