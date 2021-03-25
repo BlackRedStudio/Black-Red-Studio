@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import { LogoContainerS, LogoS } from '../../styles/HeaderStyles';
+import { LogoContainerS, LogoLinkS, LogoS } from '../../styles/HeaderStyles';
 
 const Logo = () => {
   const data = useStaticQuery(graphql`
@@ -27,9 +27,9 @@ const Logo = () => {
       ? 'homepage'
       : 'default';
   return (
-    <div>
+    <LogoContainerS>
       <h1>
-        <LogoContainerS to="/">
+        <LogoLinkS to="/">
           {data.allContentfulAsset.edges.map(
             ({ node: { contentful_id, title, file } }) => {
               if (site === 'homepage' && title === 'logo-blackred-white-alt')
@@ -46,9 +46,9 @@ const Logo = () => {
               );
             }
           )}
-        </LogoContainerS>
+        </LogoLinkS>
       </h1>
-    </div>
+    </LogoContainerS>
   );
 };
 

@@ -4,6 +4,15 @@ import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import { media, colors } from './styles-utils';
 
 export const NavContainerS = styled.nav`
+  @media (${media.toLarge}) {
+    width: 100%;
+    transition: transform 0.35s linear;
+    transform: translateY(-300px);
+    background: #fff;
+    &.active {
+      transform: translateY(0);
+    }
+  }
   @media (${media.large}) {
     display: flex;
     margin-left: 150px;

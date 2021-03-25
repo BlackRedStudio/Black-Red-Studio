@@ -3,7 +3,16 @@ import styled from 'styled-components';
 
 import { media } from './styles-utils';
 
-export const LogoContainerS = styled(Link)`
+export const LogoContainerS = styled.div`
+  @media (${media.toLarge}) {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    background: #fff;
+    height: 100%;
+  }
+`;
+export const LogoLinkS = styled(Link)`
   display: block;
 `;
 
@@ -14,7 +23,7 @@ export const LogoS = styled.img`
   top: 5px;
   transition: 0.35s linear;
   pointer-events: none;
-  padding-left: 20px;
+  padding-left: 15px;
   &:first-child {
     display: none;
   }
@@ -38,11 +47,22 @@ export const HeaderContainerS = styled.header`
   position: fixed;
   width: 100%;
   z-index: 99;
-  transition: transform 0.35s linear;
+  @media (${media.toLarge}) {
+    height: 72px;
+    transition: transform 0.35s linear;
+    > div {
+      padding: 0;
+    }
+  }
+  @media (${media.large}) {
+    right: 16px;
+    display: block;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background: transparent;
+  }
   &.scrolled {
     background: #fff;
-    padding-top: 5px;
-    padding-bottom: 5px;
     box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.3);
     h1 img:first-child {
       display: none;
@@ -53,18 +73,51 @@ export const HeaderContainerS = styled.header`
     a {
       color: #000;
     }
-  }
-  @media (${media.large}) {
-    display: block;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    background: transparent;
+    @media (${media.large}) {
+      padding: 5px 0;
+    }
   }
 `;
 export const LangSwitcherLinkS = styled.div`
+  padding: 10px 20px;
   cursor: pointer;
+  @media (${media.large}) {
+    margin-top: 8px;
+  }
 `;
 export const LangSwitcherIconS = styled.img`
   width: 27px;
-  margin-top: 4px;
+`;
+export const HamburgerS = styled.div`
+  position: absolute;
+  z-index: 4;
+  right: 15px;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  > div {
+    height: 3px;
+    background: #000;
+    width: 20px;
+    margin-bottom: 3px;
+    transition: transform 0.35s;
+  }
+  &.active > div {
+    position: absolute;
+    &:first-child {
+      transform: rotate(45deg);
+    }
+    &:nth-child(2) {
+      display: none;
+    }
+    &:last-child {
+      transform: rotate(-45deg);
+    }
+  }
+  @media (${media.large}) {
+    display: none;
+  }
 `;

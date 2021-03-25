@@ -1,9 +1,11 @@
-import React, { useContext } from 'react';
+import React, { useContext, forwardRef } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import { NavContainerS, NavLinkS } from '../../styles/NavStyles';
-import LangContext from '../../contexts/LangContext';
 
-const Nav = () => {
+import LangContext from '../../contexts/LangContext';
+import LangSwitcher from './LangSwitcher';
+import { NavContainerS, NavLinkS } from '../../styles/NavStyles';
+
+const Nav = forwardRef((props, ref) => {
   const currentLang = useContext(LangContext);
   const data = useStaticQuery(graphql`
     query {
@@ -55,7 +57,14 @@ const Nav = () => {
     }
   );
 
-  return <NavContainerS>{menuList}</NavContainerS>;
-};
+  return (
+    <NavContainerS ref={ref}>
+      {menuList}
+      <LangSwitcher />
+    </NavContainerS>
+  );
+});
+
+Nav.displayName = 'Nav';
 
 export default Nav;
