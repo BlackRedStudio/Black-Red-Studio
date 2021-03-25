@@ -53,12 +53,12 @@ const Footer = () => {
       fields: { htmlData },
     },
   } = footerForCurrentLang[0].edges[0].node;
-  const footerTags = tagsList.map((tag) => (
+  const footerTags = tagsList.map(tag => (
     <FooterTagS key={tag} to="/">
       {tag}
     </FooterTagS>
   ));
-  const linksList = links.map((link) => (
+  const linksList = links.map(link => (
     <p key={link.link}>
       <Link to={link.link}>{link.linkTitle}</Link>
     </p>
@@ -79,6 +79,7 @@ const Footer = () => {
           <FooterBoxS width="30%" padding="0">
             <FooterHeaderS>{headerList[2]}</FooterHeaderS>
             <FooterContentS dangerouslySetInnerHTML={{ __html: htmlData }} />
+            <Spacer heightMobile="30px" heightPC="0" />
             <FooterHeaderS marginTop="40px">{headerList[3]}</FooterHeaderS>
             <FooterContentS>{linksList}</FooterContentS>
           </FooterBoxS>

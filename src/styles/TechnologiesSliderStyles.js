@@ -1,5 +1,6 @@
 import { Link } from 'gatsby';
 import styled from 'styled-components';
+import { media } from './styles-utils';
 
 export const TechnologiesContainerS = styled.section`
   text-align: center;
@@ -13,11 +14,15 @@ export const TechnologiesListWrapperS = styled.div`
 `;
 export const TechnologyItemS = styled(Link)`
   position: relative;
-  min-width: 20%;
-  width: 20%;
+  min-width: 33.33%;
+  width: 33.33%;
   cursor: pointer;
   text-align: center;
-  padding-top: 30px;
+  @media (${media.large}) {
+    padding-top: 30px;
+    min-width: 20%;
+    width: 20%;
+  }
 `;
 export const TechnologyImageS = styled.img`
   height: 140px;

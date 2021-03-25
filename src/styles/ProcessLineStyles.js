@@ -4,6 +4,9 @@ import { media, vars } from './styles-utils';
 
 export const ProcessContainerS = styled.div`
   position: relative;
+  @media (${media.toLarge}) {
+    overflow: hidden;
+  }
 `;
 export const ProcessLineS = styled.div`
   height: 100%;

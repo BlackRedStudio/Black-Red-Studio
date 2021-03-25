@@ -11,7 +11,7 @@ export const SliderItemS = styled.div`
 
 export const SliderTextS = styled.p`
   font-family: Lora, sans-serif;
-  font-size: 4rem;
+  font-size: 3.6rem;
   margin-bottom: 70px;
   color: ${colors.darkRed};
   font-weight: 300;
@@ -20,6 +20,7 @@ export const SliderTextS = styled.p`
   text-align: center;
   width: 100%;
   z-index: 2;
+  padding: 0 15px;
   @media (${media.medium}) {
     font-size: 8.4rem;
   }

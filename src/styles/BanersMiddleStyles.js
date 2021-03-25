@@ -3,7 +3,7 @@ import Img from 'gatsby-image';
 
 import { media, vars } from './styles-utils';
 
-export const BannersMiddleContainerS = styled.section`
+export const BanersMiddleContainerS = styled.section`
   position: relative;
   @media (${media.large}) {
     display: flex;
@@ -12,18 +12,31 @@ export const BannersMiddleContainerS = styled.section`
     overflow: hidden;
   }
 `;
-export const BannersMiddleImageS = styled(Img)`
+export const BanersMiddleWrapperS = styled.div`
+  @media (${media.toLarge}) {
+    display: flex;
+    flex-direction: column;
+  }
+`;
+export const BanersMiddleImageS = styled(Img)`
   margin-bottom: 20px;
   display: block;
   object-fit: cover;
+  @media (${media.toLarge}) {
+    &:nth-child(2) {
+      order: 2;
+      margin-top: 20px;
+      margin-bottom: 0;
+    }
+  }
   ${({ hiddenMobile }) =>
     hiddenMobile &&
     `
-        display: none;
-        @media(${media.large}) {
-            width: ${({ elWidth }) => elWidth};
-            display: block;
-        }`}
+      display: none;
+      @media(${media.large}) {
+          width: ${({ elWidth }) => elWidth};
+          display: block;
+      }`}
   @media(${media.small}) {
     max-width: 570px;
     margin: 0 auto 20px;
@@ -34,22 +47,22 @@ export const BannersMiddleImageS = styled(Img)`
     height: ${({ elHeight }) => elHeight};
   }
 `;
-export const BannersMiddleTextWrapperS = styled.div`
-  z-index: 5;
-  position: absolute;
-  top: 150px;
+export const BanersMiddleTextWrapperS = styled.div`
   margin: 0 -15px;
   opacity: 0.9;
   padding: 30px;
   background-image: ${vars.linearGradientInverted};
   @media (${media.large}) {
+    z-index: 5;
+    top: 150px;
+    position: absolute;
     margin: 0;
     padding: 80px 60px;
     width: 470px;
     right: 198px;
   }
 `;
-export const BannersMiddleTextS = styled.h3`
+export const BanersMiddleTextS = styled.h3`
   font-size: 2.4rem;
   line-height: 1.3;
   color: #fff;

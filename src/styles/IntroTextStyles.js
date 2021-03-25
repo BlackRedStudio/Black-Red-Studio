@@ -11,7 +11,9 @@ export const IntroTextContainerS = styled.section`
 
 export const ListS = styled.ul`
   padding-left: 20px;
-  width: 60%;
+  @media (${media.large}) {
+    width: 60%;
+  }
 `;
 
 export const ListItemS = styled.li`

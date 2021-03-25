@@ -1,15 +1,18 @@
 import styled from 'styled-components';
 import { Link } from 'gatsby';
 
-import { vars } from './styles-utils';
+import { media, vars } from './styles-utils';
 
 export const PortfolioContainerS = styled.section`
   text-align: center;
 `;
 export const PortfolioItemWrapperS = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-gap: 20px;
+  @media (${media.large}) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 `;
 export const PortfolioItemS = styled.div`
   perspective: 600px;

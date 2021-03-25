@@ -31,11 +31,18 @@ export const ContainerInnerS = styled.div`
   > div,
   > section {
     width: 100%;
+    padding-top: 70px;
+    &:first-child {
+      padding-top: 0;
+    }
     ${p => {
       if (p.children.length === 2)
         return `
         @media (${media.medium}) {
           width: 50%;
+        }
+        @media (${media.large}) {
+          padding-top: 0;
         }
       `;
       if (p.children.length === 3)
@@ -44,6 +51,7 @@ export const ContainerInnerS = styled.div`
           width: 50%;
         }
         @media (${media.large}) {
+          padding-top: 0;
           width: 33.33%;
         }
       `;
@@ -55,6 +63,7 @@ export const ContainerInnerS = styled.div`
           width: 33.33%;
         }
         @media (${media.large}) {
+          padding-top: 0;
           width: 25%;
         }
       `;
@@ -62,12 +71,15 @@ export const ContainerInnerS = styled.div`
   }
 `;
 export const BoxS = styled.div`
-  font-size: ${p => (p.fontSize ? p.fontSize : `1.6rem`)};
-  display: ${p => (p.display ? p.display : `block`)};
-  padding: ${p => (p.padding ? p.padding : `0`)};
-  align-items: ${p => (p.alignItems ? p.alignItems : `flex-start`)};
-  justify-content: ${p => (p.justifyContent ? p.justifyContent : `flex-start`)};
-  letter-spacing: ${p => (p.letterSpacing ? p.letterSpacing : `normal`)};
-  line-height: ${p => (p.lineHeight ? p.lineHeight : `normal`)};
-  flex-direction: ${p => (p.flexDirection ? p.flexDirection : `row`)};
+  @media (${media.large}) {
+    font-size: ${p => (p.fontSize ? p.fontSize : `1.6rem`)};
+    display: ${p => (p.display ? p.display : `block`)};
+    padding: ${p => (p.padding ? p.padding : `0`)};
+    align-items: ${p => (p.alignItems ? p.alignItems : `flex-start`)};
+    justify-content: ${p =>
+      p.justifyContent ? p.justifyContent : `flex-start`};
+    letter-spacing: ${p => (p.letterSpacing ? p.letterSpacing : `normal`)};
+    line-height: ${p => (p.lineHeight ? p.lineHeight : `normal`)};
+    flex-direction: ${p => (p.flexDirection ? p.flexDirection : `row`)};
+  }
 `;

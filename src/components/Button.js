@@ -9,6 +9,7 @@ const Button = ({
   elType,
   elSize,
   elWidth,
+  elMobileWidth,
   elMargin,
   isLink,
   type,
@@ -16,6 +17,7 @@ const Button = ({
   <ButtonS
     elType={elType}
     elSize={elSize}
+    elMobileWidth={elMobileWidth}
     elWidth={elWidth}
     elMargin={elMargin}
   >
@@ -31,6 +33,7 @@ Button.defaultProps = {
   to: '/',
   elType: 'primary',
   elSize: 'small',
+  elMobileWidth: 'initial',
   elWidth: 'initial',
   elMargin: '15px 0 0 0',
   isLink: true,

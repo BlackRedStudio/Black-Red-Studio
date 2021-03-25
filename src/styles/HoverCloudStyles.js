@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { colors } from './styles-utils';
+import { media, colors } from './styles-utils';
 
 export const CloudWrapperS = styled.div`
   opacity: 0;
@@ -13,6 +13,10 @@ export const CloudWrapperS = styled.div`
   border-bottom-right-radius: 4px;
   background: ${colors.dark}dd;
   animation: opacity-transform-y 0.7s both ease-in-out;
+  display: none;
+  @media (${media.large}) {
+    display: block;
+  }
 `;
 export const CloudTitleS = styled.div`
   font-weight: 700;

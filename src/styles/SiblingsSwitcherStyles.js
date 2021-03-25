@@ -7,7 +7,7 @@ import { colors } from './styles-utils';
 export const SiblingsSwitcherS = styled(Link)`
   position: fixed;
   top: 50%;
-  z-index: 2;
+  z-index: 4;
   background-color: ${colors.lightGray};
   padding: 10px;
   width: 120px;
@@ -30,6 +30,7 @@ export const SiblingsArrowS = styled(Arrows)`
   width: 30px;
   filter: brightness(0);
   padding: 10px;
+  z-index: 3;
   box-sizing: content-box;
   animation: 1s ${p => (p.next ? `scroll-right-left` : `scroll-left-right`)}
     infinite;

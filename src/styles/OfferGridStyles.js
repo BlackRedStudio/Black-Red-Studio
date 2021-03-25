@@ -25,6 +25,7 @@ export const OfferTitleS = styled.h3`
   text-transform: capitalize;
   font-weight: 700;
   font-size: 1.8rem;
+  margin-top: 0;
   @media (${media.large}) {
     font-size: 2rem;
   }

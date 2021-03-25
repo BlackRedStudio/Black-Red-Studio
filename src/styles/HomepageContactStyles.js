@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Img from 'gatsby-image';
+import { media } from './styles-utils';
 
 export const HomepageContactContainerS = styled.section`
   position: relative;
@@ -34,6 +35,11 @@ export const AddressColumnS = styled.div`
 `;
 export const Iframe = styled.iframe`
   border: 0;
-  margin-top: 41px;
-  padding: 0 30px;
+  @media (${media.toLarge}) {
+    height: 320px;
+  }
+  @media (${media.large}) {
+    margin-top: 41px;
+    padding: 0 30px;
+  }
 `;

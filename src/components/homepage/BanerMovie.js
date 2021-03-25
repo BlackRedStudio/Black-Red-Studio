@@ -22,6 +22,7 @@ const BanerMovie = ({ title, buttonsTitles, buttonsLinks }) => (
           to={buttonsLinks[0]}
           elSize="medium"
           elMargin="10px 20px"
+          elMobileWidth="170px"
           elWidth="170px"
         >
           {buttonsTitles[0]}
@@ -31,6 +32,7 @@ const BanerMovie = ({ title, buttonsTitles, buttonsLinks }) => (
           elType="inverted"
           elSize="medium"
           elMargin="10px 20px"
+          elMobileWidth="170px"
           elWidth="170px"
         >
           {buttonsTitles[1]}

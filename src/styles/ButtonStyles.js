@@ -7,19 +7,24 @@ export const ButtonS = styled.span`
   > button {
     font-size: 1.4rem;
     font-weight: 600;
-    margin: ${({ elMargin }) => elMargin};
     padding: ${({ elSize }) => {
       if (elSize === 'big') return '20px 45px';
       if (elSize === 'medium') return '18px 40px';
       return '14px 30px';
     }};
+    margin: 20px 0 0 0;
     border: none;
-    width: ${({ elWidth }) => elWidth};
+    width: ${p => p.elMobileWidth};
     display: inline-block;
     text-transform: uppercase;
     cursor: pointer;
     text-align: center;
     transition: all ease-in-out 0.4s;
+    @media (${media.large}) {
+      font-size: 1.6rem;
+      width: ${p => p.elWidth};
+      margin: ${p => p.elMargin};
+    }
     ${({ elType }) => {
       if (elType === 'white')
         return `
@@ -65,8 +70,5 @@ export const ButtonS = styled.span`
           }
       `;
     }}
-    @media (${media.large}) {
-      font-size: 1.6rem;
-    }
   }
 `;
