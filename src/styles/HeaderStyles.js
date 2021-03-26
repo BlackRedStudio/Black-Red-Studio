@@ -1,5 +1,5 @@
-import { Link } from 'gatsby';
 import styled from 'styled-components';
+import PaintDrip from '../utils/paint-drip-transition';
 
 import { media } from './styles-utils';
 
@@ -12,7 +12,7 @@ export const LogoContainerS = styled.div`
     height: 100%;
   }
 `;
-export const LogoLinkS = styled(Link)`
+export const LogoLinkS = styled(PaintDrip)`
   display: block;
 `;
 
@@ -82,16 +82,6 @@ export const HeaderContainerS = styled.header`
       padding: 5px 0;
     }
   }
-`;
-export const LangSwitcherLinkS = styled.div`
-  padding: 10px 20px;
-  cursor: pointer;
-  @media (${media.large}) {
-    margin-top: 8px;
-  }
-`;
-export const LangSwitcherIconS = styled.img`
-  width: 27px;
 `;
 export const HamburgerS = styled.div`
   position: absolute;

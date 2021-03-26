@@ -1,10 +1,7 @@
 import React, { useContext } from 'react';
 import { graphql, useStaticQuery, navigate } from 'gatsby';
 
-import {
-  LangSwitcherLinkS,
-  LangSwitcherIconS,
-} from '../../styles/HeaderStyles';
+import { LangSwitcherLinkS, LangSwitcherIconS } from '../../styles/NavStyles';
 import LangContext from '../../contexts/LangContext';
 import { languages, defaultLangKey } from '../../utils/language-helper';
 

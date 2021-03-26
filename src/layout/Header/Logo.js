@@ -29,7 +29,7 @@ const Logo = () => {
   return (
     <LogoContainerS>
       <h1>
-        <LogoLinkS to="/">
+        <LogoLinkS to="/" paintDrip hex="#fc3031">
           {data.allContentfulAsset.edges.map(
             ({ node: { contentful_id, title, file } }) => {
               if (site === 'homepage' && title === 'logo-blackred-white-alt')

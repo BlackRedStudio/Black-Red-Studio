@@ -4,7 +4,8 @@ import TransitionLink from 'gatsby-plugin-transition-link';
 import { media, colors } from './styles-utils';
 
 export const NavContainerS = styled.nav`
-  &.transition a {
+  &.transition a,
+  &.transition div {
     color: ${colors.darkGrayAlt};
     pointer-events: none;
     cursor: not-allowed;
@@ -20,7 +21,7 @@ export const NavContainerS = styled.nav`
   }
   @media (${media.large}) {
     display: flex;
-    margin-left: 150px;
+    margin-left: 20px;
   }
 `;
 
@@ -43,4 +44,14 @@ export const NavLinkS = styled(TransitionLink)`
       transform: translateY(-7px);
     }
   }
+`;
+export const LangSwitcherLinkS = styled.div`
+  padding: 10px 20px;
+  cursor: pointer;
+  @media (${media.large}) {
+    margin-top: 8px;
+  }
+`;
+export const LangSwitcherIconS = styled.img`
+  width: 27px;
 `;
