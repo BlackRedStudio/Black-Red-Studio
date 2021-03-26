@@ -22,6 +22,8 @@ const gsap = interopRequireDefault(require('gsap'));
 
 const colorConvert = interopRequireDefault(require('color-convert'));
 
+const handleHeaderFixed = require('./header-fixed').default;
+
 class PaintDrip extends react.Component {
   constructor(props) {
     super(props);
@@ -109,7 +111,10 @@ class PaintDrip extends react.Component {
             duration: seconds / 3,
           },
           `+=${seconds * 0.4}`
-        );
+        )
+        .then(() => {
+          handleHeaderFixed();
+        });
     };
 
     this.getDirection = from => {
