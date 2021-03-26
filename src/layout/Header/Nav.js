@@ -1,4 +1,4 @@
-import React, { useContext, forwardRef } from 'react';
+import React, { useEffect, useContext, forwardRef } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
 import LangContext from '../../contexts/LangContext';
@@ -6,7 +6,7 @@ import LangSwitcher from './LangSwitcher';
 import { NavContainerS, NavLinkS } from '../../styles/NavStyles';
 import { swipe } from '../../utils/swipe-transition';
 
-const Nav = forwardRef((props, ref) => {
+const Nav = forwardRef(({ hamburgerRef }, ref) => {
   const currentLang = useContext(LangContext);
   const data = useStaticQuery(graphql`
     query {
@@ -27,6 +27,10 @@ const Nav = forwardRef((props, ref) => {
       }
     }
   `);
+  useEffect(() => {
+    ref.current.classList.remove('active');
+    hamburgerRef.current.classList.remove('active');
+  });
 
   const menuForCurrentLang = data.allContentfulSettings.group.filter(
     ({ fieldValue }) => fieldValue === currentLang

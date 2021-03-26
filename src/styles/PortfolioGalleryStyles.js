@@ -30,6 +30,9 @@ export const PortfolioItemImageWrapperS = styled(PaintDrip)`
   }
 `;
 export const PortfolioHiddenDescS = styled.div`
+  @media (${media.toLarge}) {
+    display: none;
+  }
   transform: rotateY(180deg);
   backface-visibility: hidden;
   position: absolute;

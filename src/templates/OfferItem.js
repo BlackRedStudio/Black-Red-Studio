@@ -1,5 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { graphql } from 'gatsby';
+// import SVGInject from '@iconfu/svg-inject';
+import Vivus from 'vivus';
+
 import SEO from '../layout/Seo';
 import Footer from '../layout/Footer';
 import BanerStatic from '../components/BanerStatic';
@@ -24,6 +27,23 @@ const OfferItem = ({ data }) => {
     portfolio,
     imageBaner,
   } = data.contentfulOffer;
+  useEffect(() => {
+    setTimeout(() => {
+      const vivus = new Vivus(
+        'svg-draw',
+        {
+          duration: 300,
+          type: 'oneByOne',
+          file: url,
+          onReady: myVivus => {
+            myVivus.el.setAttribute('stroke', '#fc3031');
+          },
+        },
+        e => e.el.classList.add('finished')
+      );
+      vivus.destroy();
+    }, 750);
+  }, []);
   return (
     <>
       <SEO title={title} />
@@ -54,7 +74,7 @@ const OfferItem = ({ data }) => {
               justifyContent="center"
               flexDirection="column"
             >
-              <IconS src={url} alt="" />
+              <IconS id="svg-draw" height="250px" />
               <div dangerouslySetInnerHTML={{ __html: htmlData }} />
             </BoxS>
           </ContainerInnerS>

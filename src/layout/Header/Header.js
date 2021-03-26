@@ -7,12 +7,13 @@ import { HeaderContainerS } from '../../styles/HeaderStyles';
 
 const Header = () => {
   const navRef = useRef(null);
+  const hamburgerRef = useRef(null);
   return (
     <HeaderContainerS>
       <ContainerS flex>
         <Logo />
-        <Hamburger navRef={navRef} />
-        <Nav ref={navRef} />
+        <Hamburger ref={hamburgerRef} navRef={navRef} />
+        <Nav ref={navRef} hamburgerRef={hamburgerRef} />
       </ContainerS>
     </HeaderContainerS>
   );

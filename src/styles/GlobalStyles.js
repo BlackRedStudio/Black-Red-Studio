@@ -64,6 +64,14 @@ export const GlobalStyle = createGlobalStyle`
   .grecaptcha-badge {
     visibility: hidden;
   }
+  #svg-draw svg {
+    fill-opacity: 0;
+    transition: fill-opacity 1s;
+  }
+
+  #svg-draw svg.finished {
+    fill-opacity: 1;
+  }
   a {
     text-decoration: none;
     color: ${colors.lightRed};

@@ -1,21 +1,21 @@
-import React, { useRef } from 'react';
+import React, { forwardRef } from 'react';
 import { HamburgerS } from '../../styles/HeaderStyles';
 
-const Hamburger = ({ navRef }) => {
-  const hamburgerRef = useRef(null);
-
+const Hamburger = forwardRef(({ navRef }, ref) => {
   const handleClick = () => {
-    hamburgerRef.current.classList.toggle('active');
+    ref.current.classList.toggle('active');
     navRef.current.classList.toggle('active');
   };
 
   return (
-    <HamburgerS ref={hamburgerRef} onClick={() => handleClick()}>
+    <HamburgerS ref={ref} onClick={() => handleClick()}>
       <div />
       <div />
       <div />
     </HamburgerS>
   );
-};
+});
+
+Hamburger.displayName = 'Hamburger';
 
 export default Hamburger;
