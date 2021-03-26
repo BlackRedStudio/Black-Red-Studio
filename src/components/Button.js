@@ -1,5 +1,6 @@
 import React from 'react';
-import AniLink from 'gatsby-plugin-transition-link/AniLink';
+
+import PaintDrip from '../utils/paint-drip-transition';
 
 import { ButtonS } from '../styles/ButtonStyles';
 
@@ -22,9 +23,9 @@ const Button = ({
     elMargin={elMargin}
   >
     {isLink ? (
-      <AniLink to={to} paintDrip hex="#fc3031">
+      <PaintDrip to={to} paintDrip hex="#fc3031">
         {children}
-      </AniLink>
+      </PaintDrip>
     ) : (
       <button type={type === 'submit' ? 'submit' : 'button'}>{children}</button>
     )}

@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import LangContext from '../../contexts/LangContext';
 import LangSwitcher from './LangSwitcher';
 import { NavContainerS, NavLinkS } from '../../styles/NavStyles';
-import { swipe } from '../../utils/transitions';
+import { swipe } from '../../utils/swipe-transition';
 
 const Nav = forwardRef((props, ref) => {
   const currentLang = useContext(LangContext);
@@ -54,11 +54,6 @@ const Nav = forwardRef((props, ref) => {
           to={`/${localePrefix}${slug}`}
           site={site}
           preventScrollJump
-          // swipe
-          // direction="left"
-          // preventScrollJump
-          // entryOffset={100}
-          // duration={2}
           exit={{
             length: exitLength,
             trigger: ({ node, exit }) =>
