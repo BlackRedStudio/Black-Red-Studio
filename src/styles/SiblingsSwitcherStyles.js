@@ -1,10 +1,10 @@
-import { Link } from 'gatsby';
 import styled from 'styled-components';
+import TransitionLink from 'gatsby-plugin-transition-link';
 
 import Arrows from '../assets/arrows.svg';
 import { colors } from './styles-utils';
 
-export const SiblingsSwitcherS = styled(Link)`
+export const SiblingsSwitcherS = styled(TransitionLink)`
   position: fixed;
   top: 50%;
   z-index: 4;

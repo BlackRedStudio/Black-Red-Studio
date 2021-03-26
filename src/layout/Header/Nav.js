@@ -41,6 +41,7 @@ const Nav = forwardRef((props, ref) => {
       const locale = node_locale;
       const localePrefix = locale !== 'en' ? `${locale}/` : ``;
 
+      // Transition properties
       const top = 'exit';
       const exitLength = 2;
       const entryLength = exitLength / 3.5;

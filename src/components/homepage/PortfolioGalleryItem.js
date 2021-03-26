@@ -26,7 +26,7 @@ const PortfolioGalleryItem = ({ portfolio }) => {
 
   return (
     <PortfolioItemS>
-      <PortfolioItemImageWrapperS to={extraUrl + slug}>
+      <PortfolioItemImageWrapperS to={extraUrl + slug} paintDrip hex="#fc3031">
         <Img fluid={fluid} alt={title} />
         <PortfolioHiddenDescS>
           <p>

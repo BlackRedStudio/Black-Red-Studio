@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { Link } from 'gatsby';
 
+import PaintDrip from '../utils/paint-drip-transition';
 import { media, vars } from './styles-utils';
 
 export const PortfolioContainerS = styled.section`
@@ -17,7 +17,7 @@ export const PortfolioItemWrapperS = styled.div`
 export const PortfolioItemS = styled.div`
   perspective: 600px;
 `;
-export const PortfolioItemImageWrapperS = styled(Link)`
+export const PortfolioItemImageWrapperS = styled(PaintDrip)`
   display: block;
   position: relative;
   transition: transform 1s;

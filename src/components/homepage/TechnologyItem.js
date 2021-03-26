@@ -25,6 +25,8 @@ const TechnologyItem = ({ technology }) => {
       onMouseEnter={() => setOpen(true)}
       onMouseLeave={() => setOpen(false)}
       to={extraUrl + slug}
+      paintDrip
+      hex="#fc3031"
     >
       {open && <HoverCloud title={title} desc={shortDescription} />}
       <TechnologyImageS src={url} alt={title} />

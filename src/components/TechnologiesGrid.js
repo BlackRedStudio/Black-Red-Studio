@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
-import { Link } from 'gatsby';
 
 import LangContext from '../contexts/LangContext';
+import PaintDrip from '../utils/paint-drip-transition';
 import H2 from './H2';
 import H3 from './H3';
 import {
@@ -24,9 +24,9 @@ const TechnologiesGrid = ({ technologies, header, smallHeader }) => {
     } = technology;
     return (
       <TechnologiesItemS key={contentful_id}>
-        <Link to={extraUrl + slug}>
+        <PaintDrip to={extraUrl + slug} paintDrip hex="#fc3031">
           <TechnologiesItemImageS src={url} alt={title} />
-        </Link>
+        </PaintDrip>
       </TechnologiesItemS>
     );
   });
