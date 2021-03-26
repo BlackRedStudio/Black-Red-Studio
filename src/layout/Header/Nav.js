@@ -4,6 +4,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import LangContext from '../../contexts/LangContext';
 import LangSwitcher from './LangSwitcher';
 import { NavContainerS, NavLinkS } from '../../styles/NavStyles';
+import { swipe } from '../../utils/transitions';
 
 const Nav = forwardRef((props, ref) => {
   const currentLang = useContext(LangContext);
@@ -40,16 +41,50 @@ const Nav = forwardRef((props, ref) => {
       const locale = node_locale;
       const localePrefix = locale !== 'en' ? `${locale}/` : ``;
 
+      const top = 'exit';
+      const exitLength = 2;
+      const entryLength = exitLength / 3.5;
+      const entryZ = top === 'entry' ? 1 : 0;
+      const exitZ = top === 'exit' ? 1 : 0;
+      const entryOffset = 100;
+
       return (
         <NavLinkS
           key={contentful_id}
           to={`/${localePrefix}${slug}`}
           site={site}
-          swipe
-          direction="left"
           preventScrollJump
-          entryOffset={100}
-          duration={2}
+          // swipe
+          // direction="left"
+          // preventScrollJump
+          // entryOffset={100}
+          // duration={2}
+          exit={{
+            length: exitLength,
+            trigger: ({ node, exit }) =>
+              swipe({
+                node,
+                exit,
+                direction: 'left',
+                top,
+                entryOffset,
+                triggerName: 'exit',
+              }),
+            zIndex: exitZ,
+          }}
+          entry={{
+            length: entryLength,
+            trigger: ({ node, exit }) =>
+              swipe({
+                node,
+                exit,
+                direction: 'left',
+                top,
+                entryOffset,
+                triggerName: 'entry',
+              }),
+            zIndex: entryZ,
+          }}
         >
           {title}
         </NavLinkS>

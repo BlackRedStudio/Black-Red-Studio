@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import AniLink from 'gatsby-plugin-transition-link/AniLink';
+import TransitionLink from 'gatsby-plugin-transition-link';
 
 import { media, colors } from './styles-utils';
 
@@ -19,7 +19,7 @@ export const NavContainerS = styled.nav`
   }
 `;
 
-export const NavLinkS = styled(AniLink)`
+export const NavLinkS = styled(TransitionLink)`
   display: block;
   padding: 10px 20px;
   text-transform: uppercase;

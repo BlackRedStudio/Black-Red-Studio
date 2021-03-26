@@ -1,7 +1,4 @@
-const checkScrollPosition = (body, header) => {
-  if (body.scrollTop > 150) header[0].classList.add('scrolled');
-  else header[0].classList.remove('scrolled');
-};
+const handleHeaderFixed = require('./src/utils/header-fixed.js').default;
 
 exports.shouldUpdateScroll = ({ routerProps }) => {
   if (routerProps?.location?.state?.lang) {
@@ -11,13 +8,7 @@ exports.shouldUpdateScroll = ({ routerProps }) => {
   return false;
 };
 exports.onRouteUpdate = () => {
-  document.querySelector('header').classList.remove('scrolled');
-  const body = document.querySelector('.tl-wrapper');
-  const header = document.getElementsByTagName('header');
-  checkScrollPosition(body, header);
-  body.addEventListener('scroll', () => {
-    checkScrollPosition(body, header);
-  });
+  handleHeaderFixed();
 };
 // exports.shouldUpdateScroll = ({ routerProps, getSavedScrollPosition }) => {
 //   if (routerProps?.location?.state?.lang) return false;
