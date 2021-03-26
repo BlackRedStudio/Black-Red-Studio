@@ -69,15 +69,20 @@ const Nav = forwardRef((props, ref) => {
           }}
           entry={{
             length: entryLength,
-            trigger: ({ node, exit }) =>
-              swipe({
+            trigger: ({ node, exit }) => {
+              ref.current.classList.add('transition');
+              setTimeout(() => {
+                ref.current.classList.remove('transition');
+              }, exitLength * 1000);
+              return swipe({
                 node,
                 exit,
                 direction: 'left',
                 top,
                 entryOffset,
                 triggerName: 'entry',
-              }),
+              });
+            },
             zIndex: entryZ,
           }}
         >

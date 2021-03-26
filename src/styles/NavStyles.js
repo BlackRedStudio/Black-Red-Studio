@@ -4,6 +4,11 @@ import TransitionLink from 'gatsby-plugin-transition-link';
 import { media, colors } from './styles-utils';
 
 export const NavContainerS = styled.nav`
+  &.transition a {
+    color: ${colors.darkGrayAlt};
+    pointer-events: none;
+    cursor: not-allowed;
+  }
   @media (${media.toLarge}) {
     width: 100%;
     transition: transform 0.35s linear;
