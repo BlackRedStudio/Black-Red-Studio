@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import Arrows from '../assets/arrows.svg';
-import { vars } from './styles-utils';
+import { vars, colors } from './styles-utils';
 
 export const BanerStaticS = styled.section`
   background-image: ${vars.linearGradient};
@@ -46,7 +46,8 @@ export const ScrollDownWrapperS = styled.div`
 `;
 export const CollisionBoxS = styled.div`
   position: absolute;
-  bottom: 50px;
+  bottom: 250px;
+  z-index: 2;
   left: calc(50% - 32px);
   padding-bottom: 50px;
   &:hover {
@@ -56,5 +57,17 @@ export const CollisionBoxS = styled.div`
     ${ScrollDownWrapperS} {
       background: #fff;
     }
+  }
+`;
+export const WaveSvgS = styled.svg`
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  transform: rotate(180deg);
+  path {
+    fill: ${colors.lightGray};
   }
 `;

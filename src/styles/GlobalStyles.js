@@ -68,7 +68,6 @@ export const GlobalStyle = createGlobalStyle`
     fill-opacity: 0;
     transition: fill-opacity 1s;
   }
-
   #svg-draw svg.finished {
     fill-opacity: 1;
   }

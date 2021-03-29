@@ -42,7 +42,7 @@ const OfferItem = ({ data }) => {
         e => e.el.classList.add('finished')
       );
       vivus.destroy();
-    }, 750);
+    }, 1000);
   }, []);
   return (
     <>

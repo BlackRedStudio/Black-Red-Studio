@@ -39,7 +39,8 @@
     "remark-html": "^13.0.1",
     "remark-preset-lint-markdown-style-guide": "^4.0.0",
     "styled-components": "^5.2.1",
-    "vivus": "^0.4.5"
+    "vivus": "^0.4.5",
+    "wavify": "^1.0.0"
   },
   "devDependencies": {
     "eslint-config-airbnb": "^18.2.1",
