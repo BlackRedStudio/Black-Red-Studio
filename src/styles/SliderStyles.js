@@ -41,6 +41,8 @@ export const SliderBtnWrapperS = styled.div`
   width: 100%;
   align-items: center;
   z-index: 2;
+  transform: translateY(100px);
+  opacity: 0;
   @media (${media.large}) {
     flex-flow: row;
     justify-content: center;

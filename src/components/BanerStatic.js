@@ -69,6 +69,15 @@ const BanerStatic = ({ headers, half }) => {
         waveHeight: 100,
       });
     }
+    // window.addEventListener('resize', ()=>{
+    //   var test2 = document.querySelector('.kwXJyK');
+    //   var test = document.querySelector('.kwXJyK').childNodes[0];
+    //   test.remove();
+    //   test2.appendChild(test);
+    //   wavify(document.querySelector('.test3'), {
+    //     waveHeight: 100,
+    //   });
+    // });
   }, []);
 
   const ScrollDown = () => {

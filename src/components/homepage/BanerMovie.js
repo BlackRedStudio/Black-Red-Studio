@@ -14,20 +14,22 @@ import { SliderBtnWrapperS, SliderTextS } from '../../styles/SliderStyles';
 const BanerMovie = ({ title, buttonsTitles, buttonsLinks }) => {
   const sliderTextRef = useRef(null);
   const cursorRef = useRef(null);
+  const SliderBtnWrapperRef = useRef(null);
 
   useEffect(() => {
     gsap.registerPlugin(TextPlugin);
 
     const words = ['Jakość', 'Profesjonalizm', 'Perfekcja'];
-
     setTimeout(() => {
       gsap.to(cursorRef.current, {
         opacity: 0,
         ease: 'power2.inOut',
         repeat: -1,
       });
-      const masterTl = gsap.timeline({ repeat: -1 });
 
+      gsap.to(SliderBtnWrapperRef.current, { opacity: 1, y: 0, duration: 1 });
+
+      const masterTl = gsap.timeline({ repeat: -1 });
       words.forEach(word => {
         const tl = gsap.timeline({ repeat: 1, yoyo: true, repeatDelay: 1 });
         tl.to(sliderTextRef.current, { duration: 1, text: word });
@@ -49,7 +51,7 @@ const BanerMovie = ({ title, buttonsTitles, buttonsLinks }) => {
         </SliderTextS>
       )}
       {buttonsLinks && (
-        <SliderBtnWrapperS>
+        <SliderBtnWrapperS ref={SliderBtnWrapperRef}>
           <Button
             to={buttonsLinks[0]}
             elSize="medium"

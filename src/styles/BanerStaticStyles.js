@@ -79,7 +79,7 @@ export const WaveSvgS = styled.svg`
   position: absolute;
   left: 0;
   right: 0;
-  top: 0;
+  top: 1px;
   bottom: 0;
   z-index: 1;
   transform: rotate(180deg);
