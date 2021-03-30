@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import Arrows from '../assets/arrows.svg';
-import { vars, colors } from './styles-utils';
+import { media, vars, colors } from './styles-utils';
 
 export const BanerStaticS = styled.section`
   background-image: ${vars.linearGradient};
@@ -15,8 +15,21 @@ export const BanerStaticS = styled.section`
   position: relative;
   p,
   h2 {
+    opacity: 0;
     padding: 10px;
     margin-top: 0;
+    div {
+      position: relative;
+      display: inline-block;
+    }
+  }
+  h2 {
+    margin-bottom: 100px;
+  }
+  @media (${media.large}) {
+    h2 {
+      margin-bottom: 200px;
+    }
   }
 `;
 export const ArrowsS = styled(Arrows)`
@@ -46,7 +59,7 @@ export const ScrollDownWrapperS = styled.div`
 `;
 export const CollisionBoxS = styled.div`
   position: absolute;
-  bottom: 250px;
+  bottom: 100px;
   z-index: 2;
   left: calc(50% - 32px);
   padding-bottom: 50px;
@@ -57,6 +70,9 @@ export const CollisionBoxS = styled.div`
     ${ScrollDownWrapperS} {
       background: #fff;
     }
+  }
+  @media (${media.large}) {
+    bottom: 250px;
   }
 `;
 export const WaveSvgS = styled.svg`

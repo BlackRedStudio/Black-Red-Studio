@@ -21,6 +21,10 @@ export const SliderTextS = styled.p`
   width: 100%;
   z-index: 2;
   padding: 0 15px;
+  div {
+    position: relative;
+    display: inline-block;
+  }
   @media (${media.medium}) {
     font-size: 8.4rem;
   }
