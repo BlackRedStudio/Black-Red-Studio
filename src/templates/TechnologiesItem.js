@@ -6,7 +6,7 @@ import BanerStatic from '../components/BanerStatic';
 import PortfolioGallery from '../components/homepage/PortfolioGallery';
 import OfferGrid from '../components/homepage/OfferGrid';
 import SiblingsSwitcher from '../components/SiblingsSwitcher';
-import { IconS, ImageS } from '../styles/OfferStyles';
+import { IconS } from '../styles/OfferStyles';
 import { BoxS, ContainerInnerS, ContainerS } from '../styles/ContainerStyles';
 import { Spacer } from '../styles/HelpersStyles';
 
@@ -21,7 +21,6 @@ const TechnologiesItem = ({ data }) => {
     image: {
       localFile: { url },
     },
-    imageBaner,
     offer,
     portfolio,
   } = data.contentfulTechnologies;
