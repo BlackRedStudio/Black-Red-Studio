@@ -14,6 +14,7 @@ const Button = ({
   elMargin,
   isLink,
   type,
+  click,
 }) => (
   <ButtonS
     elType={elType}
@@ -27,7 +28,9 @@ const Button = ({
         {children}
       </PaintDrip>
     ) : (
-      <button type={type === 'submit' ? 'submit' : 'button'}>{children}</button>
+      <button type={type === 'submit' ? 'submit' : 'button'} onClick={click}>
+        {children}
+      </button>
     )}
   </ButtonS>
 );
