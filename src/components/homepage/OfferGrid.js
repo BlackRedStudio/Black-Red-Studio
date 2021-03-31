@@ -15,6 +15,8 @@ import {
 const OfferGrid = ({ offer, header, offerButton, smallHeader }) => {
   const currentLang = useContext(LangContext);
   const extraUrl = currentLang === 'pl' ? '/pl/oferta/' : '/offer/';
+  let offerDelayMultiplier = 0;
+
   const offerList = offer.map(singleOffer => {
     const {
       contentful_id,
@@ -25,8 +27,21 @@ const OfferGrid = ({ offer, header, offerButton, smallHeader }) => {
         localFile: { url },
       },
     } = singleOffer;
+
+    let delay = offerDelayMultiplier * 200 + 300;
+    offerDelayMultiplier++;
+    if (offerDelayMultiplier % 3 === 0) offerDelayMultiplier = 0;
+
+    if (window.innerWidth < 768) delay = 300;
+
     return (
-      <OfferItemS key={contentful_id}>
+      <OfferItemS
+        key={contentful_id}
+        data-sal="fade"
+        data-sal-duration="1000"
+        data-sal-delay={delay}
+        data-sal-easing="ease-out-bounce"
+      >
         <OfferImgS src={url} />
         <OfferTitleS>{title}</OfferTitleS>
         <OfferDescriptionS>{shortDescription}</OfferDescriptionS>
