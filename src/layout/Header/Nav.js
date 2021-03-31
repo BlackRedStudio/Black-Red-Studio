@@ -40,8 +40,9 @@ const Nav = forwardRef(({ hamburgerRef }, ref) => {
     window.location.pathname === '/' || window.location.pathname === '/pl/'
       ? 'homepage'
       : 'default';
+
   const menuList = menuForCurrentLang[0].edges[0].node.mainMenu.map(
-    ({ node_locale, contentful_id, slug, title }) => {
+    ({ node_locale, contentful_id, slug, title }, key) => {
       const locale = node_locale;
       const localePrefix = locale !== 'en' ? `${locale}/` : ``;
 
@@ -53,19 +54,32 @@ const Nav = forwardRef(({ hamburgerRef }, ref) => {
       const exitZ = top === 'exit' ? 1 : 0;
       const entryOffset = 100;
 
+      let direction = 'left';
+
       return (
         <NavLinkS
           key={contentful_id}
           to={`/${localePrefix}${slug}`}
           site={site}
+          data-index={key}
+          onMouseOver={e => {
+            const currentIndex = document.querySelector('.nav-link-active')
+              ?.dataset?.index;
+            if (currentIndex) {
+              const { index } = e.target.dataset;
+              direction = index < currentIndex ? 'right' : 'left';
+            }
+          }}
           preventScrollJump
+          partiallyActive
+          activeClassName="nav-link-active"
           exit={{
             length: exitLength,
             trigger: ({ node, exit }) =>
               swipe({
                 node,
                 exit,
-                direction: 'left',
+                direction,
                 top,
                 entryOffset,
                 triggerName: 'exit',
@@ -82,7 +96,7 @@ const Nav = forwardRef(({ hamburgerRef }, ref) => {
               return swipe({
                 node,
                 exit,
-                direction: 'left',
+                direction,
                 top,
                 entryOffset,
                 triggerName: 'entry',
