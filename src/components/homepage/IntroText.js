@@ -19,6 +19,7 @@ const IntroText = ({ text }) => (
         data-sal="slide-right"
         data-sal-duration="1500"
         data-sal-easing="ease-out-bounce"
+        noSal
       >
         {text[0]}
       </H2>

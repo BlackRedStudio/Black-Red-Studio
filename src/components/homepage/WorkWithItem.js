@@ -22,7 +22,12 @@ const WorkWithItem = ({ workWith }) => {
   } = workWith;
 
   return (
-    <WorkWithItemS>
+    <WorkWithItemS
+      data-sal="slide-left"
+      data-sal-duration="1000"
+      data-sal-delay="300"
+      data-sal-easing="ease-out-bounce"
+    >
       <WorkWithIconS src={url} alt={title} />
       <WorkWithTitleS>{title}</WorkWithTitleS>
       <WorkWithOverlayS>

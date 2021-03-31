@@ -18,7 +18,12 @@ const ProcessItem = ({ process }) => {
   } = process;
 
   return (
-    <ProcessItemS>
+    <ProcessItemS
+      data-sal="zoom-in"
+      data-sal-duration="1000"
+      data-sal-delay="300"
+      data-sal-easing="ease-out-bounce"
+    >
       <ProcessItemIconS>
         <img src={url} alt={title} />
       </ProcessItemIconS>

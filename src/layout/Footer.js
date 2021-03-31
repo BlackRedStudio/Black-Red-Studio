@@ -66,7 +66,12 @@ const Footer = () => {
   return (
     <FooterContainerS>
       <Spacer />
-      <ContainerS>
+      <ContainerS
+        data-sal="slide-down"
+        data-sal-duration="1000"
+        data-sal-delay="300"
+        data-sal-easing="ease-out-bounce"
+      >
         <ContainerInnerS>
           <FooterBoxS width="30%" padding="0">
             <FooterHeaderS>{headerList[0]}</FooterHeaderS>

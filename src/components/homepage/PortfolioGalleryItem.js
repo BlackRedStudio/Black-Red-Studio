@@ -8,7 +8,7 @@ import {
   PortfolioHiddenDescS,
 } from '../../styles/PortfolioGalleryStyles';
 
-const PortfolioGalleryItem = ({ portfolio }) => {
+const PortfolioGalleryItem = ({ portfolio, delay }) => {
   const currentLang = useContext(LangContext);
   const extraUrl = currentLang === 'pl' ? '/pl/portfolio/' : '/portfolio/';
   const {
@@ -25,7 +25,12 @@ const PortfolioGalleryItem = ({ portfolio }) => {
   } = image;
 
   return (
-    <PortfolioItemS>
+    <PortfolioItemS
+      data-sal="fade"
+      data-sal-duration="1000"
+      data-sal-delay={delay}
+      data-sal-easing="ease-out-bounce"
+    >
       <PortfolioItemImageWrapperS to={extraUrl + slug} paintDrip hex="#fc3031">
         <Img fluid={fluid} alt={title} />
         <PortfolioHiddenDescS>

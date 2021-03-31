@@ -13,6 +13,7 @@ import {
 const TechnologiesGrid = ({ technologies, header, smallHeader }) => {
   const currentLang = useContext(LangContext);
   const extraUrl = currentLang === 'pl' ? '/pl/technologie/' : '/technologies/';
+
   const technologiesList = technologies.map(technology => {
     const {
       contentful_id,
@@ -22,8 +23,15 @@ const TechnologiesGrid = ({ technologies, header, smallHeader }) => {
         localFile: { url },
       },
     } = technology;
+
     return (
-      <TechnologiesItemS key={contentful_id}>
+      <TechnologiesItemS
+        key={contentful_id}
+        data-sal="zoom-in"
+        data-sal-duration="1000"
+        data-sal-delay="300"
+        data-sal-easing="ease-out-bounce"
+      >
         <PaintDrip to={extraUrl + slug} paintDrip hex="#fc3031">
           <TechnologiesItemImageS src={url} alt={title} />
         </PaintDrip>

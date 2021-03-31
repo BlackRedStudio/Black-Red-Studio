@@ -43,6 +43,9 @@ export const GlobalStyle = createGlobalStyle`
   ::-webkit-scrollbar-thumb:hover {
     background: ${colors.darkRed};
   }
+  [data-sal=slide-down-big] {
+    transform: translateY(-50%);
+  }
   h1 {
     margin: 0;
   }

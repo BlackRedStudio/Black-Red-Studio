@@ -34,15 +34,29 @@ const Offer = ({ data }) => {
               padding="0 30px 0 0"
               lineHeight="1.2"
               letterSpacing=".5px"
+              data-sal="slide-right"
+              data-sal-duration="1000"
+              data-sal-delay="300"
+              data-sal-easing="ease-out-bounce"
             >
               {descriptionRow1}
             </BoxS>
-            <div>
+            <div
+              data-sal="zoom-in"
+              data-sal-duration="1000"
+              data-sal-delay="300"
+              data-sal-easing="ease-out-bounce"
+            >
               <Img fluid={imageRow1.localFile.childImageSharp.fluid} />
             </div>
           </ContainerInnerS>
           <ContainerInnerS>
-            <div>
+            <div
+              data-sal="zoom-in"
+              data-sal-duration="1000"
+              data-sal-delay="300"
+              data-sal-easing="ease-out-bounce"
+            >
               <Img fluid={imageRow2.localFile.childImageSharp.fluid} />
             </div>
             <BoxS
@@ -52,6 +66,10 @@ const Offer = ({ data }) => {
               padding="0 0 0 30px"
               lineHeight="1.2"
               letterSpacing=".5px"
+              data-sal="slide-right"
+              data-sal-duration="1000"
+              data-sal-delay="300"
+              data-sal-easing="ease-out-bounce"
             >
               {descriptionRow2}
             </BoxS>

@@ -30,21 +30,34 @@ const TechnologiesSlider = ({ header, technologies, technologiesButton }) => {
   return (
     <TechnologiesContainerS>
       <H2 preText={header[0]}>{header[1]}</H2>
-      <div ref={elRef}>
+      <div
+        ref={elRef}
+        data-sal="fade"
+        data-sal-duration="1000"
+        data-sal-delay="300"
+        data-sal-easing="ease-out-bounce"
+      >
         <TechnologiesListViewportS ref={emblaRef}>
           <TechnologiesListWrapperS>
             {technologiesList}
           </TechnologiesListWrapperS>
         </TechnologiesListViewportS>
       </div>
-      <Button
-        to={technologiesButton[1]}
-        elSize="big"
-        elWidth="25%"
-        elMargin="70px auto 0"
+      <div
+        data-sal="fade"
+        data-sal-duration="1000"
+        data-sal-delay="900"
+        data-sal-easing="ease-out-bounce"
       >
-        {technologiesButton[0]}
-      </Button>
+        <Button
+          to={technologiesButton[1]}
+          elSize="big"
+          elWidth="25%"
+          elMargin="70px auto 0"
+        >
+          {technologiesButton[0]}
+        </Button>
+      </div>
     </TechnologiesContainerS>
   );
 };
