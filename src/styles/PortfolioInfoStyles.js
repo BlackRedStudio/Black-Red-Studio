@@ -11,9 +11,14 @@ export const PortfolioInfoItemS = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  border-right: 1px solid ${colors.darkGray};
+  justify-content: flex-start;
+  width: 100%;
+  margin-bottom: 20px;
   @media (${media.large}) {
     width: 25%;
+    border-right: 1px solid ${colors.darkGray};
+    justify-content: center;
+    margin-bottom: 0;
   }
   &:last-child {
     border: 0;

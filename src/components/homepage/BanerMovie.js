@@ -11,7 +11,7 @@ import {
 import { SliderOverlayS } from '../../styles/HelpersStyles';
 import { SliderBtnWrapperS, SliderTextS } from '../../styles/SliderStyles';
 
-const BanerMovie = ({ title, buttonsTitles, buttonsLinks }) => {
+const BanerMovie = ({ headers, buttonsTitles, buttonsLinks }) => {
   const sliderTextRef = useRef(null);
   const cursorRef = useRef(null);
   const SliderBtnWrapperRef = useRef(null);
@@ -19,7 +19,6 @@ const BanerMovie = ({ title, buttonsTitles, buttonsLinks }) => {
   useEffect(() => {
     gsap.registerPlugin(TextPlugin);
 
-    const words = ['Jakość', 'Profesjonalizm', 'Perfekcja'];
     setTimeout(() => {
       gsap.to(cursorRef.current, {
         opacity: 0,
@@ -30,9 +29,9 @@ const BanerMovie = ({ title, buttonsTitles, buttonsLinks }) => {
       gsap.to(SliderBtnWrapperRef.current, { opacity: 1, y: 0, duration: 1 });
 
       const masterTl = gsap.timeline({ repeat: -1 });
-      words.forEach(word => {
+      headers.forEach(header => {
         const tl = gsap.timeline({ repeat: 1, yoyo: true, repeatDelay: 1 });
-        tl.to(sliderTextRef.current, { duration: 1, text: word });
+        tl.to(sliderTextRef.current, { duration: 1, text: header });
         masterTl.add(tl);
       });
     }, 1000);
@@ -44,7 +43,7 @@ const BanerMovie = ({ title, buttonsTitles, buttonsLinks }) => {
         <source src={Video} type="video/mp4" />
         <track />
       </BanerVideoS>
-      {title && (
+      {headers && (
         <SliderTextS>
           <span ref={sliderTextRef} />
           <span ref={cursorRef}>_</span>

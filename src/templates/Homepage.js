@@ -18,6 +18,7 @@ import BanerMovie from '../components/homepage/BanerMovie';
 const Homepage = ({ data }) => {
   const {
     title,
+    banerMovieHeaders,
     banersButtonsTitle,
     banersButtonsLinks,
     believeInPerfection,
@@ -47,7 +48,7 @@ const Homepage = ({ data }) => {
     <>
       <SEO title={title} />
       <BanerMovie
-        title="Najwyższa jakość"
+        headers={banerMovieHeaders}
         buttonsTitles={banersButtonsTitle}
         buttonsLinks={banersButtonsLinks}
       />
@@ -103,6 +104,7 @@ export const query = graphql`
   query($locale: String!) {
     contentfulHomepage(node_locale: { eq: $locale }) {
       title
+      banerMovieHeaders
       banersButtonsTitle
       banersButtonsLinks
       believeInPerfection

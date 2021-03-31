@@ -46,6 +46,11 @@ export const GlobalStyle = createGlobalStyle`
   [data-sal=slide-down-big] {
     transform: translateY(-50%);
   }
+  @media(${media.toLarge}) {
+    [data-sal][data-sal-delay="300"] {
+      transition-delay: .1s;
+    }
+  }
   h1 {
     margin: 0;
   }
