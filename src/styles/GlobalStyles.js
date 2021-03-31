@@ -24,24 +24,24 @@ export const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
     height: 100vh;
     scrollbar-color: ${colors.lightRed} ${colors.gray};
-    &::-webkit-scrollbar {
-      width: 17px;
-    }
-
-    &::-webkit-scrollbar-track {
-      background: ${colors.gray};
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background: ${colors.lightRed};
-    }
-
-    &::-webkit-scrollbar-thumb:hover {
-      background: ${colors.darkRed};
-    }
   }
   .overflow {
     overflow: hidden;
+  }
+  ::-webkit-scrollbar {
+    width: 17px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: ${colors.gray};
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: ${colors.lightRed};
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: ${colors.darkRed};
   }
   h1 {
     margin: 0;
