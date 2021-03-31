@@ -45,10 +45,25 @@ const TechnologiesItem = ({ data }) => {
               padding="0 50px 0 0"
             >
               <IconS src={url} alt="" maxWidth="150px" />
-              <ImageS
-                fluid={imageBaner.localFile.childImageSharp.fluid}
-                alt=""
-              />
+              <iframe
+                height="538"
+                style={{ width: '100%' }}
+                scrolling="no"
+                title="SVG animation"
+                src="https://codepen.io/thiennhat/embed/BNByzJ?height=538&theme-id=dark&default-tab=result"
+                frameBorder="no"
+                loading="lazy"
+                allowtransparency="true"
+                allowFullScreen
+              >
+                See the Pen{' '}
+                <a href="https://codepen.io/thiennhat/pen/BNByzJ">
+                  SVG animation
+                </a>{' '}
+                by Hoàng Nhật (
+                <a href="https://codepen.io/thiennhat">@thiennhat</a>) on{' '}
+                <a href="https://codepen.io">CodePen</a>.
+              </iframe>
             </BoxS>
             <BoxS
               fontSize="1.8rem"
