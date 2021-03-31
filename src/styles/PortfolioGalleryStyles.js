@@ -14,18 +14,18 @@ export const PortfolioItemWrapperS = styled.div`
     grid-template-columns: 1fr 1fr 1fr;
   }
 `;
-export const PortfolioItemS = styled.div`
-  perspective: 600px;
-`;
 export const PortfolioItemImageWrapperS = styled(PaintDrip)`
   display: block;
   position: relative;
   transition: transform 1s;
   transform-style: preserve-3d;
+`;
+export const PortfolioItemS = styled.div`
+  perspective: 600px;
   img {
     backface-visibility: hidden;
   }
-  &:hover {
+  &:hover ${PortfolioItemImageWrapperS} {
     transform: rotateY(180deg);
   }
 `;
