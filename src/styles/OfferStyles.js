@@ -4,6 +4,9 @@ import styled from 'styled-components';
 import { media } from './styles-utils';
 
 export const ImageS = styled(Img)`
+  @media (${media.toLarge}) {
+    max-height: 350px;
+  }
   width: 100%;
   height: 100%;
 `;

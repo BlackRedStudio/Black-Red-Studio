@@ -45,7 +45,7 @@ const SiblingsSwitcher = ({ prevSibling, nextSibling, type }) => {
 
   return (
     <>
-      <SiblingsArrowS />
+      <SiblingsArrowS onClick={e => e.target.nextElementSibling.click()} />
       <SiblingsSwitcherS
         to={extraUrl + prevSlug}
         preventScrollJump
@@ -84,7 +84,10 @@ const SiblingsSwitcher = ({ prevSibling, nextSibling, type }) => {
         <SiblingsTitleS>{prevTitle}</SiblingsTitleS>
         <SiblingsImageS src={prevImage} alt={prevTitle} />
       </SiblingsSwitcherS>
-      <SiblingsArrowS next="true" />
+      <SiblingsArrowS
+        next="true"
+        onClick={e => e.target.previousElementSibling.click()}
+      />
       <SiblingsSwitcherS
         to={extraUrl + nextSlug}
         next="true"
