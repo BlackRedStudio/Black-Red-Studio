@@ -37,6 +37,13 @@ export const ContainerInnerS = styled.div`
       padding-top: 0;
       ${p => p.reversed && `order: 2;`}
     }
+    @media (${media.medium}) {
+      padding-top: 0;
+      padding-bottom: 0;
+      &:first-child {
+        ${p => p.reversed && `order: initial;`}
+      }
+    }
     ${p => {
       if (p.children.length === 2)
         return `
@@ -44,7 +51,6 @@ export const ContainerInnerS = styled.div`
           width: 50%;
         }
         @media (${media.large}) {
-          padding-top: 0;
         }
       `;
       if (p.children.length === 3)
@@ -53,7 +59,6 @@ export const ContainerInnerS = styled.div`
           width: 50%;
         }
         @media (${media.large}) {
-          padding-top: 0;
           width: 33.33%;
         }
       `;
@@ -65,7 +70,6 @@ export const ContainerInnerS = styled.div`
           width: 33.33%;
         }
         @media (${media.large}) {
-          padding-top: 0;
           width: 25%;
         }
       `;
