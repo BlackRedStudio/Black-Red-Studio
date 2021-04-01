@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
+
+import LangContext from '../../contexts/LangContext';
 import { LogoContainerS, LogoLinkS, LogoS } from '../../styles/HeaderStyles';
 
 const Logo = () => {
+  const currentLang = useContext(LangContext);
   const data = useStaticQuery(graphql`
     {
       allContentfulAsset(
@@ -21,15 +24,16 @@ const Logo = () => {
     }
   `);
 
-  let site = 'default';
-  site =
+  const homepageUrl = currentLang === 'en' ? '/' : '/pl';
+
+  const site =
     window.location.pathname === '/' || window.location.pathname === '/pl/'
       ? 'homepage'
       : 'default';
   return (
     <LogoContainerS>
       <h1>
-        <LogoLinkS to="/" paintDrip hex="#fc3031">
+        <LogoLinkS to={homepageUrl} paintDrip hex="#fc3031">
           {data.allContentfulAsset.edges.map(
             ({ node: { contentful_id, title, file } }) => {
               if (site === 'homepage' && title === 'logo-blackred-white-alt')
