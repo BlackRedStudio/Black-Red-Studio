@@ -6,7 +6,7 @@ import BanerStatic from '../components/BanerStatic';
 import PortfolioGallery from '../components/homepage/PortfolioGallery';
 import OfferGrid from '../components/homepage/OfferGrid';
 import SiblingsSwitcher from '../components/SiblingsSwitcher';
-import { IconS, IconWrapperS } from '../styles/OfferStyles';
+import { IconS, IconWrapperS, LogoWrapperS } from '../styles/OfferStyles';
 import { BoxS, ContainerInnerS, ContainerS } from '../styles/ContainerStyles';
 import { Spacer } from '../styles/HelpersStyles';
 
@@ -69,9 +69,9 @@ const TechnologiesItem = ({ data }) => {
               justifyContent="center"
               flexDirection="column"
             >
-              <IconWrapperS minHeight="150px">
+              <LogoWrapperS>
                 <IconS src={url} alt="" maxWidth="150px" />
-              </IconWrapperS>
+              </LogoWrapperS>
               <div dangerouslySetInnerHTML={{ __html: htmlData }} />
             </BoxS>
           </ContainerInnerS>

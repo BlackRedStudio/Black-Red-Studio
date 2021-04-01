@@ -31,9 +31,11 @@ export const ContainerInnerS = styled.div`
   > div,
   > section {
     width: 100%;
-    padding-top: 70px;
+    ${p => !p.reversed && `padding-top: 70px;`}
+    ${p => p.reversed && `padding-bottom: 70px;`}
     &:first-child {
       padding-top: 0;
+      ${p => p.reversed && `order: 2;`}
     }
     ${p => {
       if (p.children.length === 2)

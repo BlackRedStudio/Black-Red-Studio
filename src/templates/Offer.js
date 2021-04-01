@@ -26,7 +26,7 @@ const Offer = ({ data }) => {
       <ContainerS>
         <Spacer />
         <section>
-          <ContainerInnerS>
+          <ContainerInnerS reversed>
             <BoxS
               display="flex"
               fontSize="2rem"

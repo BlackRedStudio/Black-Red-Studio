@@ -7,7 +7,12 @@ import BanerStatic from '../components/BanerStatic';
 import PortfolioGallery from '../components/homepage/PortfolioGallery';
 import TechnologiesGrid from '../components/TechnologiesGrid';
 import SiblingsSwitcher from '../components/SiblingsSwitcher';
-import { ImageS, IconWrapperS, IconS } from '../styles/OfferStyles';
+import {
+  ImageS,
+  IconWrapperS,
+  IconS,
+  OfferImageWrapperS,
+} from '../styles/OfferStyles';
 import { BoxS, ContainerInnerS, ContainerS } from '../styles/ContainerStyles';
 import { Spacer } from '../styles/HelpersStyles';
 
@@ -52,10 +57,12 @@ const OfferItem = ({ data }) => {
               flexDirection="column"
               padding="0 50px 0 0"
             >
-              <ImageS
-                fluid={imageBaner.localFile.childImageSharp.fluid}
-                alt=""
-              />
+              <OfferImageWrapperS>
+                <ImageS
+                  fluid={imageBaner.localFile.childImageSharp.fluid}
+                  alt=""
+                />
+              </OfferImageWrapperS>
             </BoxS>
             <BoxS
               fontSize="1.8rem"
