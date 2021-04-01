@@ -16,6 +16,15 @@ const BanerStatic = ({ headers, half }) => {
   const h2Ref = useRef(null);
   const pRef = useRef(null);
 
+  const splitLettersToDivs = element => {
+    const el = element;
+    const splitted = el.innerHTML.split('</div> ');
+    el.innerHTML = '';
+    for (let i = 0; i < splitted.length; i++) {
+      el.innerHTML += ` <div>${splitted[i]}</div> `;
+    }
+  };
+
   useEffect(() => {
     const h2 = h2Ref.current;
     h2.innerHTML = h2.textContent.replace(
@@ -23,12 +32,16 @@ const BanerStatic = ({ headers, half }) => {
       "<div class='letter'>$&</div>"
     );
 
+    splitLettersToDivs(h2);
+
     const p = pRef.current;
     if (p)
       p.innerHTML = p.textContent.replace(
         /\S/g,
         "<div class='letter-pre-header'>$&</div>"
       );
+
+    splitLettersToDivs(p);
 
     const letter = document.getElementsByClassName('letter');
     const letterPreHeader = document.getElementsByClassName(
@@ -69,15 +82,6 @@ const BanerStatic = ({ headers, half }) => {
         waveHeight: 100,
       });
     }
-    // window.addEventListener('resize', ()=>{
-    //   var test2 = document.querySelector('.kwXJyK');
-    //   var test = document.querySelector('.kwXJyK').childNodes[0];
-    //   test.remove();
-    //   test2.appendChild(test);
-    //   wavify(document.querySelector('.test3'), {
-    //     waveHeight: 100,
-    //   });
-    // });
   }, []);
 
   const ScrollDown = () => {

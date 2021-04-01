@@ -71,7 +71,7 @@ export const CollisionBoxS = styled.div`
       background: #fff;
     }
   }
-  @media (${media.large}) {
+  @media (${media.small}) {
     bottom: 250px;
   }
 `;

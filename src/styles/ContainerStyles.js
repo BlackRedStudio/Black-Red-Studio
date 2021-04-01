@@ -71,7 +71,7 @@ export const ContainerInnerS = styled.div`
   }
 `;
 export const BoxS = styled.div`
-  @media (${media.large}) {
+  @media (${media.medium}) {
     font-size: ${p => (p.fontSize ? p.fontSize : `1.6rem`)};
     display: ${p => (p.display ? p.display : `block`)};
     padding: ${p => (p.padding ? p.padding : `0`)};
