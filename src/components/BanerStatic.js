@@ -35,13 +35,13 @@ const BanerStatic = ({ headers, half }) => {
     splitLettersToDivs(h2);
 
     const p = pRef.current;
-    if (p)
+    if (p) {
       p.innerHTML = p.textContent.replace(
         /\S/g,
         "<div class='letter-pre-header'>$&</div>"
       );
-
-    splitLettersToDivs(p);
+      splitLettersToDivs(p);
+    }
 
     const letter = document.getElementsByClassName('letter');
     const letterPreHeader = document.getElementsByClassName(

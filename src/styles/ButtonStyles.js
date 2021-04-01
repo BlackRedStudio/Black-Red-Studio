@@ -12,7 +12,7 @@ export const ButtonS = styled.span`
       if (elSize === 'medium') return '18px 40px';
       return '14px 30px';
     }};
-    margin: 20px 0 0 0;
+    margin: ${p => p.mobileMargin};
     border: none;
     width: ${p => p.elMobileWidth};
     display: inline-block;
@@ -20,6 +20,9 @@ export const ButtonS = styled.span`
     cursor: pointer;
     text-align: center;
     transition: all ease-in-out 0.4s;
+    @media (${media.small}) {
+      margin: ${p => p.mediumMargin};
+    }
     @media (${media.large}) {
       font-size: 1.6rem;
       width: ${p => p.elWidth};

@@ -32,6 +32,9 @@ export const OfferTitleS = styled.h3`
 `;
 export const OfferDescriptionS = styled.p`
   @media (${media.small}) {
+    height: 120px;
+  }
+  @media (${media.large}) {
     height: 70px;
   }
 `;

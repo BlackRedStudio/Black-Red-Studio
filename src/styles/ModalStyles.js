@@ -16,17 +16,13 @@ export const ModalShadowS = styled.div`
 export const ModalS = styled.div`
   position: fixed;
   border-radius: 4px;
-  top: 50px;
   z-index: 99;
   left: 15px;
   right: 15px;
-  overflow-x: hidden;
   max-width: 700px;
   margin: 0 auto;
-  @media (${media.medium}) {
-    top: calc(25vh - 49px);
-    overflow-x: visible;
-  }
+  top: calc(25vh - 49px);
+  overflow-x: hidden;
 `;
 export const ModalWrapperS = styled.div`
   background: #fff;

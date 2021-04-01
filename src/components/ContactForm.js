@@ -131,6 +131,7 @@ const ContactForm = ({ form, messages, templateAlt }) => {
             type="submit"
             elType="inverted"
             elWidth="100%"
+            elMobileWidth="100%"
             isLink={false}
           >
             {title}

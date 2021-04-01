@@ -45,7 +45,10 @@ const PortfolioGallery = ({ portfolio, header, button, smallHeader }) => {
             to={button[1]}
             elSize="big"
             elWidth="25%"
+            elMobileWidth="50%"
             elMargin="30px auto 0"
+            mobileMargin="35px 0 0 0"
+            mediumMargin="60px 0 0 0"
           >
             {button[0]}
           </Button>

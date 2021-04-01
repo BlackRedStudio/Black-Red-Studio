@@ -13,6 +13,8 @@ const Button = ({
   elMobileWidth,
   elMargin,
   isLink,
+  mobileMargin,
+  mediumMargin,
   type,
   click,
 }) => (
@@ -22,6 +24,8 @@ const Button = ({
     elMobileWidth={elMobileWidth}
     elWidth={elWidth}
     elMargin={elMargin}
+    mobileMargin={mobileMargin}
+    mediumMargin={mediumMargin}
   >
     {isLink ? (
       <PaintDrip to={to} paintDrip hex="#fc3031">
@@ -42,6 +46,8 @@ Button.defaultProps = {
   elMobileWidth: 'initial',
   elWidth: 'initial',
   elMargin: '15px 0 0 0',
+  mobileMargin: '20px 0 0 0',
+  mediumMargin: '20px 0 0 0',
   isLink: true,
   type: null,
 };

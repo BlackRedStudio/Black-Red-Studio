@@ -33,12 +33,12 @@ export const AddressColumnS = styled.div`
     font-weight: 700;
   }
 `;
-export const Iframe = styled.iframe`
+export const IframeS = styled.iframe`
   border: 0;
   @media (${media.toLarge}) {
     height: 320px;
   }
-  @media (${media.large}) {
+  @media (${media.medium}) {
     margin-top: 41px;
     padding: 0 30px;
   }

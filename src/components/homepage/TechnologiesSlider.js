@@ -54,6 +54,8 @@ const TechnologiesSlider = ({ header, technologies, technologiesButton }) => {
           elSize="big"
           elWidth="25%"
           elMargin="70px auto 0"
+          mobileMargin="35px 0 0 0"
+          mediumMargin="50px 0 0 0"
         >
           {technologiesButton[0]}
         </Button>

@@ -65,6 +65,7 @@ const Modal = ({ modalName, modalHeader, modalDescription, modalButton }) => {
               <Button
                 elWidth="100%"
                 elType="black"
+                elMobileWidth="100%"
                 elMargin="10px 0 0 0"
                 isLink={false}
                 click={() => closeModal()}
