@@ -15,7 +15,13 @@ const PortfolioInfo = ({
   aboveInfoHeadersText,
 }) => {
   const infoHeadersList = infoIcons.map((v, k) => (
-    <PortfolioInfoItemS key={infoHeaders[k]}>
+    <PortfolioInfoItemS
+      key={infoHeaders[k]}
+      data-sal="fade"
+      data-sal-duration="1000"
+      data-sal-delay="300"
+      data-sal-easing="ease-out-bounce"
+    >
       <PortfolioInfoIconS
         src={infoIcons[k].localFile.url}
         alt={infoHeaders[k]}

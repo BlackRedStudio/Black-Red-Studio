@@ -5,12 +5,27 @@ import Footer from '../layout/Footer';
 import BanerStatic from '../components/BanerStatic';
 import ContactForm from '../components/ContactForm';
 import AddressColumn from '../components/AddressColumn';
+import Modal from '../components/Modal';
 import { ContainerS, ContainerInnerS } from '../styles/ContainerStyles';
 import { Spacer } from '../styles/HelpersStyles';
 
 const Contact = ({ data }) => {
   const { form, messages, addressData } = data.contentfulHomepage;
-  const { title, headerMainTitle } = data.contentfulContactPage;
+  const { title, headerMainTitle, modals } = data.contentfulContactPage;
+
+  const modalsList = modals.map(modal => {
+    const { modalTitle, modalName, modalDescription, modalButton } = modal;
+    return (
+      <Modal
+        key={modalName}
+        modalName={modalName}
+        modalHeader={modalTitle}
+        modalDescription={modalDescription.fields.htmlData}
+        modalButton={modalButton}
+      />
+    );
+  });
+
   return (
     <>
       <SEO title={title} />
@@ -25,6 +40,7 @@ const Contact = ({ data }) => {
         </section>
         <Spacer />
       </ContainerS>
+      {modalsList}
       <Footer />
     </>
   );
@@ -60,6 +76,16 @@ export const query = graphql`
     contentfulContactPage(node_locale: { eq: $locale }) {
       title
       headerMainTitle
+      modals {
+        modalTitle
+        modalName
+        modalDescription {
+          fields {
+            htmlData
+          }
+        }
+        modalButton
+      }
     }
   }
 `;

@@ -92,6 +92,14 @@ export const GlobalStyle = createGlobalStyle`
           transform: translateY(0);
       }
   }
+  @keyframes opacity-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
   @keyframes opacity-in-out {
       0% {
         opacity: 0;

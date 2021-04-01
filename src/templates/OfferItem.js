@@ -1,7 +1,5 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { graphql } from 'gatsby';
-// import SVGInject from '@iconfu/svg-inject';
-import Vivus from 'vivus';
 
 import SEO from '../layout/Seo';
 import Footer from '../layout/Footer';
@@ -9,18 +7,21 @@ import BanerStatic from '../components/BanerStatic';
 import PortfolioGallery from '../components/homepage/PortfolioGallery';
 import TechnologiesGrid from '../components/TechnologiesGrid';
 import SiblingsSwitcher from '../components/SiblingsSwitcher';
-import { ImageS, IconS } from '../styles/OfferStyles';
+import { ImageS, IconWrapperS, IconS } from '../styles/OfferStyles';
 import { BoxS, ContainerInnerS, ContainerS } from '../styles/ContainerStyles';
 import { Spacer } from '../styles/HelpersStyles';
 
 const OfferItem = ({ data }) => {
+  const [load, isLoaded] = useState(false);
+  const iconRef = useRef(null);
+
   const { offerItemHeaders } = data.contentfulOfferPage;
   const {
     title,
     description: {
       fields: { htmlData },
     },
-    image: {
+    imageAnimated: {
       localFile: { url },
     },
     technologies,
@@ -29,19 +30,7 @@ const OfferItem = ({ data }) => {
   } = data.contentfulOffer;
   useEffect(() => {
     setTimeout(() => {
-      const vivus = new Vivus(
-        'svg-draw',
-        {
-          duration: 300,
-          type: 'oneByOne',
-          file: url,
-          onReady: myVivus => {
-            myVivus.el.setAttribute('stroke', '#fc3031');
-          },
-        },
-        e => e.el.classList.add('finished')
-      );
-      vivus.destroy();
+      isLoaded(true);
     }, 1000);
   }, []);
   return (
@@ -74,7 +63,9 @@ const OfferItem = ({ data }) => {
               justifyContent="center"
               flexDirection="column"
             >
-              <IconS id="svg-draw" height="250px" />
+              <IconWrapperS>
+                {load && <IconS className="" ref={iconRef} src={url} />}
+              </IconWrapperS>
               <div dangerouslySetInnerHTML={{ __html: htmlData }} />
             </BoxS>
           </ContainerInnerS>
@@ -133,7 +124,7 @@ export const query = graphql`
           htmlData
         }
       }
-      image {
+      imageAnimated {
         localFile {
           url
         }

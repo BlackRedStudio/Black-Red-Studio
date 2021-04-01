@@ -6,7 +6,7 @@ import BanerStatic from '../components/BanerStatic';
 import PortfolioGallery from '../components/homepage/PortfolioGallery';
 import OfferGrid from '../components/homepage/OfferGrid';
 import SiblingsSwitcher from '../components/SiblingsSwitcher';
-import { IconS } from '../styles/OfferStyles';
+import { IconS, IconWrapperS } from '../styles/OfferStyles';
 import { BoxS, ContainerInnerS, ContainerS } from '../styles/ContainerStyles';
 import { Spacer } from '../styles/HelpersStyles';
 
@@ -43,7 +43,6 @@ const TechnologiesItem = ({ data }) => {
               flexDirection="column"
               padding="0 50px 0 0"
             >
-              <IconS src={url} alt="" maxWidth="150px" />
               <iframe
                 height="538"
                 style={{ width: '100%' }}
@@ -70,6 +69,9 @@ const TechnologiesItem = ({ data }) => {
               justifyContent="center"
               flexDirection="column"
             >
+              <IconWrapperS minHeight="150px">
+                <IconS src={url} alt="" maxWidth="150px" />
+              </IconWrapperS>
               <div dangerouslySetInnerHTML={{ __html: htmlData }} />
             </BoxS>
           </ContainerInnerS>
