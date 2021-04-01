@@ -13,6 +13,9 @@ export const LogoContainerS = styled.div`
   }
 `;
 export const LogoLinkS = styled(PaintDrip)`
+  @media (${media.toLarge}) {
+    width: 70%;
+  }
   display: block;
 `;
 

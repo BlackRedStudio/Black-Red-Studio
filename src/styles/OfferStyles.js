@@ -37,3 +37,6 @@ export const IconS = styled.img`
   margin: 0 auto;
   animation: opacity-in 0.5s ease-in;
 `;
+export const IframeWrapperS = styled.div`
+  width: 100%;
+`;

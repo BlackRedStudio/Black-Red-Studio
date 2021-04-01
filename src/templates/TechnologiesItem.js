@@ -5,8 +5,9 @@ import Footer from '../layout/Footer';
 import BanerStatic from '../components/BanerStatic';
 import PortfolioGallery from '../components/homepage/PortfolioGallery';
 import OfferGrid from '../components/homepage/OfferGrid';
+import TechnologiesGrid from '../components/TechnologiesGrid';
 import SiblingsSwitcher from '../components/SiblingsSwitcher';
-import { IconS, IconWrapperS, LogoWrapperS } from '../styles/OfferStyles';
+import { IconS, LogoWrapperS, IframeWrapperS } from '../styles/OfferStyles';
 import { BoxS, ContainerInnerS, ContainerS } from '../styles/ContainerStyles';
 import { Spacer } from '../styles/HelpersStyles';
 
@@ -21,8 +22,10 @@ const TechnologiesItem = ({ data }) => {
     image: {
       localFile: { url },
     },
+    codepenIframe: { codepenIframe },
     offer,
     portfolio,
+    technologies,
   } = data.contentfulTechnologies;
   return (
     <>
@@ -43,25 +46,9 @@ const TechnologiesItem = ({ data }) => {
               flexDirection="column"
               padding="0 50px 0 0"
             >
-              <iframe
-                height="538"
-                style={{ width: '100%' }}
-                scrolling="no"
-                title="SVG animation"
-                src="https://codepen.io/thiennhat/embed/BNByzJ?height=538&theme-id=dark&default-tab=result"
-                frameBorder="no"
-                loading="lazy"
-                allowtransparency="true"
-                allowFullScreen
-              >
-                See the Pen{' '}
-                <a href="https://codepen.io/thiennhat/pen/BNByzJ">
-                  SVG animation
-                </a>{' '}
-                by Hoàng Nhật (
-                <a href="https://codepen.io/thiennhat">@thiennhat</a>) on{' '}
-                <a href="https://codepen.io">CodePen</a>.
-              </iframe>
+              <IframeWrapperS
+                dangerouslySetInnerHTML={{ __html: codepenIframe }}
+              />
             </BoxS>
             <BoxS
               fontSize="1.8rem"
@@ -87,6 +74,12 @@ const TechnologiesItem = ({ data }) => {
         <PortfolioGallery
           portfolio={portfolio}
           header={technologiesItemHeaders[1]}
+          smallHeader
+        />
+        <Spacer />
+        <TechnologiesGrid
+          technologies={technologies}
+          header={technologiesItemHeaders[2]}
           smallHeader
         />
         <Spacer />
@@ -152,6 +145,9 @@ export const query = graphql`
           }
         }
       }
+      codepenIframe {
+        codepenIframe
+      }
       offer {
         contentful_id
         title
@@ -180,6 +176,16 @@ export const query = graphql`
         }
         shortDescription {
           shortDescription
+        }
+      }
+      technologies {
+        contentful_id
+        title
+        slug
+        image {
+          localFile {
+            url
+          }
         }
       }
     }
