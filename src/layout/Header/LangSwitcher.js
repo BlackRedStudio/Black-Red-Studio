@@ -103,8 +103,9 @@ const LangSwitcher = () => {
 
     const locationPath = window.location.pathname;
     const currUrlArr = locationPath?.replace(homeLink, '').split('/');
+    window.test = homeLink;
     const currLang =
-      homeLink === '/' ? defaultLangKey : homeLink.replaceAll('/', '');
+      homeLink === '/' ? defaultLangKey : homeLink.replace(/\//g, '');
     // find index for slug that is indexed for all languages
     const categorySlugIndex = categorySlugsArr[currLang].findIndex(
       slug => slug === currUrlArr[0]
