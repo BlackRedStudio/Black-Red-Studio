@@ -17,7 +17,8 @@ const PortfolioGallery = ({ portfolio, header, button, smallHeader }) => {
     offerDelayMultiplier++;
     if (offerDelayMultiplier % 3 === 0) offerDelayMultiplier = 0;
 
-    if (window.innerWidth < 768) delay = 300;
+    const windowWidth = typeof window !== 'undefined' ? window.innerWidth : 0;
+    if (windowWidth < 768) delay = 300;
 
     return (
       <PortfolioGalleryItem

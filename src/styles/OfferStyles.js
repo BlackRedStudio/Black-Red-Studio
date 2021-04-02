@@ -35,6 +35,7 @@ export const IconS = styled.img`
   max-width: ${p => p.maxWidth || `250px`};
   display: block;
   margin: 0 auto;
+  min-width: 150px;
   animation: opacity-in 0.5s ease-in;
 `;
 export const IframeWrapperS = styled.div`

@@ -78,17 +78,21 @@ const OfferItem = ({ data }) => {
           </ContainerInnerS>
         </section>
         <Spacer />
-        <TechnologiesGrid
-          technologies={technologies}
-          header={offerItemHeaders[0]}
-          smallHeader
-        />
+        {technologies && (
+          <TechnologiesGrid
+            technologies={technologies}
+            header={offerItemHeaders[0]}
+            smallHeader
+          />
+        )}
         <Spacer />
-        <PortfolioGallery
-          portfolio={portfolio}
-          header={offerItemHeaders[1]}
-          smallHeader
-        />
+        {portfolio && (
+          <PortfolioGallery
+            portfolio={portfolio}
+            header={offerItemHeaders[1]}
+            smallHeader
+          />
+        )}
         <Spacer />
       </ContainerS>
       <Footer />

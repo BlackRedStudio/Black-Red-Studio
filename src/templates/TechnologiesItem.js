@@ -22,11 +22,14 @@ const TechnologiesItem = ({ data }) => {
     image: {
       localFile: { url },
     },
-    codepenIframe: { codepenIframe },
     offer,
     portfolio,
     technologies,
   } = data.contentfulTechnologies;
+
+  const codepenIframe =
+    data.contentfulTechnologies.codepenIframe?.codepenIframe;
+
   return (
     <>
       <SEO title={title} />
@@ -46,9 +49,11 @@ const TechnologiesItem = ({ data }) => {
               flexDirection="column"
               padding="0 50px 0 0"
             >
-              <IframeWrapperS
-                dangerouslySetInnerHTML={{ __html: codepenIframe }}
-              />
+              {codepenIframe && (
+                <IframeWrapperS
+                  dangerouslySetInnerHTML={{ __html: codepenIframe }}
+                />
+              )}
             </BoxS>
             <BoxS
               fontSize="1.8rem"
@@ -71,17 +76,21 @@ const TechnologiesItem = ({ data }) => {
           smallHeader
         />
         <Spacer />
-        <PortfolioGallery
-          portfolio={portfolio}
-          header={technologiesItemHeaders[1]}
-          smallHeader
-        />
+        {portfolio && (
+          <PortfolioGallery
+            portfolio={portfolio}
+            header={technologiesItemHeaders[1]}
+            smallHeader
+          />
+        )}
         <Spacer />
-        <TechnologiesGrid
-          technologies={technologies}
-          header={technologiesItemHeaders[2]}
-          smallHeader
-        />
+        {technologies && (
+          <TechnologiesGrid
+            technologies={technologies}
+            header={technologiesItemHeaders[2]}
+            smallHeader
+          />
+        )}
         <Spacer />
       </ContainerS>
       <Footer />

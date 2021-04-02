@@ -11,9 +11,13 @@ import { GlobalStyle } from '../styles/GlobalStyles';
 import { defaultLangKey, languages } from '../utils/language-helper';
 
 const Layout = ({ children }) => {
-  const pathNameArr = window.location.pathname.split('/');
-  const langKey =
-    languages.indexOf(pathNameArr[1]) > -1 ? pathNameArr[1] : defaultLangKey;
+  let pathNameArr = null;
+  let langKey = null;
+  if (typeof window !== 'undefined') {
+    pathNameArr = window.location.pathname.split('/');
+    langKey =
+      languages.indexOf(pathNameArr[1]) > -1 ? pathNameArr[1] : defaultLangKey;
+  }
   return (
     <LangContext.Provider value={langKey}>
       <GoogleReCaptchaProvider reCaptchaKey="6LcciHEaAAAAAKFIB-BLraMM-jUweGiXQLAqKL5W">

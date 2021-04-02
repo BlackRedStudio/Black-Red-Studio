@@ -26,10 +26,10 @@ const Logo = () => {
 
   const homepageUrl = currentLang === 'en' ? '/' : '/pl';
 
+  const locationPath =
+    typeof window !== 'undefined' ? window.location.pathname : null;
   const site =
-    window.location.pathname === '/' || window.location.pathname === '/pl/'
-      ? 'homepage'
-      : 'default';
+    locationPath === '/' || locationPath === '/pl/' ? 'homepage' : 'default';
   return (
     <LogoContainerS>
       <h1>

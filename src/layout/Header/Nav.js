@@ -35,13 +35,14 @@ const Nav = forwardRef(({ hamburgerRef }, ref) => {
   const menuForCurrentLang = data.allContentfulSettings.group.filter(
     ({ fieldValue }) => fieldValue === currentLang
   );
-  let site = 'default';
-  site =
-    window.location.pathname === '/' || window.location.pathname === '/pl/'
-      ? 'homepage'
-      : 'default';
 
-  const menuList = menuForCurrentLang[0].edges[0].node.mainMenu.map(
+  const locationPath =
+    typeof window !== 'undefined' ? window.location.pathname : null;
+
+  const site =
+    locationPath === '/' || locationPath === '/pl/' ? 'homepage' : 'default';
+
+  const menuList = menuForCurrentLang[0]?.edges[0]?.node.mainMenu.map(
     ({ node_locale, contentful_id, slug, title }, key) => {
       const locale = node_locale;
       const localePrefix = locale !== 'en' ? `${locale}/` : ``;
