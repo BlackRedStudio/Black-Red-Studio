@@ -86,7 +86,7 @@ const SiblingsSwitcher = ({ prevSibling, nextSibling, type }) => {
       </SiblingsSwitcherS>
       <SiblingsArrowS
         next="true"
-        onClick={e => e.target.previousElementSibling.click()}
+        onClick={e => e.target.nextElementSibling.click()}
       />
       <SiblingsSwitcherS
         to={extraUrl + nextSlug}

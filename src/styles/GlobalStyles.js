@@ -28,20 +28,22 @@ export const GlobalStyle = createGlobalStyle`
   .overflow {
     overflow: hidden;
   }
-  ::-webkit-scrollbar {
-    width: 17px;
-  }
+  @media(${media.small}) {
+    ::-webkit-scrollbar {
+      width: 17px;
+    }
 
-  ::-webkit-scrollbar-track {
-    background: ${colors.gray};
-  }
+    ::-webkit-scrollbar-track {
+      background: ${colors.gray};
+    }
 
-  ::-webkit-scrollbar-thumb {
-    background: ${colors.lightRed};
-  }
+    ::-webkit-scrollbar-thumb {
+      background: ${colors.lightRed};
+    }
 
-  ::-webkit-scrollbar-thumb:hover {
-    background: ${colors.darkRed};
+    ::-webkit-scrollbar-thumb:hover {
+      background: ${colors.darkRed};
+    }
   }
   [data-sal=slide-down-big] {
     transform: translateY(-50%);

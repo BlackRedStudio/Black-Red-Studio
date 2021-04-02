@@ -6,11 +6,13 @@
 
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-const container = typeof document !== 'undefined' ? document.body : null;
-const height = container?.offsetHeight;
-let width = container?.offsetWidth;
-
+const height = 0;
+let container = null;
+let width = null;
 if (typeof window !== 'undefined') {
+  container = document.body;
+  width = container.offsetWidth;
+
   window.addEventListener('resize', () => {
     width = container.offsetWidth;
   });
