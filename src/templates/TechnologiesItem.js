@@ -10,6 +10,7 @@ import SiblingsSwitcher from '../components/SiblingsSwitcher';
 import { IconS, LogoWrapperS, IframeWrapperS } from '../styles/OfferStyles';
 import { BoxS, ContainerInnerS, ContainerS } from '../styles/ContainerStyles';
 import { Spacer } from '../styles/HelpersStyles';
+import Slider from '../components/homepage/Slider';
 
 const TechnologiesItem = ({ data }) => {
   const { offerButton } = data.contentfulHomepage;
@@ -22,6 +23,7 @@ const TechnologiesItem = ({ data }) => {
     image: {
       localFile: { url },
     },
+    imageGallery,
     offer,
     portfolio,
     technologies,
@@ -49,10 +51,12 @@ const TechnologiesItem = ({ data }) => {
               flexDirection="column"
               padding="0 50px 0 0"
             >
-              {codepenIframe && (
+              {codepenIframe ? (
                 <IframeWrapperS
                   dangerouslySetInnerHTML={{ __html: codepenIframe }}
                 />
+              ) : (
+                <Slider baners={imageGallery} noOverlay />
               )}
             </BoxS>
             <BoxS
@@ -145,7 +149,7 @@ export const query = graphql`
           url
         }
       }
-      imageBaner {
+      imageGallery {
         localFile {
           childImageSharp {
             fluid(maxWidth: 650) {

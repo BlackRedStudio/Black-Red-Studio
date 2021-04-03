@@ -43,10 +43,10 @@ const PortfolioInfo = ({
     </PortfolioInfoItemS>
   ));
   return (
-    <section>
+    <div>
       <H3>{aboveInfoHeadersText}</H3>
       <PortfolioInfoWrapperS>{infoHeadersList}</PortfolioInfoWrapperS>
-    </section>
+    </div>
   );
 };
 

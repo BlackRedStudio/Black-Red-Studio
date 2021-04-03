@@ -16,7 +16,10 @@ export const LogoWrapperS = styled.div`
   margin-bottom: 20px;
 `;
 export const OfferImageWrapperS = styled.div`
-  padding-top: 300px;
+  @media (${media.toLarge}) {
+    padding-top: 300px;
+  }
+  width: 100%;
 `;
 export const IconWrapperS = styled.div`
   min-height: 250px;
