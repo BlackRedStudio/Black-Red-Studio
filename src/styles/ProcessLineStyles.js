@@ -19,7 +19,7 @@ export const ProcessLineS = styled.div`
   width: 1px;
   background-image: ${vars.linearGradient};
   @media (${media.large}) {
-    left: 150px;
+    left: 200px;
   }
 `;
 export const ProcessItemS = styled.div`
