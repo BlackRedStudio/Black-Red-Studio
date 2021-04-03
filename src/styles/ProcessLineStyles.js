@@ -2,6 +2,12 @@ import styled from 'styled-components';
 
 import { media, vars } from './styles-utils';
 
+export const ProcessContainerWrapperS = styled.section`
+  h2 {
+    margin-bottom: 45px;
+  }
+`;
+
 export const ProcessContainerS = styled.div`
   position: relative;
   @media (${media.toLarge}) {

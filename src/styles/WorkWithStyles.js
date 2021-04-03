@@ -1,5 +1,10 @@
 import styled from 'styled-components';
 
+export const WorkWithContainerS = styled.section`
+  h2 {
+    margin-bottom: 45px;
+  }
+`;
 export const WorkWithIconS = styled.img`
   position: relative;
   z-index: 3;
