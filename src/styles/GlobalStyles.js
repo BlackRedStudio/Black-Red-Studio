@@ -66,6 +66,7 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     margin-bottom: 10px;
     line-height: 1.2;
+    letter-spacing: .5px;
   }
   h1, h2, h3, h4, h5, h6 {
       font-family: 'Lora', sans-serif;

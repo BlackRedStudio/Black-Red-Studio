@@ -7,6 +7,9 @@ export const ProcessContainerS = styled.div`
   @media (${media.toLarge}) {
     overflow: hidden;
   }
+  @media (${media.large}) {
+    padding-left: 150px;
+  }
 `;
 export const ProcessLineS = styled.div`
   height: 100%;
@@ -15,6 +18,9 @@ export const ProcessLineS = styled.div`
   top: 90px;
   width: 1px;
   background-image: ${vars.linearGradient};
+  @media (${media.large}) {
+    left: 150px;
+  }
 `;
 export const ProcessItemS = styled.div`
   display: flex;
@@ -49,6 +55,7 @@ export const ProcessItemTitleS = styled.div`
   font-size: 1.8rem;
 `;
 export const ProcessItemDescS = styled.div`
+  max-width: 300px;
   @media (${media.large}) {
     font-size: 1.8rem;
   }
