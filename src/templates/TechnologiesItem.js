@@ -51,13 +51,12 @@ const TechnologiesItem = ({ data }) => {
               flexDirection="column"
               padding="0 50px 0 0"
             >
-              {codepenIframe ? (
+              {codepenIframe && (
                 <IframeWrapperS
                   dangerouslySetInnerHTML={{ __html: codepenIframe }}
                 />
-              ) : (
-                <Slider baners={imageGallery} noOverlay />
               )}
+              {imageGallery && <Slider baners={imageGallery} noOverlay />}
             </BoxS>
             <BoxS
               fontSize="1.8rem"
