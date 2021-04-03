@@ -39,7 +39,7 @@ const BanerMovie = ({ headers, buttonsTitles, buttonsLinks }) => {
 
   return (
     <BanerMovieContainerS>
-      <BanerVideoS autoPlay muted loop>
+      <BanerVideoS autoPlay muted loop playsInline>
         <source src={Video} type="video/mp4" />
         <track />
       </BanerVideoS>

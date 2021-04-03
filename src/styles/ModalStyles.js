@@ -46,10 +46,16 @@ export const ModalTitleS = styled.div`
   }
 `;
 export const ModalContentS = styled.div`
+  @media (${media.toLarge}) {
+    height: 42vh;
+  }
   border-bottom: 1px solid ${colors.darkGray};
   overflow: auto;
   height: 50vh;
   padding: 20px 15px;
+  h3 {
+    margin-top: 0;
+  }
 `;
 export const DividerS = styled.div`
   text-align: center;
@@ -64,8 +70,7 @@ export const DividerS = styled.div`
     width: 100%;
     border-bottom: 1px solid ${colors.darkGray};
   }
-  span {
-    color: ${colors.darkGray};
+  svg {
     background: #fff;
     font-size: 14px !important;
     height: 18px;

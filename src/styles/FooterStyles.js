@@ -30,6 +30,11 @@ export const FooterContentS = styled.div`
     font-size: 1.8rem;
     line-height: normal;
   }
+  @supports (-webkit-touch-callout: none) {
+    &:last-child {
+      padding-bottom: 30px;
+    }
+  }
 `;
 export const FooterTagS = styled(Link)`
   border: 1px solid ${colors.darkGrayAlt};

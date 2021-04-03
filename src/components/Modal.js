@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 
+import DownArrow2 from '../assets/down-arrow-2.svg';
 import Button from './Button';
 import {
   ModalS,
@@ -57,7 +58,7 @@ const Modal = ({ modalName, modalHeader, modalDescription, modalButton }) => {
               <ModalCloseS onClick={() => closeModal()}>X</ModalCloseS>
               <ModalTitleS>{modalHeader}</ModalTitleS>
               <DividerS>
-                <span>⛛</span>
+                <DownArrow2 />
               </DividerS>
               <ModalContentS
                 dangerouslySetInnerHTML={{ __html: modalDescription }}

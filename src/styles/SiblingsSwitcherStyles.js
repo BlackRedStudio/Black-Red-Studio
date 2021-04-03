@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import TransitionLink from 'gatsby-plugin-transition-link';
 
 import Arrows from '../assets/arrows.svg';
-import { colors } from './styles-utils';
+import { media, colors } from './styles-utils';
 
 export const SiblingsSwitcherS = styled(TransitionLink)`
   position: fixed;
@@ -36,8 +36,10 @@ export const SiblingsArrowS = styled(Arrows)`
     infinite;
   animation-direction: alternate-reverse;
   ${p => (p.next ? `right: 0;` : `left: 0;`)}
-  &:hover + a {
-    transform: translate(0);
+  @media(${media.small}) {
+    &:hover + a {
+      transform: translate(0);
+    }
   }
   @keyframes scroll-right-left {
     0% {

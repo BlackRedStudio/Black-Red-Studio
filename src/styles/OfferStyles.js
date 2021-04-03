@@ -23,10 +23,7 @@ export const IconWrapperS = styled.div`
   width: 100%;
   margin-bottom: 20px;
   position: absolute;
-  top: 450px;
-  @media (${media.small}) {
-    top: 550px;
-  }
+  top: calc(50vh + 50px);
   @media (${media.medium}) {
     position: initial;
   }

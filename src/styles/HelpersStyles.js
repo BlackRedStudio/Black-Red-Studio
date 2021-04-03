@@ -16,4 +16,5 @@ export const SliderOverlayS = styled.div`
   width: 100%;
   height: 100vh;
   opacity: ${p => p.opacity || 0.8};
+  pointer-events: none;
 `;
