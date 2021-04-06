@@ -127,6 +127,7 @@ export const query = graphql`
         }
       }
       images {
+        contentful_id
         localFile {
           childImageSharp {
             fluid(maxWidth: 1920) {
