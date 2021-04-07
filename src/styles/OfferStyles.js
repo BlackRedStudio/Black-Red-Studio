@@ -40,4 +40,7 @@ export const IconS = styled.img`
 `;
 export const IframeWrapperS = styled.div`
   width: 100%;
+  img {
+    width: 100%;
+  }
 `;

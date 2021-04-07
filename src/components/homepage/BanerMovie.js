@@ -3,6 +3,7 @@ import { gsap } from 'gsap';
 import { TextPlugin } from 'gsap/TextPlugin';
 
 import Video from '../../assets/movie.mp4';
+import VideoSmall from '../../assets/movie-small.mp4';
 import Button from '../Button';
 import {
   BanerMovieContainerS,
@@ -14,9 +15,14 @@ import { SliderBtnWrapperS, SliderTextS } from '../../styles/SliderStyles';
 const BanerMovie = ({ headers, buttonsTitles, buttonsLinks }) => {
   const sliderTextRef = useRef(null);
   const cursorRef = useRef(null);
-  const SliderBtnWrapperRef = useRef(null);
+  const sliderBtnWrapperRef = useRef(null);
+  const mainVideo = useRef(null);
 
   useEffect(() => {
+    const videoType = window.innerWidth > 991 ? Video : VideoSmall;
+    const source = `<source src="${videoType}" type="video/mp4" />`;
+    mainVideo.current.insertAdjacentHTML('afterbegin', source);
+
     gsap.registerPlugin(TextPlugin);
 
     setTimeout(() => {
@@ -26,7 +32,7 @@ const BanerMovie = ({ headers, buttonsTitles, buttonsLinks }) => {
         repeat: -1,
       });
 
-      gsap.to(SliderBtnWrapperRef.current, { opacity: 1, y: 0, duration: 1 });
+      gsap.to(sliderBtnWrapperRef.current, { opacity: 1, y: 0, duration: 1 });
 
       const masterTl = gsap.timeline({ repeat: -1 });
       headers.forEach(header => {
@@ -39,8 +45,7 @@ const BanerMovie = ({ headers, buttonsTitles, buttonsLinks }) => {
 
   return (
     <BanerMovieContainerS>
-      <BanerVideoS autoPlay muted loop playsInline>
-        <source src={Video} type="video/mp4" />
+      <BanerVideoS autoPlay muted loop playsInline ref={mainVideo}>
         <track />
       </BanerVideoS>
       {headers && (
@@ -50,7 +55,7 @@ const BanerMovie = ({ headers, buttonsTitles, buttonsLinks }) => {
         </SliderTextS>
       )}
       {buttonsLinks && (
-        <SliderBtnWrapperS ref={SliderBtnWrapperRef}>
+        <SliderBtnWrapperS ref={sliderBtnWrapperRef}>
           <Button
             to={buttonsLinks[0]}
             elSize="medium"
