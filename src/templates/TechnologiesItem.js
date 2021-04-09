@@ -7,7 +7,11 @@ import PortfolioGallery from '../components/homepage/PortfolioGallery';
 import OfferGrid from '../components/homepage/OfferGrid';
 import TechnologiesGrid from '../components/TechnologiesGrid';
 import SiblingsSwitcher from '../components/SiblingsSwitcher';
-import { IconS, LogoWrapperS, IframeWrapperS } from '../styles/OfferStyles';
+import {
+  IconTechnologyS,
+  LogoWrapperS,
+  IframeWrapperS,
+} from '../styles/OfferStyles';
 import { BoxS, ContainerInnerS, ContainerS } from '../styles/ContainerStyles';
 import { Spacer } from '../styles/HelpersStyles';
 import Slider from '../components/homepage/Slider';
@@ -65,7 +69,7 @@ const TechnologiesItem = ({ data }) => {
               flexDirection="column"
             >
               <LogoWrapperS>
-                <IconS src={url} alt="" maxWidth="150px" />
+                <IconTechnologyS src={url} alt="" />
               </LogoWrapperS>
               <div dangerouslySetInnerHTML={{ __html: htmlData }} />
             </BoxS>

@@ -10,7 +10,7 @@ import SiblingsSwitcher from '../components/SiblingsSwitcher';
 import {
   ImageS,
   IconWrapperS,
-  IconS,
+  IconOfferS,
   OfferImageWrapperS,
 } from '../styles/OfferStyles';
 import { BoxS, ContainerInnerS, ContainerS } from '../styles/ContainerStyles';
@@ -71,7 +71,7 @@ const OfferItem = ({ data }) => {
               flexDirection="column"
             >
               <IconWrapperS>
-                {load && <IconS className="" ref={iconRef} src={url} />}
+                {load && <IconOfferS className="" ref={iconRef} src={url} />}
               </IconWrapperS>
               <div dangerouslySetInnerHTML={{ __html: htmlData }} />
             </BoxS>
