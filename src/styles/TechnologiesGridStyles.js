@@ -20,6 +20,7 @@ export const TechnologiesItemImageS = styled.img`
   width: 100%;
   transition: 0.35s;
   max-height: 100px;
+  object-fit: contain;
 `;
 export const TechnologiesItemS = styled.div`
   a {
