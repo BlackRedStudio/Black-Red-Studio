@@ -54,6 +54,7 @@ export const SliderImageS = styled(Img)`
   display: block;
   width: 100%;
   height: 100%;
+  max-height: 632px;
   object-fit: cover;
 `;
 

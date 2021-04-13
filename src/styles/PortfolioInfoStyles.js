@@ -32,6 +32,12 @@ export const PortfolioInfoTextS = styled.div`
   }
   span:nth-child(2) {
     color: ${colors.lightRed};
+    margin-top: 7px;
+  }
+  a {
+    word-wrap: break-all;
+    display: block;
+    margin-top: 7px;
   }
 `;
 export const PortfolioInfoIconS = styled.img`
