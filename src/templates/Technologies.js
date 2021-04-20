@@ -19,7 +19,7 @@ const Technologies = ({ data }) => {
       <BanerStatic headers={headerMainTitle} />
       <ContainerS>
         <Spacer />
-        <TechnologiesGrid technologies={technologiesToShow} />
+        <TechnologiesGrid technologies={technologiesToShow} search />
         <Spacer />
       </ContainerS>
       <Footer />

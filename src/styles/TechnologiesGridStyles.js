@@ -22,6 +22,10 @@ export const TechnologiesItemImageS = styled.img`
   max-height: 100px;
   object-fit: contain;
 `;
+export const TechnologiesSearchS = styled.input`
+  margin-bottom: 50px;
+  padding: 7px 10px;
+`;
 export const TechnologiesItemS = styled.div`
   a {
     height: 100%;
