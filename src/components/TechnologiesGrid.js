@@ -15,7 +15,7 @@ const TechnologiesGrid = ({ technologies, header, smallHeader, search }) => {
   const currentLang = useContext(LangContext);
   const extraUrl = currentLang === 'pl' ? '/pl/technologie/' : '/technologies/';
 
-  const [phrase, setPhrase] = useState('');
+  const [phrase, setPhrase] = useState(null);
 
   const technologiesList = technologies.map(technology => {
     const {
@@ -29,6 +29,7 @@ const TechnologiesGrid = ({ technologies, header, smallHeader, search }) => {
 
     let isVisible = true;
     if (
+      phrase !== null &&
       title.toLowerCase().search(phrase.toLowerCase()) === -1 &&
       phrase.length > 2
     ) {
@@ -38,7 +39,7 @@ const TechnologiesGrid = ({ technologies, header, smallHeader, search }) => {
       isVisible && (
         <TechnologiesItemS
           key={contentful_id}
-          data-sal={phrase.length === '' && `zoom-in`}
+          data-sal={phrase === null && `zoom-in`}
           data-sal-duration="1000"
           data-sal-delay="300"
           data-sal-easing="ease-out-bounce"
@@ -58,6 +59,8 @@ const TechnologiesGrid = ({ technologies, header, smallHeader, search }) => {
       {search && (
         <TechnologiesSearchS
           type="text"
+          placeholder={search}
+          templateAlt
           onChange={e => setPhrase(e.target.value)}
         />
       )}

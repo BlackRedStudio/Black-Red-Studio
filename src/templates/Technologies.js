@@ -12,6 +12,7 @@ const Technologies = ({ data }) => {
     title,
     headerMainTitle,
     technologiesToShow,
+    searchPlaceholder,
   } = data.contentfulTechnologiesPage;
   return (
     <>
@@ -19,7 +20,10 @@ const Technologies = ({ data }) => {
       <BanerStatic headers={headerMainTitle} />
       <ContainerS>
         <Spacer />
-        <TechnologiesGrid technologies={technologiesToShow} search />
+        <TechnologiesGrid
+          technologies={technologiesToShow}
+          search={searchPlaceholder}
+        />
         <Spacer />
       </ContainerS>
       <Footer />
@@ -45,6 +49,7 @@ export const query = graphql`
           }
         }
       }
+      searchPlaceholder
     }
   }
 `;

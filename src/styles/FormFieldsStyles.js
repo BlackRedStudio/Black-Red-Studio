@@ -24,7 +24,7 @@ export const InputS = styled.input`
   ${p =>
     p.templateAlt &&
     `background: #fff;
-  border-color: #d9d9d9;
+  border-color: ${colors.lightGrayAlt};
   color: #000;
   &::placeholder {
     color: #000;
@@ -35,7 +35,7 @@ export const TextareaS = styled.textarea`
   ${p =>
     p.templateAlt &&
     `background: #fff;
-  border-color: #d9d9d9;
+  border-color: ${colors.lightGrayAlt};
   color: #000;
   &::placeholder {
     color: #000;

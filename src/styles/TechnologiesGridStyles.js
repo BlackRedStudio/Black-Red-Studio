@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { media } from './styles-utils';
+import { media, colors } from './styles-utils';
 
 export const TechnologiesWrapperS = styled.div`
   display: grid;
@@ -23,8 +23,20 @@ export const TechnologiesItemImageS = styled.img`
   object-fit: contain;
 `;
 export const TechnologiesSearchS = styled.input`
+  width: 100%;
+  font-size: 1.4rem;
+  border: 1px solid #fff;
+  padding: 12px 20px;
+  margin-top: 10px;
+  resize: none;
+  background: #fff;
+  border-color: ${colors.lightGrayAlt};
+  color: #000;
   margin-bottom: 50px;
-  padding: 7px 10px;
+  max-width: 300px;
+  @media (${media.medium}) {
+    font-size: 1.6rem;
+  }
 `;
 export const TechnologiesItemS = styled.div`
   a {
