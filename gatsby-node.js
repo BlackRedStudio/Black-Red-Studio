@@ -3,6 +3,24 @@ const remark = require('remark');
 const guide = require('remark-preset-lint-markdown-style-guide');
 const html = require('remark-html');
 
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
+
+  const typeDefs = `
+  type langDivider {
+    pl: String!
+    en: String!
+  }
+
+  type SiteSiteMetadata {
+    title: langDivider!
+    author: String!
+    description: langDivider!
+  }`;
+
+  createTypes(typeDefs);
+};
+
 exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions;
   const dataToConvert =

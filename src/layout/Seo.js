@@ -1,15 +1,25 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
-function SEO({ description, lang, meta, title }) {
+import LangContext from '../contexts/LangContext';
+
+function SEO({ description, meta, title }) {
+  const currentLang = useContext(LangContext);
+
   const { site } = useStaticQuery(
     graphql`
       query {
         site {
           siteMetadata {
-            title
-            description
+            title {
+              pl
+              en
+            }
+            description {
+              pl
+              en
+            }
             author
           }
         }
@@ -17,13 +27,14 @@ function SEO({ description, lang, meta, title }) {
     `
   );
 
-  const metaDescription = description || site.siteMetadata.description;
-  const defaultTitle = site.siteMetadata?.title;
+  const metaDescription =
+    description || site.siteMetadata.description[currentLang];
+  const defaultTitle = site.siteMetadata?.title[currentLang];
 
   return (
     <Helmet
       htmlAttributes={{
-        lang,
+        currentLang,
       }}
       title={title}
       titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : null}
@@ -66,7 +77,6 @@ function SEO({ description, lang, meta, title }) {
 }
 
 SEO.defaultProps = {
-  lang: `en`,
   meta: [],
   description: ``,
 };

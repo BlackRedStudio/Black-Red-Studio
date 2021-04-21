@@ -4,8 +4,14 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: `Tworzenie stron internetowych`,
-    description: `Oferujemy tworzenie stron oraz aplikacji internetowych do różnych zastosowań, pisanie skryptów, oraz naprawę błędów`,
+    title: {
+      pl: `Tworzenie aplikacji internetowych`,
+      en: `Create web applications`,
+    },
+    description: {
+      pl: `Oferujemy tworzenie aplikacji, sklepów oraz stron internetowych do różnych zastosowań.`,
+      en: `We offer the creation of web applications, stores and websites for various uses.`,
+    },
     author: `Sebastian Machaj`,
   },
   plugins: [
