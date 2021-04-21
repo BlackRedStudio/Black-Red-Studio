@@ -31,6 +31,9 @@ export const BanerStaticS = styled.section`
       margin-bottom: 200px;
     }
   }
+  @media (${media.landscape}) {
+    height: 100vh;
+  }
 `;
 export const ArrowsS = styled(Arrows)`
   width: 40px;
@@ -73,6 +76,9 @@ export const CollisionBoxS = styled.div`
   }
   @media (${media.small}) {
     bottom: 250px;
+  }
+  @media (${media.landscape}) {
+    display: none;
   }
 `;
 export const WaveSvgS = styled.svg`

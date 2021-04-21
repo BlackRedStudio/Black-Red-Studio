@@ -33,6 +33,12 @@ export const AddressColumnS = styled.div`
     font-weight: 700;
   }
 `;
+export const AddressColumnContainerS = styled.div`
+  @media (${media.landscape}) {
+    transform: translate(0);
+    opacity: 1;
+  }
+`;
 export const IframeS = styled.iframe`
   border: 0;
   @media (${media.toLarge}) {
@@ -41,5 +47,11 @@ export const IframeS = styled.iframe`
   @media (${media.medium}) {
     margin-top: 41px;
     padding: 0 30px;
+  }
+`;
+export const ContactContainerS = styled.div`
+  @media (${media.landscape}) {
+    transform: translate(0);
+    opacity: 1;
   }
 `;

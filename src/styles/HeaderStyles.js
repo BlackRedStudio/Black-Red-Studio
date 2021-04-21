@@ -69,6 +69,12 @@ export const HeaderContainerS = styled.header`
     padding-bottom: 20px;
     background: transparent;
   }
+  @media (${media.landscape}) {
+    height: 30px;
+    img {
+      display: none !important;
+    }
+  }
   &.scrolled {
     background: #fff;
     box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.3);

@@ -1,6 +1,9 @@
 import React from 'react';
 
-import { AddressColumnS } from '../styles/HomepageContactStyles';
+import {
+  AddressColumnS,
+  AddressColumnContainerS,
+} from '../styles/HomepageContactStyles';
 import Map from './Map';
 
 const AddressColumn = ({
@@ -9,7 +12,7 @@ const AddressColumn = ({
   },
   templateAlt,
 }) => (
-  <div
+  <AddressColumnContainerS
     data-sal="slide-left"
     data-sal-duration="1000"
     data-sal-delay="300"
@@ -20,7 +23,7 @@ const AddressColumn = ({
       templateAlt={templateAlt}
     />
     {templateAlt && <Map />}
-  </div>
+  </AddressColumnContainerS>
 );
 
 export default AddressColumn;

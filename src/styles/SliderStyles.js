@@ -31,6 +31,9 @@ export const SliderTextS = styled.p`
   @media (${media.large}) {
     top: 350px;
   }
+  @media (${media.landscape}) {
+    top: 100px;
+  }
 `;
 
 export const SliderBtnWrapperS = styled.div`
@@ -47,6 +50,10 @@ export const SliderBtnWrapperS = styled.div`
     flex-flow: row;
     justify-content: center;
     top: 550px;
+  }
+  @media (${media.landscape}) {
+    top: unset;
+    bottom: 20px;
   }
 `;
 

@@ -8,6 +8,7 @@ import { TextInput, Checkbox } from './FormFields';
 import Button from './Button';
 import Preloader from './Preloader';
 import Notification from './Notification';
+import { ContactContainerS } from '../styles/HomepageContactStyles';
 
 const ContactForm = ({ form, messages, templateAlt }) => {
   const [formResponse, setFormResponse] = useState({
@@ -142,7 +143,7 @@ const ContactForm = ({ form, messages, templateAlt }) => {
     }
   );
   return (
-    <div
+    <ContactContainerS
       data-sal="slide-right"
       data-sal-duration="1000"
       data-sal-delay="300"
@@ -160,7 +161,7 @@ const ContactForm = ({ form, messages, templateAlt }) => {
       >
         <Form>{formFieldList}</Form>
       </Formik>
-    </div>
+    </ContactContainerS>
   );
 };
 
