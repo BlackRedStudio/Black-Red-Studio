@@ -32,8 +32,10 @@ const Modal = ({ modalName, modalHeader, modalDescription, modalButton }) => {
     });
   }, []);
   useEffect(() => {
-    gsap.from(modalRef.current, { duration: 1, y: '-100vh' });
-    gsap.from(modalShadowRef.current, { duration: 1, opacity: 0 });
+    if (modalRef.current && modalShadowRef.current) {
+      gsap.from(modalRef.current, { duration: 1, y: '-100vh' });
+      gsap.from(modalShadowRef.current, { duration: 1, opacity: 0 });
+    }
   });
 
   const closeModal = () => {

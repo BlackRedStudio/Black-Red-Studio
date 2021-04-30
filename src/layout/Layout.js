@@ -4,7 +4,6 @@ import '@fontsource/raleway/400.css';
 import '@fontsource/raleway/700.css';
 import '@fontsource/lora/500.css';
 import '@fontsource/lora/700.css';
-import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 import Header from './Header/Header';
 import LangContext from '../contexts/LangContext';
 import { GlobalStyle } from '../styles/GlobalStyles';
@@ -20,11 +19,9 @@ const Layout = ({ children }) => {
   }
   return (
     <LangContext.Provider value={langKey}>
-      <GoogleReCaptchaProvider reCaptchaKey="6LcciHEaAAAAAKFIB-BLraMM-jUweGiXQLAqKL5W">
-        <GlobalStyle />
-        <Header />
-        {children}
-      </GoogleReCaptchaProvider>
+      <GlobalStyle />
+      <Header />
+      {children}
     </LangContext.Provider>
   );
 };

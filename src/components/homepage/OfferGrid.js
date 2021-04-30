@@ -43,7 +43,7 @@ const OfferGrid = ({ offer, header, offerButton, smallHeader }) => {
         data-sal-delay={delay}
         data-sal-easing="ease-out-bounce"
       >
-        <OfferImgS src={url} />
+        <OfferImgS src={url} alt="" />
         <OfferTitleS>{title}</OfferTitleS>
         <OfferDescriptionS>{shortDescription}</OfferDescriptionS>
         <Button to={extraUrl + slug}>{offerButton}</Button>

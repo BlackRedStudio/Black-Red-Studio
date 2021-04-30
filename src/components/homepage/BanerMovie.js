@@ -23,24 +23,25 @@ const BanerMovie = ({ headers, buttonsTitles, buttonsLinks }) => {
     const source = `<source src="${videoType}" type="video/mp4" />`;
     mainVideo.current.insertAdjacentHTML('afterbegin', source);
 
-    gsap.registerPlugin(TextPlugin);
+    const textPluginStart = () =>
+      setTimeout(() => {
+        gsap.registerPlugin(TextPlugin);
+        gsap.to(cursorRef.current, {
+          opacity: 0,
+          ease: 'power2.inOut',
+          repeat: -1,
+        });
 
-    setTimeout(() => {
-      gsap.to(cursorRef.current, {
-        opacity: 0,
-        ease: 'power2.inOut',
-        repeat: -1,
-      });
+        gsap.to(sliderBtnWrapperRef.current, { opacity: 1, y: 0, duration: 1 });
 
-      gsap.to(sliderBtnWrapperRef.current, { opacity: 1, y: 0, duration: 1 });
-
-      const masterTl = gsap.timeline({ repeat: -1 });
-      headers.forEach(header => {
-        const tl = gsap.timeline({ repeat: 1, yoyo: true, repeatDelay: 1 });
-        tl.to(sliderTextRef.current, { duration: 1, text: header });
-        masterTl.add(tl);
-      });
-    }, 1000);
+        const masterTl = gsap.timeline({ repeat: -1 });
+        headers.forEach(header => {
+          const tl = gsap.timeline({ repeat: 1, yoyo: true, repeatDelay: 1 });
+          tl.to(sliderTextRef.current, { duration: 1, text: header });
+          masterTl.add(tl);
+        });
+      }, 1000);
+    window.requestAnimationFrame(textPluginStart);
   }, []);
 
   return (

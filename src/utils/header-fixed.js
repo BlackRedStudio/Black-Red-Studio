@@ -7,9 +7,13 @@ const handleHeaderFixed = () => {
   const body = document.querySelector('.tl-wrapper');
   const header = document.getElementsByTagName('header');
   checkScrollPosition(body, header);
-  body.addEventListener('scroll', () => {
-    checkScrollPosition(body, header);
-  });
+  body.addEventListener(
+    'scroll',
+    () => {
+      checkScrollPosition(body, header);
+    },
+    { passive: true }
+  );
 };
 
 export default handleHeaderFixed;

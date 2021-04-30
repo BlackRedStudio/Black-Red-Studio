@@ -49,28 +49,30 @@ const BanerStatic = ({ headers, half }) => {
     );
 
     gsap.set([h2, p], { perspective: 400 });
-    setTimeout(() => {
-      gsap.set([h2, p], { opacity: 1 });
-      gsap.from(
-        letter,
-        {
-          duration: 1,
-          opacity: 0,
-          scale: 0,
-          y: 80,
-          rotationX: 180,
-          transformOrigin: '0% 50% -50',
-          ease: 'back',
-          stagger: 0.01,
-        },
-        '+=0'
-      );
-      gsap.from(
-        letterPreHeader,
-        { duration: 1.9, opacity: 0, y: -80, ease: 'back', stagger: 0.01 },
-        '+=0'
-      );
-    }, 1000);
+    window.requestAnimationFrame(() =>
+      setTimeout(() => {
+        gsap.set([h2, p], { opacity: 1 });
+        gsap.from(
+          letter,
+          {
+            duration: 1,
+            opacity: 0,
+            scale: 0,
+            y: 80,
+            rotationX: 180,
+            transformOrigin: '0% 50% -50',
+            ease: 'back',
+            stagger: 0.01,
+          },
+          '+=0'
+        );
+        gsap.from(
+          letterPreHeader,
+          { duration: 1.9, opacity: 0, y: -80, ease: 'back', stagger: 0.01 },
+          '+=0'
+        );
+      }, 1000)
+    );
 
     if (window.innerWidth < 768) {
       wavify(waveRef.current, {

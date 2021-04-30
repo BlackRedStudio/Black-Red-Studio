@@ -34,9 +34,11 @@ const OfferItem = ({ data }) => {
     imageBaner,
   } = data.contentfulOffer;
   useEffect(() => {
-    setTimeout(() => {
-      isLoaded(true);
-    }, 1000);
+    window.requestAnimationFrame(() =>
+      setTimeout(() => {
+        isLoaded(true);
+      }, 1000)
+    );
   }, []);
   return (
     <>

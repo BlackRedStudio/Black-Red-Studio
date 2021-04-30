@@ -44,6 +44,7 @@ const Homepage = ({ data }) => {
     messages,
     modals: { modalTitle, modalName, modalDescription, modalButton },
   } = data.contentfulHomepage;
+
   return (
     <>
       <SEO title={title} />

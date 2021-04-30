@@ -1,7 +1,5 @@
-// export default ContactForm;
 import React, { useContext, useState } from 'react';
 import { Formik, Form } from 'formik';
-import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 import LangContext from '../contexts/LangContext';
 import { TextInput, Checkbox } from './FormFields';
@@ -16,7 +14,6 @@ const ContactForm = ({ form, messages, templateAlt }) => {
     msg: null,
     msgType: null,
   });
-  const { executeRecaptcha } = useGoogleReCaptcha();
 
   const { preloader, msg, msgType } = formResponse;
   const initialValues = {};
@@ -40,20 +37,6 @@ const ContactForm = ({ form, messages, templateAlt }) => {
       msg: msgContent.success[0].description.description,
       msgType: 'success',
     };
-
-    if (!executeRecaptcha) {
-      setFormResponse(errorSchema);
-      actions.setSubmitting(false);
-      return false;
-    }
-
-    const token = await executeRecaptcha('homepageee');
-
-    if (!token) {
-      setFormResponse(errorSchema);
-      actions.setSubmitting(false);
-      return false;
-    }
 
     const res = await fetch(functionURL, {
       method: 'post',
