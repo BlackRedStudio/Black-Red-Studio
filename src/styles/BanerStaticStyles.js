@@ -31,6 +31,11 @@ export const BanerStaticS = styled.section`
       margin-bottom: 200px;
     }
   }
+  @media (${media.large}) and (max-height: 720px) {
+    h2 {
+      margin-bottom: 290px;
+    }
+  }
   @media (${media.landscape}) {
     height: 100vh;
   }
