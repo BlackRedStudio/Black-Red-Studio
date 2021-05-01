@@ -27,17 +27,19 @@ export const LogoS = styled.img`
   transition: 0.35s linear;
   pointer-events: none;
   padding-left: 15px;
-  &:first-child {
-    display: none;
-  }
   &:hover {
     opacity: 0.8;
   }
+  @media (${media.toLarge}) {
+    &:first-child {
+      display: none;
+    }
+    &:nth-child(2) {
+      display: none;
+    }
+  }
   @media (${media.large}) {
     padding-left: 0;
-    &:first-child {
-      display: initial;
-    }
     &:last-child {
       display: none;
     }
@@ -79,6 +81,9 @@ export const HeaderContainerS = styled.header`
     background: #fff;
     box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.3);
     h1 img:first-child {
+      display: none;
+    }
+    h1 img:nth-child(2) {
       display: none;
     }
     h1 img:last-child {

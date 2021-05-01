@@ -82,6 +82,9 @@ export const GlobalStyle = createGlobalStyle`
   #svg-draw svg.finished {
     fill-opacity: 1;
   }
+  .hidden {
+    display: none;
+  }
   a {
     text-decoration: none;
     color: ${colors.lightRed};
