@@ -17,6 +17,9 @@ export const LogoLinkS = styled(PaintDrip)`
     width: 70%;
   }
   display: block;
+  opacity: 0;
+  animation: opacity-in 0.5s ease-in both;
+  animation-delay: 0.5s;
 `;
 
 export const LogoS = styled.img`

@@ -4,6 +4,7 @@ import TransitionLink from 'gatsby-plugin-transition-link';
 import { media, colors } from './styles-utils';
 
 export const NavContainerS = styled.nav`
+  animation: opacity-in 0.5s ease-in both;
   &.transition a,
   &.transition div {
     color: ${colors.darkGrayAlt};
