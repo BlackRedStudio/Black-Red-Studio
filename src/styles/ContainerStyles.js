@@ -14,7 +14,7 @@ export const ContainerS = styled.div`
     height: 100%;
   `}
   @media (${media.large}) {
-    width: 1300px;
+    width: 1250px;
     margin: 0 auto;
     ${({ flex }) =>
       flex &&
@@ -22,6 +22,9 @@ export const ContainerS = styled.div`
       flex-wrap: nowrap;
       justify-content: space-between;
     `}
+  }
+  @media (${media.largePlus}) {
+    width: 1300px;
   }
 `;
 

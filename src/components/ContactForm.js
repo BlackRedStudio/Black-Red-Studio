@@ -126,12 +126,7 @@ const ContactForm = ({ form, messages, templateAlt }) => {
     }
   );
   return (
-    <ContactContainerS
-      data-sal="slide-right"
-      data-sal-duration="1000"
-      data-sal-delay="300"
-      data-sal-easing="ease-out-bounce"
-    >
+    <ContactContainerS>
       {preloader && <Preloader top="300px" />}
       {msg && (
         <Notification type={msgType} lifetime="5s">

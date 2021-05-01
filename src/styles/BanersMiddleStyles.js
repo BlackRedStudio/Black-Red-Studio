@@ -6,10 +6,12 @@ import { media, vars } from './styles-utils';
 export const BanersMiddleContainerS = styled.section`
   position: relative;
   @media (${media.large}) {
-    display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
     overflow: hidden;
+    display: flex;
+  }
+  @media (${media.largePlus}) {
+    flex-wrap: wrap;
   }
 `;
 export const BanersMiddleWrapperS = styled.div`
