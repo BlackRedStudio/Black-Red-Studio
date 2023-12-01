@@ -105,8 +105,8 @@ const Footer = () => {
         <ContainerS>
           <ContainerInnerS>
             <FooterBoxS
-              width="30%"
-              padding="0"
+              $width="30%"
+              $padding="0"
               data-sal="slide-down"
               data-sal-duration="1000"
               data-sal-delay="300"
@@ -116,8 +116,8 @@ const Footer = () => {
               <FooterContentS>{aboutUsShortDescription}</FooterContentS>
             </FooterBoxS>
             <FooterBoxS
-              width="40%"
-              padding="0 100px 0 40px"
+              $width="40%"
+              $padding="0 100px 0 40px"
               data-sal="slide-down"
               data-sal-duration="1000"
               data-sal-delay="300"
@@ -127,8 +127,8 @@ const Footer = () => {
               <div>{footerTags}</div>
             </FooterBoxS>
             <FooterBoxS
-              width="30%"
-              padding="0"
+              $width="30%"
+              $padding="0"
               data-sal="slide-down"
               data-sal-duration="1000"
               data-sal-delay="300"
@@ -136,8 +136,8 @@ const Footer = () => {
             >
               <FooterHeaderS>{headerList[2]}</FooterHeaderS>
               <FooterContentS dangerouslySetInnerHTML={{ __html: htmlData }} />
-              <Spacer heightMobile="30px" heightPC="0" />
-              <FooterHeaderS marginTop="40px">{headerList[3]}</FooterHeaderS>
+              <Spacer $heightMobile="30px" $heightPC="0" />
+              <FooterHeaderS $marginTop="40px">{headerList[3]}</FooterHeaderS>
               <FooterContentS>{linksList}</FooterContentS>
             </FooterBoxS>
           </ContainerInnerS>

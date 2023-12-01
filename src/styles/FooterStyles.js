@@ -8,8 +8,8 @@ export const FooterContainerS = styled.footer`
 `;
 export const FooterBoxS = styled.div`
   @media (${media.large}) {
-    padding: ${p => p.padding};
-    width: ${p => p.width} !important;
+    padding: ${p => p.$padding};
+    width: ${p => p.$width} !important;
   }
 `;
 export const FooterHeaderS = styled.div`
@@ -17,7 +17,7 @@ export const FooterHeaderS = styled.div`
   color: #fff;
   font-weight: 600;
   margin-bottom: 20px;
-  margin-top: ${p => p.marginTop};
+  margin-top: ${p => p.$marginTop};
 `;
 export const FooterContentS = styled.div`
   color: ${colors.darkGrayAlt};

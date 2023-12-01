@@ -12,9 +12,7 @@ const ProcessItem = ({ process }) => {
   const {
     title,
     description: { description },
-    icon: {
-      localFile: { url },
-    },
+    icon: { localFile: {url} },
   } = process;
 
   return (

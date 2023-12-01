@@ -8,8 +8,8 @@ const H2 = ({ children, preText, align, color, marginBottom, noSal }) => (
     data-sal-delay="600"
     data-sal-easing="ease-out-bounce"
   >
-    {preText && <PreHeaderS color={color}>{preText}</PreHeaderS>}
-    <H2S align={align} color={color} marginBottom={marginBottom}>
+    {preText && <PreHeaderS $color={color}>{preText}</PreHeaderS>}
+    <H2S $align={align} $color={color} $marginBottom={marginBottom}>
       {children}
     </H2S>
   </div>

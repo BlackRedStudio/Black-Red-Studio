@@ -37,7 +37,7 @@ const OfferItem = ({ data }) => {
     window.requestAnimationFrame(() =>
       setTimeout(() => {
         isLoaded(true);
-      }, 1000)
+      }, 1000),
     );
   }, []);
   return (
@@ -54,23 +54,23 @@ const OfferItem = ({ data }) => {
         <section>
           <ContainerInnerS>
             <BoxS
-              display="flex"
-              justifyContent="center"
-              flexDirection="column"
-              padding="0 50px 0 0"
+              $display="flex"
+              $justifyContent="center"
+              $flexDirection="column"
+              $padding="0 50px 0 0"
             >
               <OfferImageWrapperS>
                 <ImageS
-                  fluid={imageBaner.localFile.childImageSharp.fluid}
+                  image={imageBaner.localFile.childImageSharp.gatsbyImageData}
                   alt=""
                 />
               </OfferImageWrapperS>
             </BoxS>
             <BoxS
-              fontSize="1.8rem"
-              display="flex"
-              justifyContent="center"
-              flexDirection="column"
+              $fontSize="1.8rem"
+              $display="flex"
+              $justifyContent="center"
+              $flexDirection="column"
             >
               <IconWrapperS>
                 {load && <IconOfferS className="" ref={iconRef} src={url} />}
@@ -103,7 +103,7 @@ const OfferItem = ({ data }) => {
 };
 
 export const query = graphql`
-  query(
+  query (
     $locale: String!
     $pageSlug: String!
     $prevSibling: String!
@@ -145,9 +145,7 @@ export const query = graphql`
       imageBaner {
         localFile {
           childImageSharp {
-            fluid(maxWidth: 650) {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData(layout: CONSTRAINED, width: 650)
           }
         }
       }
@@ -158,9 +156,7 @@ export const query = graphql`
         image {
           localFile {
             childImageSharp {
-              fluid(maxWidth: 320) {
-                ...GatsbyImageSharpFluid
-              }
+              gatsbyImageData(layout: CONSTRAINED, width: 320)
             }
           }
         }

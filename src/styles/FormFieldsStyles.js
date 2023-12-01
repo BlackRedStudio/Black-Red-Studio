@@ -22,7 +22,7 @@ const inputStyles = `
 export const InputS = styled.input`
   ${inputStyles}
   ${p =>
-    p.templateAlt &&
+    p.$templateAlt &&
     `background: #fff;
   border-color: ${colors.lightGrayAlt};
   color: #000;
@@ -33,7 +33,7 @@ export const InputS = styled.input`
 export const TextareaS = styled.textarea`
   ${inputStyles}
   ${p =>
-    p.templateAlt &&
+    p.$templateAlt &&
     `background: #fff;
   border-color: ${colors.lightGrayAlt};
   color: #000;
@@ -47,8 +47,8 @@ export const FormInputWrapperS = styled.div`
 export const LabelS = styled.label`
   font-size: 1.4rem;
   font-weight: 700;
-  color: ${p => (p.templateAlt ? `#000` : `#fff`)};
-  text-align: ${p => p.align || `center`};
+  color: ${p => (p.$templateAlt ? `#000` : `#fff`)};
+  text-align: ${p => p.$align || `center`};
   display: block;
   letter-spacing: 0.7px;
   @media (${media.medium}) {
@@ -63,9 +63,10 @@ export const ErrorS = styled.div`
   margin-top: 3px;
 `;
 export const CheckboxS = styled.input`
-  background-color: ${p => (p.templateAlt ? `#fff` : colors.lightGray)};
+  background-color: ${p => (p.$templateAlt ? `#fff` : colors.lightGray)};
   border: 1px solid ${colors.darkGray};
-  box-shadow: 0 1px 2px rgba(0 0 0 0.05),
+  box-shadow:
+    0 1px 2px rgba(0 0 0 0.05),
     inset 0px -15px 10px -12px rgba(0 0 0 0.05);
   padding: 9px;
   border-radius: 3px;

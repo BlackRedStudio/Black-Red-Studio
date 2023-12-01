@@ -78,7 +78,7 @@ const BanerMovie = ({ headers, buttonsTitles, buttonsLinks }) => {
           </Button>
         </SliderBtnWrapperS>
       )}
-      <SliderOverlayS opacity={0.7} />
+      <SliderOverlayS $opacity={0.7} />
     </BanerMovieContainerS>
   );
 };

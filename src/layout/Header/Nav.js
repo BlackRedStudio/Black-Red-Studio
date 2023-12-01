@@ -60,8 +60,8 @@ const Nav = forwardRef(({ hamburgerRef }, ref) => {
       return (
         <NavLinkS
           key={contentful_id}
-          to={`/${localePrefix}${slug}`}
-          site={site}
+          to={`/${localePrefix}${slug.trim()}`}
+          $site={site}
           data-index={key}
           onMouseOver={e => {
             const currentIndex = document.querySelector('.nav-link-active')

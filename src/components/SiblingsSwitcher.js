@@ -85,12 +85,12 @@ const SiblingsSwitcher = ({ prevSibling, nextSibling, type }) => {
         <SiblingsImageS src={prevImage} alt={prevTitle} />
       </SiblingsSwitcherS>
       <SiblingsArrowS
-        next="true"
+        $next="true"
         onClick={e => e.target.nextElementSibling.click()}
       />
       <SiblingsSwitcherS
         to={extraUrl + nextSlug}
-        next="true"
+        $next="true"
         preventScrollJump
         exit={{
           length: exitLength,

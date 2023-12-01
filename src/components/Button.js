@@ -19,13 +19,13 @@ const Button = ({
   click,
 }) => (
   <ButtonS
-    elType={elType}
-    elSize={elSize}
-    elMobileWidth={elMobileWidth}
-    elWidth={elWidth}
-    elMargin={elMargin}
-    mobileMargin={mobileMargin}
-    mediumMargin={mediumMargin}
+    $elType={elType}
+    $elSize={elSize}
+    $elMobileWidth={elMobileWidth}
+    $elWidth={elWidth}
+    $elMargin={elMargin}
+    $mobileMargin={mobileMargin}
+    $mediumMargin={mediumMargin}
   >
     {isLink ? (
       <PaintDrip to={to} paintDrip hex="#fc3031">

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 import LangContext from '../../contexts/LangContext';
 import {
@@ -20,7 +20,7 @@ const PortfolioGalleryItem = ({ portfolio, delay }) => {
 
   const {
     localFile: {
-      childImageSharp: { fluid },
+      childImageSharp: { gatsbyImageData },
     },
   } = image;
 
@@ -32,7 +32,7 @@ const PortfolioGalleryItem = ({ portfolio, delay }) => {
       data-sal-easing="ease-out-bounce"
     >
       <PortfolioItemImageWrapperS to={extraUrl + slug} paintDrip hex="#fc3031">
-        <Img fluid={fluid} alt={title} />
+        <GatsbyImage image={gatsbyImageData} alt={title} />
         <PortfolioHiddenDescS>
           <p>
             <strong>{title}</strong>

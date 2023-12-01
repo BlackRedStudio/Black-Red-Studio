@@ -18,9 +18,10 @@ const BanersMiddle = ({ text, baners }) => (
         data-sal-easing="ease-out-bounce"
       >
         <BanersMiddleImageS
-          elWidth="820px"
-          elHeight="500px"
-          fluid={baners[0].localFile.childImageSharp.fluid}
+          $elWidth="820px"
+          $elHeight="500px"
+          image={baners[0].localFile.childImageSharp.gatsbyImageData}
+          alt=""
         />
       </div>
 
@@ -31,9 +32,10 @@ const BanersMiddle = ({ text, baners }) => (
         data-sal-easing="ease-out-bounce"
       >
         <BanersMiddleImageS
-          elWidth="820px"
-          elHeight="350px"
-          fluid={baners[1].localFile.childImageSharp.fluid}
+          $elWidth="820px"
+          $elHeight="350px"
+          image={baners[1].localFile.childImageSharp.gatsbyImageData}
+          alt=""
         />
       </div>
 
@@ -54,10 +56,11 @@ const BanersMiddle = ({ text, baners }) => (
         data-sal-easing="ease-out-bounce"
       >
         <BanersMiddleImageS
-          elWidth="430px"
-          elHeight="250px"
-          fluid={baners[2].localFile.childImageSharp.fluid}
-          hiddenMobile
+          $elWidth="430px"
+          $elHeight="250px"
+          image={baners[2].localFile.childImageSharp.gatsbyImageData}
+          alt=""
+          $hiddenMobile
         />
       </div>
       <div
@@ -67,10 +70,11 @@ const BanersMiddle = ({ text, baners }) => (
         data-sal-easing="ease-out-bounce"
       >
         <BanersMiddleImageS
-          elWidth="430px"
-          elHeight="600px"
-          fluid={baners[3].localFile.childImageSharp.fluid}
-          hiddenMobile
+          $elWidth="430px"
+          $elHeight="600px"
+          image={baners[3].localFile.childImageSharp.gatsbyImageData}
+          alt=""
+          $hiddenMobile
         />
       </div>
     </BanersMiddleWrapperS>

@@ -1,12 +1,13 @@
 import styled from 'styled-components';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
+
 import { media } from './styles-utils';
 
 export const HomepageContactContainerS = styled.section`
   position: relative;
 `;
 
-export const BackgroundImageS = styled(Img)`
+export const BackgroundImageS = styled(GatsbyImage)`
   position: absolute !important;
   width: 100%;
   height: 100%;
@@ -26,7 +27,7 @@ export const HomepageContactOverlayS = styled.div`
 `;
 export const AddressColumnS = styled.div`
   text-align: center;
-  color: ${p => (p.templateAlt ? `#000` : `#fff`)};
+  color: ${p => (p.$templateAlt ? `#000` : `#fff`)};
   font-size: 1.9rem;
   padding-top: 25px;
   a {

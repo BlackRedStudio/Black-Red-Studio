@@ -21,7 +21,7 @@ const HomepageContact = ({
 }) => {
   const {
     localFile: {
-      childImageSharp: { fluid },
+      childImageSharp: { gatsbyImageData },
     },
   } = background;
   return (
@@ -36,7 +36,7 @@ const HomepageContact = ({
           <AddressColumn addressData={addressData} />
         </ContainerInnerS>
       </ContainerS>
-      <BackgroundImageS fluid={fluid} />
+      <BackgroundImageS image={gatsbyImageData} alt="" />
       <HomepageContactOverlayS />
       <Spacer />
     </HomepageContactContainerS>

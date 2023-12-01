@@ -9,10 +9,16 @@ export const IntroTextContainerS = styled.section`
   }
 `;
 
+export const IntroTextHeaderWrapperS = styled.div`
+  @media (${media.large}) {
+    width: 50%;
+  }
+`;
+
 export const ListS = styled.ul`
   padding-left: 20px;
   @media (${media.large}) {
-    width: 60%;
+    width: 50%;
   }
 `;
 

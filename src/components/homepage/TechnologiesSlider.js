@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 
-import { useEmblaCarousel } from 'embla-carousel/react';
+import useEmblaCarousel from 'embla-carousel-react'
 
 import H2 from '../H2';
 import sliderAutoplayHook from '../../utils/slider-autoplay-hook';

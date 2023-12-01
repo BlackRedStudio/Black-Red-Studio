@@ -1,5 +1,5 @@
 import React from 'react';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 import {
   WorkWithItemS,
@@ -12,11 +12,11 @@ const WorkWithItem = ({ workWith }) => {
   const {
     title,
     icon: {
-      localFile: { url },
+      localFile: {url},
     },
     image: {
       localFile: {
-        childImageSharp: { fluid },
+        childImageSharp: { gatsbyImageData },
       },
     },
   } = workWith;
@@ -31,7 +31,7 @@ const WorkWithItem = ({ workWith }) => {
       <WorkWithIconS src={url} alt={title} />
       <WorkWithTitleS>{title}</WorkWithTitleS>
       <WorkWithOverlayS>
-        <Img fluid={fluid} alt={title} />
+        <GatsbyImage image={gatsbyImageData} alt={title} />
       </WorkWithOverlayS>
     </WorkWithItemS>
   );

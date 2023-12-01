@@ -102,7 +102,7 @@ const Homepage = ({ data }) => {
 };
 
 export const query = graphql`
-  query($locale: String!) {
+  query ($locale: String!) {
     contentfulHomepage(node_locale: { eq: $locale }) {
       title
       banerMovieHeaders
@@ -115,9 +115,7 @@ export const query = graphql`
       banersMiddle {
         localFile {
           childImageSharp {
-            fluid(maxWidth: 900) {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData(layout: CONSTRAINED, width: 900)
           }
         }
       }
@@ -176,9 +174,7 @@ export const query = graphql`
         image {
           localFile {
             childImageSharp {
-              fluid(maxWidth: 320) {
-                ...GatsbyImageSharpFluid
-              }
+              gatsbyImageData(layout: CONSTRAINED, width: 320)
             }
           }
         }
@@ -191,9 +187,7 @@ export const query = graphql`
         image {
           localFile {
             childImageSharp {
-              fluid(maxWidth: 320) {
-                ...GatsbyImageSharpFluid
-              }
+              gatsbyImageData(layout: CONSTRAINED, width: 320)
             }
           }
         }
@@ -229,9 +223,7 @@ export const query = graphql`
       formBackground {
         localFile {
           childImageSharp {
-            fluid(maxWidth: 1920) {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData(layout: FULL_WIDTH)
           }
         }
       }

@@ -17,7 +17,7 @@ export const PreloaderS = styled.div`
   position: absolute;
   animation: loader-rotate 1s linear infinite;
   margin: 0 auto;
-  ${(p) => p.top};
+  ${(p) => p.$top};
   &:after {
     content: '';
     width: 8px;

@@ -1,9 +1,10 @@
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
+
 import styled from 'styled-components';
 
 import { media } from './styles-utils';
 
-export const ImageS = styled(Img)`
+export const ImageS = styled(GatsbyImage)`
   @media (${media.toLarge}) {
     max-height: 350px;
   }

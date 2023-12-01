@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import SEO from '../layout/Seo';
 import Footer from '../layout/Footer';
 import BanerStatic from '../components/BanerStatic';
@@ -26,14 +26,14 @@ const Offer = ({ data }) => {
       <ContainerS>
         <Spacer />
         <section>
-          <ContainerInnerS reversed>
+          <ContainerInnerS $reversed>
             <BoxS
-              display="flex"
-              fontSize="2rem"
-              alignItems="center"
-              padding="0 30px 0 0"
-              lineHeight="1.2"
-              letterSpacing=".5px"
+              $display="flex"
+              $fontSize="2rem"
+              $alignItems="center"
+              $padding="0 30px 0 0"
+              $lineHeight="1.2"
+              $letterSpacing=".5px"
               data-sal="slide-right"
               data-sal-duration="1000"
               data-sal-delay="300"
@@ -47,7 +47,7 @@ const Offer = ({ data }) => {
               data-sal-delay="300"
               data-sal-easing="ease-out-bounce"
             >
-              <Img fluid={imageRow1.localFile.childImageSharp.fluid} />
+              <GatsbyImage image={imageRow1.localFile.childImageSharp.gatsbyImageData} alt="" />
             </div>
           </ContainerInnerS>
           <ContainerInnerS>
@@ -57,15 +57,15 @@ const Offer = ({ data }) => {
               data-sal-delay="300"
               data-sal-easing="ease-out-bounce"
             >
-              <Img fluid={imageRow2.localFile.childImageSharp.fluid} />
+              <GatsbyImage image={imageRow2.localFile.childImageSharp.gatsbyImageData} alt="" />
             </div>
             <BoxS
-              display="flex"
-              fontSize="2rem"
-              alignItems="center"
-              padding="0 0 0 30px"
-              lineHeight="1.2"
-              letterSpacing=".5px"
+              $display="flex"
+              $fontSize="2rem"
+              $alignItems="center"
+              $padding="0 0 0 30px"
+              $lineHeight="1.2"
+              $letterSpacing=".5px"
               data-sal="slide-right"
               data-sal-duration="1000"
               data-sal-delay="300"
@@ -99,9 +99,7 @@ export const query = graphql`
       imageRow1 {
         localFile {
           childImageSharp {
-            fluid(maxWidth: 700) {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData(layout: CONSTRAINED, width: 700)
           }
         }
       }
@@ -111,9 +109,7 @@ export const query = graphql`
       imageRow2 {
         localFile {
           childImageSharp {
-            fluid(maxWidth: 700) {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData(layout: CONSTRAINED, width: 700)
           }
         }
       }

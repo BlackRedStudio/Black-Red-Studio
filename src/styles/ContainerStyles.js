@@ -6,7 +6,7 @@ export const ContainerS = styled.div`
   padding-left: 15px;
   padding-right: 15px;
   ${p =>
-    p.flex &&
+    p.$flex &&
     `
     display: flex;
     flex-wrap: wrap;
@@ -16,8 +16,8 @@ export const ContainerS = styled.div`
   @media (${media.large}) {
     width: 1250px;
     margin: 0 auto;
-    ${({ flex }) =>
-      flex &&
+    ${({ $flex }) =>
+      $flex &&
       `
       flex-wrap: nowrap;
       justify-content: space-between;
@@ -34,17 +34,17 @@ export const ContainerInnerS = styled.div`
   > div,
   > section {
     width: 100%;
-    ${p => !p.reversed && `padding-top: 70px;`}
-    ${p => p.reversed && `padding-bottom: 70px;`}
+    ${p => !p.$reversed && `padding-top: 70px;`}
+    ${p => p.$reversed && `padding-bottom: 70px;`}
     &:first-child {
       padding-top: 0;
-      ${p => p.reversed && `order: 2;`}
+      ${p => p.$reversed && `order: 2;`}
     }
     @media (${media.medium}) {
       padding-top: 0;
       padding-bottom: 0;
       &:first-child {
-        ${p => p.reversed && `order: initial;`}
+        ${p => p.$reversed && `order: initial;`}
       }
     }
     ${p => {
@@ -81,14 +81,14 @@ export const ContainerInnerS = styled.div`
 `;
 export const BoxS = styled.div`
   @media (${media.medium}) {
-    font-size: ${p => (p.fontSize ? p.fontSize : `1.6rem`)};
-    display: ${p => (p.display ? p.display : `block`)};
-    padding: ${p => (p.padding ? p.padding : `0`)};
-    align-items: ${p => (p.alignItems ? p.alignItems : `flex-start`)};
+    font-size: ${p => (p.$fontSize ? p.$fontSize : `1.6rem`)};
+    display: ${p => (p.$display ? p.$display : `block`)};
+    padding: ${p => (p.$padding ? p.$padding : `0`)};
+    align-items: ${p => (p.$alignItems ? p.$alignItems : `flex-start`)};
     justify-content: ${p =>
-      p.justifyContent ? p.justifyContent : `flex-start`};
-    letter-spacing: ${p => (p.letterSpacing ? p.letterSpacing : `normal`)};
-    line-height: ${p => (p.lineHeight ? p.lineHeight : `normal`)};
-    flex-direction: ${p => (p.flexDirection ? p.flexDirection : `row`)};
+      p.$justifyContent ? p.$justifyContent : `flex-start`};
+    letter-spacing: ${p => (p.$letterSpacing ? p.$letterSpacing : `normal`)};
+    line-height: ${p => (p.$lineHeight ? p.$lineHeight : `normal`)};
+    flex-direction: ${p => (p.$flexDirection ? p.$flexDirection : `row`)};
   }
 `;

@@ -20,7 +20,7 @@ const AddressColumn = ({
   >
     <AddressColumnS
       dangerouslySetInnerHTML={{ __html: htmlData }}
-      templateAlt={templateAlt}
+      $templateAlt={templateAlt}
     />
     {templateAlt && <Map />}
   </AddressColumnContainerS>

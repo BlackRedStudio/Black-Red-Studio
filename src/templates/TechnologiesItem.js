@@ -46,14 +46,14 @@ const TechnologiesItem = ({ data }) => {
         type="technologies"
       />
       <ContainerS>
-        <Spacer heightPC="50px" heightMobile="20px" />
+        <Spacer $heightPC="50px" $heightMobile="20px" />
         <section>
           <ContainerInnerS>
             <BoxS
-              display="flex"
-              justifyContent="center"
-              flexDirection="column"
-              padding="0 50px 0 0"
+              $display="flex"
+              $justifyContent="center"
+              $flexDirection="column"
+              $padding="0 50px 0 0"
             >
               {codepenIframe && (
                 <IframeWrapperS
@@ -63,10 +63,10 @@ const TechnologiesItem = ({ data }) => {
               {imageGallery && <Slider baners={imageGallery} noOverlay />}
             </BoxS>
             <BoxS
-              fontSize="1.8rem"
-              display="flex"
-              justifyContent="center"
-              flexDirection="column"
+              $fontSize="1.8rem"
+              $display="flex"
+              $justifyContent="center"
+              $flexDirection="column"
             >
               <LogoWrapperS>
                 <IconTechnologyS src={url} alt="" />
@@ -75,7 +75,7 @@ const TechnologiesItem = ({ data }) => {
             </BoxS>
           </ContainerInnerS>
         </section>
-        <Spacer heightPC="50px" heightMobile="20px" />
+        <Spacer $heightPC="50px" $heightMobile="20px" />
         <OfferGrid
           offer={offer}
           header={technologiesItemHeaders[0]}
@@ -156,9 +156,7 @@ export const query = graphql`
         contentful_id
         localFile {
           childImageSharp {
-            fluid(maxWidth: 650) {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData(layout: CONSTRAINED, width: 650)
           }
         }
       }
@@ -185,9 +183,7 @@ export const query = graphql`
         image {
           localFile {
             childImageSharp {
-              fluid(maxWidth: 320) {
-                ...GatsbyImageSharpFluid
-              }
+              gatsbyImageData(layout: CONSTRAINED, width: 320)
             }
           }
         }

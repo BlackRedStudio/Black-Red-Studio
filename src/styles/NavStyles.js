@@ -40,8 +40,8 @@ export const NavLinkS = styled(TransitionLink)`
     letter-spacing: 0.7px;
     transition: transform 0.35s;
     padding: 20px 15px;
-    :hover {
-      color: ${p => (p.site === 'homepage' ? colors.darkRed : `#fff`)};
+    &:hover {
+      color: ${p => (p.$site === 'homepage' ? colors.darkRed : `#fff`)};
       transform: translateY(-7px);
     }
   }

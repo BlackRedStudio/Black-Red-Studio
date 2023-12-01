@@ -24,7 +24,7 @@ const OfferGrid = ({ offer, header, offerButton, smallHeader }) => {
       slug,
       shortDescription: { shortDescription },
       image: {
-        localFile: { url },
+        localFile: {url},
       },
     } = singleOffer;
 

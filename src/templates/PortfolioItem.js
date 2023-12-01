@@ -48,15 +48,15 @@ const PortfolioItem = ({ data }) => {
             infoHeaders={portfolioItemInfoHeaders}
             infoContents={infoContents}
           />
-          <Spacer heightPC="50px" heightMobile="20px" />
+          <Spacer $heightPC="50px" $heightMobile="20px" />
           <Slider baners={images} noOverlay />
-          <Spacer heightPC="70px" heightMobile="40px" />
+          <Spacer $heightPC="70px" $heightMobile="40px" />
           <BoxS
             dangerouslySetInnerHTML={{ __html: htmlData }}
-            fontSize="1.8rem"
-            display="flex"
-            justifyContent="center"
-            flexDirection="column"
+            $fontSize="1.8rem"
+            $display="flex"
+            $justifyContent="center"
+            $flexDirection="column"
           />
         </section>
         <Spacer />
@@ -130,9 +130,7 @@ export const query = graphql`
         contentful_id
         localFile {
           childImageSharp {
-            fluid(maxWidth: 1920) {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData(layout: FULL_WIDTH)
           }
         }
       }

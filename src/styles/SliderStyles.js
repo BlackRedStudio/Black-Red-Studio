@@ -1,4 +1,4 @@
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 
 import { media, colors } from './styles-utils';
@@ -57,7 +57,7 @@ export const SliderBtnWrapperS = styled.div`
   }
 `;
 
-export const SliderImageS = styled(Img)`
+export const SliderImageS = styled(GatsbyImage)`
   display: block;
   width: 100%;
   height: 100%;

@@ -52,7 +52,6 @@ const Logo = () => {
               <LogoS
                 key={contentful_id}
                 src={file.url}
-                logoTitle={title}
                 alt={title}
                 ref={el => logoRefs.current.push(el)}
               />

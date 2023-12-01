@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 import { media, vars } from './styles-utils';
 
@@ -20,7 +20,7 @@ export const BanersMiddleWrapperS = styled.div`
     flex-direction: column;
   }
 `;
-export const BanersMiddleImageS = styled(Img)`
+export const BanersMiddleImageS = styled(GatsbyImage)`
   margin-bottom: 20px;
   display: block;
   object-fit: cover;
@@ -31,12 +31,12 @@ export const BanersMiddleImageS = styled(Img)`
       margin-bottom: 0;
     }
   }
-  ${({ hiddenMobile }) =>
-    hiddenMobile &&
+  ${({ $hiddenMobile }) =>
+    $hiddenMobile &&
     `
       display: none;
       @media(${media.large}) {
-          width: ${({ elWidth }) => elWidth};
+          width: ${({ $elWidth }) => $elWidth};
           display: block;
       }`}
   @media(${media.small}) {
@@ -45,8 +45,8 @@ export const BanersMiddleImageS = styled(Img)`
   }
   @media (${media.large}) {
     max-width: unset;
-    width: ${({ elWidth }) => elWidth};
-    height: ${({ elHeight }) => elHeight};
+    width: ${({ $elWidth }) => $elWidth};
+    height: ${({ $elHeight }) => $elHeight};
   }
 `;
 export const BanersMiddleTextWrapperS = styled.div`

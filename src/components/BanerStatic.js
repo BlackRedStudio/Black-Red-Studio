@@ -90,7 +90,7 @@ const BanerStatic = ({ headers, half }) => {
     smoothVerticalScrolling(window.innerHeight, 500);
   };
   return (
-    <BanerStaticS half={half}>
+    <BanerStaticS $half={half}>
       {half ? (
         <h2 ref={h2Ref}>{headers}</h2>
       ) : (

@@ -88,7 +88,7 @@ export const GlobalStyle = createGlobalStyle`
   a {
     text-decoration: none;
     color: ${colors.lightRed};
-    :focus {
+    &:focus {
       outline: 0;
     }
   }

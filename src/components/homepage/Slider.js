@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useEmblaCarousel } from 'embla-carousel/react';
+import useEmblaCarousel from 'embla-carousel-react'
 
 import sliderAutoplayHook from '../../utils/slider-autoplay-hook';
 
@@ -22,7 +22,7 @@ const Slider = ({ baners, buttonsTitles, buttonsLinks, noOverlay }) => {
 
   const slides = baners.map(({ contentful_id, title, localFile }) => (
     <SliderItemS key={contentful_id}>
-      <SliderImageS fluid={localFile.childImageSharp.fluid} alt={title} />
+      <SliderImageS image={localFile.childImageSharp.gatsbyImageData} alt={title || ''} />
       {!noOverlay && <SliderOverlayS />}
       {title && <SliderTextS>{title}</SliderTextS>}
       {buttonsLinks && (

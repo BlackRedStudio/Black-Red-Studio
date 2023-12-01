@@ -4,7 +4,7 @@ import { PreloaderS, PreloaderWrapperS } from '../styles/PreloaderStyles';
 
 const Preloader = (top) => (
   <PreloaderWrapperS style={{ position: 'relative' }}>
-    <PreloaderS top={top} />
+    <PreloaderS $top={top} />
   </PreloaderWrapperS>
 );
 

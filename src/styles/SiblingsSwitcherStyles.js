@@ -13,7 +13,7 @@ export const SiblingsSwitcherS = styled(TransitionLink)`
   width: 120px;
   transition: 0.35s;
   ${p =>
-    p.next
+    p.$next
       ? `right: 0;
     transform: translate(100%);
     `
@@ -32,10 +32,10 @@ export const SiblingsArrowS = styled(Arrows)`
   padding: 10px;
   z-index: 3;
   box-sizing: content-box;
-  animation: 1s ${p => (p.next ? `scroll-right-left` : `scroll-left-right`)}
+  animation: 1s ${p => (p.$next ? `scroll-right-left` : `scroll-left-right`)}
     infinite;
   animation-direction: alternate-reverse;
-  ${p => (p.next ? `right: 0;` : `left: 0;`)}
+  ${p => (p.$next ? `right: 0;` : `left: 0;`)}
   @media(${media.small}) {
     &:hover + a {
       transform: translate(0);

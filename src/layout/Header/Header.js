@@ -10,7 +10,7 @@ const Header = () => {
   const hamburgerRef = useRef(null);
   return (
     <HeaderContainerS>
-      <ContainerS flex>
+      <ContainerS $flex>
         <Logo />
         <Hamburger ref={hamburgerRef} navRef={navRef} />
         <Nav ref={navRef} hamburgerRef={hamburgerRef} />

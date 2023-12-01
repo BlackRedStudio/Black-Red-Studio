@@ -37,25 +37,9 @@ module.exports = {
         displayName: true,
       },
     },
-    {
-      resolve: `gatsby-plugin-eslint`,
-      options: {
-        test: /\.js$/,
-        exclude: /{node_modules|cache|public}/,
-        options: {
-          emitWarning: true,
-          failOnError: false,
-        },
-      },
-    },
-    {
-      resolve: `gatsby-plugin-stylelint`,
-      options: {
-        files: [`**/*.js`],
-      },
-    },
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
+    `gatsby-plugin-image`,
     `gatsby-plugin-scroll-reveal`,
     {
       resolve: `gatsby-plugin-transition-link`,

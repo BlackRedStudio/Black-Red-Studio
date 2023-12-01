@@ -1,9 +1,9 @@
-const path = require('path');
-const remark = require('remark');
-const guide = require('remark-preset-lint-markdown-style-guide');
-const html = require('remark-html');
+import path from 'path';
+import { remark } from 'remark';
+import guide from 'remark-preset-lint-markdown-style-guide';
+import html from 'remark-html';
 
-exports.createSchemaCustomization = ({ actions }) => {
+export const createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
 
   const typeDefs = `
@@ -21,7 +21,7 @@ exports.createSchemaCustomization = ({ actions }) => {
   createTypes(typeDefs);
 };
 
-exports.onCreateNode = ({ node, actions }) => {
+export const onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions;
   const dataToConvert =
     node.description ||
@@ -47,7 +47,7 @@ exports.onCreateNode = ({ node, actions }) => {
   }
 };
 
-exports.createPages = async ({ graphql, actions }) => {
+export const createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   const result = await graphql(`
     {
@@ -225,7 +225,7 @@ exports.createPages = async ({ graphql, actions }) => {
         const { nextSibling, prevSibling } = createSiblings(
           locale,
           pageSlug,
-          template
+          template,
         );
         createPage({
           path: slug,

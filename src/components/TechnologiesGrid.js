@@ -60,7 +60,7 @@ const TechnologiesGrid = ({ technologies, header, smallHeader, search }) => {
         <TechnologiesSearchS
           type="text"
           placeholder={search}
-          templateAlt
+          $templateAlt
           onChange={e => setPhrase(e.target.value)}
         />
       )}

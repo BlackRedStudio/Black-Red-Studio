@@ -32,7 +32,7 @@ export const TextInput = ({
   const [field] = useField({ name, validate });
   return (
     <FormInputWrapperS>
-      <LabelS htmlFor={name} templateAlt={templateAlt}>
+      <LabelS htmlFor={name} $templateAlt={templateAlt}>
         {label}
       </LabelS>
       {type !== 'textarea' ? (
@@ -40,7 +40,7 @@ export const TextInput = ({
           {...field}
           type={type}
           placeholder={placeholder}
-          templateAlt={templateAlt}
+          $templateAlt={templateAlt}
         />
       ) : (
         <TextareaS
@@ -48,7 +48,7 @@ export const TextInput = ({
           type={type}
           placeholder={placeholder}
           rows={10}
-          templateAlt={templateAlt}
+          $templateAlt={templateAlt}
         />
       )}
       <ErrorMessage component={ErrorS} name={name} />
@@ -71,12 +71,12 @@ export const Checkbox = ({
 
   return (
     <FormInputWrapperS>
-      <LabelS templateAlt={templateAlt} align="left">
+      <LabelS $templateAlt={templateAlt} $align="left">
         <CheckboxS
           {...field}
           type="checkbox"
           name={name}
-          templateAlt={templateAlt}
+          $templateAlt={templateAlt}
         />
         <span dangerouslySetInnerHTML={{ __html: placeholder }} />
         {additionalData && (
