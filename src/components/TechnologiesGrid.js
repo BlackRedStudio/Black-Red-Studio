@@ -1,15 +1,16 @@
-import React, { useContext, useState } from 'react';
+import React, { Fragment, useContext, useState } from 'react';
 
 import LangContext from '../contexts/LangContext';
-import PaintDrip from '../utils/paint-drip-transition';
 import H2 from './H2';
 import H3 from './H3';
 import {
-  TechnologiesItemS,
-  TechnologiesWrapperS,
+  TechnologiesHeaderS,
   TechnologiesSearchS,
-  TechnologiesItemImageS,
+  TechnologiesWrapperS,
 } from '../styles/TechnologiesGridStyles';
+
+import TechnologiesGridItem from './TechnologiesGridItem';
+import { technologyTypes } from '../utils/config';
 
 const TechnologiesGrid = ({ technologies, header, smallHeader, search }) => {
   const currentLang = useContext(LangContext);
@@ -17,40 +18,74 @@ const TechnologiesGrid = ({ technologies, header, smallHeader, search }) => {
 
   const [phrase, setPhrase] = useState(null);
 
-  const technologiesList = technologies.map(technology => {
+  const searchTechnology = (title, tags, type) => {
+    let isVisible = false;
+
+    if (phrase === null || phrase.length < 2) {
+      isVisible = true;
+    }
+
+    if (phrase !== null) {
+      if (
+        phrase.length >= 3 &&
+        title.toLowerCase().indexOf(phrase.toLowerCase()) > -1
+      ) {
+        isVisible = true;
+      } else if (
+        phrase.length >= 2 &&
+        tags?.indexOf(phrase.toLowerCase()) > -1
+      ) {
+        isVisible = true;
+      } else if (
+        phrase.length >= 3 &&
+        type?.toLowerCase().indexOf(phrase.toLowerCase()) > -1
+      ) {
+        isVisible = true;
+      }
+    }
+
+    return isVisible;
+  };
+
+  let prevType = '';
+
+  const technologiesListItems = technologies.map(technology => {
     const {
       contentful_id,
       title,
       slug,
+      tags,
+      type,
       image: {
         localFile: { url },
       },
     } = technology;
 
-    let isVisible = true;
-    if (
-      phrase !== null &&
-      title.toLowerCase().search(phrase.toLowerCase()) === -1 &&
-      phrase.length > 2
-    ) {
-      isVisible = false;
+    const typeTranslated = type ? technologyTypes[type][currentLang] : null;
+
+    const isVisible = searchTechnology(title, tags, typeTranslated);
+    const showHeader = type !== prevType;
+    if (isVisible) {
+      prevType = type;
+      return (
+        <Fragment key={contentful_id}>
+          {!smallHeader && showHeader && (
+            <TechnologiesHeaderS>{typeTranslated}</TechnologiesHeaderS>
+          )}
+          <TechnologiesGridItem
+            slug={slug}
+            url={url}
+            phrase={phrase}
+            extraUrl={extraUrl}
+            title={title}
+          />
+        </Fragment>
+      );
     }
-    return (
-      isVisible && (
-        <TechnologiesItemS
-          key={contentful_id}
-          data-sal={phrase === null && `zoom-in`}
-          data-sal-duration="1000"
-          data-sal-delay="300"
-          data-sal-easing="ease-out-bounce"
-        >
-          <PaintDrip to={extraUrl + slug} paintDrip hex="#fc3031">
-            <TechnologiesItemImageS src={url} alt={title} />
-          </PaintDrip>
-        </TechnologiesItemS>
-      )
-    );
+
+    return null;
   });
+
   return (
     <section>
       {smallHeader
@@ -64,7 +99,7 @@ const TechnologiesGrid = ({ technologies, header, smallHeader, search }) => {
           onChange={e => setPhrase(e.target.value)}
         />
       )}
-      <TechnologiesWrapperS>{technologiesList}</TechnologiesWrapperS>
+      <TechnologiesWrapperS $templateAlt={smallHeader}>{technologiesListItems}</TechnologiesWrapperS>
     </section>
   );
 };

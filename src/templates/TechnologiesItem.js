@@ -48,7 +48,7 @@ const TechnologiesItem = ({ data }) => {
       <ContainerS>
         <Spacer $heightPC="50px" $heightMobile="20px" />
         <section>
-          <ContainerInnerS>
+          <ContainerInnerS $reversed>
             <BoxS
               $display="flex"
               $justifyContent="center"
